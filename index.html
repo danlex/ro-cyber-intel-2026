@@ -162,52 +162,36 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
 }
 .intel-map::before { content: ''; position: absolute; inset: 8% 8%; background:
-  linear-gradient(180deg, transparent 0%, rgba(255,255,255,.02) 100%),
-  radial-gradient(circle at 62% 38%, rgba(255,73,49,.07), transparent 20%),
-  radial-gradient(circle at 28% 60%, rgba(79,107,204,.06), transparent 24%);
+  linear-gradient(180deg, transparent 0%, rgba(255,255,255,.015) 100%),
+  radial-gradient(circle at 62% 38%, rgba(255,73,49,.05), transparent 20%),
+  radial-gradient(circle at 28% 60%, rgba(79,107,204,.05), transparent 24%);
 }
 .intel-map::after { content: ''; position: absolute; inset: 0; background:
   linear-gradient(90deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%),
   linear-gradient(180deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%);
-  opacity: .5;
+  opacity: .28;
 }
-.intel-map-scan { position: absolute; inset: -24% -18%; background: conic-gradient(from 180deg at 56% 60%, transparent 0deg, transparent 312deg, rgba(255,73,49,.04) 320deg, rgba(255,73,49,.22) 334deg, rgba(255,255,255,.18) 339deg, rgba(255,73,49,.10) 345deg, transparent 360deg); mix-blend-mode: screen; opacity: .95; animation: mapScan 8s linear infinite; z-index: 1; }
-.intel-map-pulse { position: absolute; top: 58%; left: 55%; width: 170px; height: 170px; transform: translate(-50%, -50%); border-radius: 50%; border: 1px solid rgba(255,73,49,.16); z-index: 1; animation: pulseHalo 4.8s ease-out infinite; }
-.intel-map-pulse::before, .intel-map-pulse::after { content: ''; position: absolute; inset: 20px; border-radius: 50%; border: 1px solid rgba(79,107,204,.14); }
-.intel-map-pulse::after { inset: 44px; border-color: rgba(5,193,104,.12); }
-.intel-packet-cloud { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.intel-packet-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0; filter: blur(.2px); animation: driftPacket 5.2s linear infinite; animation-delay: var(--delay, 0s); }
-.intel-packet-dot.hot { color: rgba(255,73,49,.95); box-shadow: 0 0 14px rgba(255,73,49,.36); }
-.intel-packet-dot.watch { color: rgba(79,107,204,.95); box-shadow: 0 0 12px rgba(79,107,204,.32); }
-.intel-packet-dot.clean { color: rgba(5,193,104,.92); box-shadow: 0 0 10px rgba(5,193,104,.28); }
-.ro-map { position: absolute; inset: 18% 20% 16% 22%; z-index: 1; }
-.ro-shape { position: absolute; inset: 0; clip-path: polygon(22% 10%, 39% 6%, 54% 12%, 67% 10%, 82% 23%, 88% 38%, 83% 53%, 89% 68%, 79% 82%, 61% 88%, 52% 96%, 39% 90%, 24% 93%, 13% 84%, 6% 68%, 9% 54%, 4% 39%, 11% 24%); background:
-  linear-gradient(180deg, rgba(79,107,204,.24), rgba(255,73,49,.14)),
-  rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 0 36px rgba(255,73,49,.08);
-}
-.ro-shape::before { content: ''; position: absolute; inset: 10% 12% 12% 10%; clip-path: polygon(20% 14%, 39% 9%, 52% 16%, 67% 12%, 79% 24%, 84% 38%, 79% 53%, 85% 67%, 75% 78%, 59% 84%, 50% 90%, 38% 84%, 26% 88%, 15% 78%, 10% 65%, 13% 53%, 9% 42%, 15% 27%); border: 1px solid rgba(255,255,255,.08); opacity: .55; }
-.ro-grid { position: absolute; inset: 10% 9%; clip-path: polygon(22% 10%, 39% 6%, 54% 12%, 67% 10%, 82% 23%, 88% 38%, 83% 53%, 89% 68%, 79% 82%, 61% 88%, 52% 96%, 39% 90%, 24% 93%, 13% 84%, 6% 68%, 9% 54%, 4% 39%, 11% 24%); background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 24px 24px; opacity: .32; }
+.intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
+.ro-map { position: absolute; inset: 10% 9% 8% 8%; z-index: 1; }
+.ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ro-outline { fill: url(#romaniaGradient); stroke: rgba(255,255,255,.20); stroke-width: 2.4; filter: drop-shadow(0 18px 34px rgba(0,0,0,.28)); }
+.ro-outline-inner { fill: none; stroke: rgba(255,255,255,.10); stroke-width: 1.2; }
+.ro-region { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
+.ro-river { fill: none; stroke: rgba(79,107,204,.32); stroke-width: 1.35; stroke-dasharray: 5 6; stroke-linecap: round; }
+.ro-legend { position: absolute; left: 12px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.78); backdrop-filter: blur(8px); z-index: 4; border-radius: 14px; }
+.ro-legend span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+.ro-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ro-legend i.hot { background: var(--accent--primary-1); box-shadow: 0 0 10px rgba(255,73,49,.45); }
+.ro-legend i.watch { background: var(--secondary--color-2); box-shadow: 0 0 10px rgba(79,107,204,.4); }
+.ro-legend i.warn { background: var(--system--orange-300); box-shadow: 0 0 10px rgba(255,158,44,.36); }
 .ro-city { position: absolute; width: 10px; height: 10px; border-radius: 50%; z-index: 3; }
 .ro-city::before { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.6s ease-out infinite; animation-delay: var(--ping-delay, 0s); }
-.ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -20px); left: var(--label-left, 12px); font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -22px); left: var(--label-left, 12px); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--neutral--100); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
 .ro-city.hot { color: var(--lime); background: var(--lime); box-shadow: 0 0 16px rgba(255,73,49,.42); }
 .ro-city.watch { color: var(--cyan); background: var(--cyan); box-shadow: 0 0 16px rgba(79,107,204,.34); }
 .ro-city.clean { color: var(--teal); background: var(--teal); box-shadow: 0 0 14px rgba(5,193,104,.28); }
 .ro-city.warn { color: var(--amber); background: var(--amber); box-shadow: 0 0 16px rgba(255,158,44,.34); }
-.source-dot { position: absolute; width: 12px; height: 12px; border-radius: 50%; z-index: 3; background: var(--red); box-shadow: 0 0 18px rgba(220,43,43,.48); }
-.source-dot::before { content: ''; position: absolute; inset: -7px; border: 1px solid rgba(220,43,43,.46); border-radius: 50%; animation: ping 2.2s ease-out infinite; animation-delay: var(--ping-delay, 0s); }
-.source-dot::after { content: attr(data-label); position: absolute; top: -18px; left: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: var(--text); white-space: nowrap; }
-.source-callout { position: absolute; font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .06em; text-transform: uppercase; z-index: 3; white-space: nowrap; }
-.source-line { position: absolute; height: 3px; transform-origin: left center; z-index: 2; opacity: .9; overflow: hidden; filter: drop-shadow(0 0 8px rgba(255,73,49,.14)); }
-.source-line::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(220,43,43,0) 0 8%, rgba(220,43,43,.9) 8% 18%, rgba(255,73,49,.9) 18% 28%, rgba(255,73,49,0) 28% 36%); background-size: 140% 100%; animation: lineFlow 5.2s linear infinite; }
-.source-line::after { content: ''; position: absolute; top: -2px; left: -24%; width: 24%; height: 7px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent); animation: packet 2.4s linear infinite; }
-.source-line.blue::before { background: repeating-linear-gradient(90deg, rgba(79,107,204,0) 0 8%, rgba(79,107,204,.9) 8% 18%, rgba(29,136,254,.88) 18% 28%, rgba(29,136,254,0) 28% 36%); background-size: 140% 100%; }
-.source-line.blue::after { animation-delay: .8s; }
-.source-line.green::before { background: repeating-linear-gradient(90deg, rgba(5,193,104,0) 0 8%, rgba(5,193,104,.85) 8% 18%, rgba(5,193,104,.72) 18% 28%, rgba(5,193,104,0) 28% 36%); background-size: 140% 100%; }
-.source-line.green::after { animation-delay: 1.3s; }
-.intel-sweep { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(255,73,49,.16) 48%, transparent 100%); transform: translateY(-110%); animation: sweep 4.8s linear infinite; mix-blend-mode: screen; }
+.source-dot, .source-callout, .source-line, .intel-sweep { display: none; }
 .intel-node { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--neutral--100); box-shadow: 0 0 0 4px rgba(255,255,255,.04); z-index: 2; }
 .intel-node::after { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.4s ease-out infinite; }
 .intel-node.hot { color: var(--lime); background: var(--lime); box-shadow: 0 0 18px rgba(255,73,49,.45); }
@@ -219,17 +203,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-link.hot { color: rgba(255,73,49,.95); }
 .intel-link.watch { color: rgba(79,107,204,.92); }
 .intel-link.clean { color: rgba(5,193,104,.86); }
-.intel-label { position: absolute; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; z-index: 2; white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.intel-label { position: absolute; font-family: var(--mono); font-size: 11px; color: var(--neutral--300); letter-spacing: .04em; text-transform: uppercase; z-index: 2; white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
 .intel-label strong { color: var(--text); font-weight: 600; }
-.intel-city-panel { position: absolute; top: 86px; right: 22px; width: 154px; display: grid; gap: 7px; z-index: 3; }
-.intel-city-item { border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.82); backdrop-filter: blur(10px); padding: 9px 10px; border-left-width: 3px; }
-.intel-city-item.hot { border-left-color: var(--accent--primary-1); }
-.intel-city-item.watch { border-left-color: var(--secondary--color-2); }
-.intel-city-item.warn { border-left-color: var(--system--orange-300); }
-.intel-city-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
-.intel-city-head strong { font-family: var(--mono); font-size: 12px; color: var(--text); letter-spacing: .05em; text-transform: uppercase; }
-.intel-city-head span { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: .05em; text-transform: uppercase; }
-.intel-city-copy { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.intel-city-panel { display: none; }
 .intel-rings { position: absolute; right: 24px; bottom: 170px; width: 150px; height: 150px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 0 0 28px rgba(255,255,255,.015), inset 0 0 0 56px rgba(255,255,255,.015); z-index: 2; }
 .intel-rings::before, .intel-rings::after { content: ''; position: absolute; border-radius: 50%; inset: 18px; border: 1px solid rgba(255,73,49,.18); }
 .intel-rings::after { inset: 44px; border-color: rgba(79,107,204,.18); }
@@ -261,12 +237,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 @keyframes radar { to { transform: rotate(360deg); } }
 @keyframes breathe { 0%,100% { transform: scale(.96); opacity: .55; } 50% { transform: scale(1.05); opacity: .95; } }
 @keyframes stageGrid { 0%,100% { opacity: .52; transform: scale(1); } 50% { opacity: .78; transform: scale(1.02); } }
-@keyframes mapScan { to { transform: rotate(360deg); } }
-@keyframes pulseHalo { 0% { transform: translate(-50%, -50%) scale(.88); opacity: .2; } 40% { opacity: .65; } 100% { transform: translate(-50%, -50%) scale(1.18); opacity: 0; } }
-@keyframes driftPacket { 0% { transform: translate3d(0, 8px, 0) scale(.6); opacity: 0; } 14% { opacity: .95; } 100% { transform: translate3d(110px, -42px, 0) scale(1); opacity: 0; } }
 @keyframes meterPulse { 0%,100% { transform: scaleX(.92); opacity: .9; } 50% { transform: scaleX(1); opacity: 1; } }
 @keyframes rowBlink { 0%,100% { opacity: .35; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.18); } }
-@keyframes lineFlow { to { background-position: 140% 0; } }
 
 /* ── SECTIONS ── */
 section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
@@ -565,68 +537,41 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
       </div>
       <div class="intel-footnote">Illustrative management view</div>
       <div class="intel-map">
-        <div class="intel-sweep"></div>
-        <div class="intel-map-scan"></div>
-        <div class="intel-signal"></div>
-        <div class="intel-map-pulse"></div>
-        <div class="intel-packet-cloud">
-          <span class="intel-packet-dot hot" style="top:18%;left:16%;--delay:0s"></span>
-          <span class="intel-packet-dot watch" style="top:30%;left:72%;--delay:.8s"></span>
-          <span class="intel-packet-dot hot" style="top:66%;left:76%;--delay:1.7s"></span>
-          <span class="intel-packet-dot clean" style="top:54%;left:28%;--delay:2.4s"></span>
-          <span class="intel-packet-dot watch" style="top:42%;left:44%;--delay:3.2s"></span>
-        </div>
-
         <div class="ro-map">
-          <div class="ro-shape"></div>
-          <div class="ro-grid"></div>
-          <span class="ro-city watch" data-label="Cluj-Napoca" style="top:30%;left:30%;--ping-delay:.2s"></span>
-          <span class="ro-city warn" data-label="Brasov" style="top:44%;left:46%;--ping-delay:.6s"></span>
-          <span class="ro-city warn" data-label="Ploiesti" style="top:49%;left:56%;--ping-delay:.9s;--label-top:-32px"></span>
-          <span class="ro-city hot" data-label="Bucharest" style="top:58%;left:55%;--ping-delay:1.2s;--label-top:12px;--label-left:8px"></span>
-          <span class="ro-city hot" data-label="Targu Jiu" style="top:59%;left:29%;--ping-delay:1.5s;--label-top:12px;--label-left:8px"></span>
-          <span class="ro-city watch" data-label="Timisoara" style="top:53%;left:16%;--ping-delay:1.9s"></span>
-          <span class="ro-city hot" data-label="Constanta" style="top:72%;left:71%;--ping-delay:2.2s;--label-left:-72px"></span>
+          <svg class="ro-svg" viewBox="0 0 420 460" aria-hidden="true">
+            <defs>
+              <linearGradient id="romaniaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4f6bcc" stop-opacity=".40"></stop>
+                <stop offset="45%" stop-color="#ffffff" stop-opacity=".08"></stop>
+                <stop offset="100%" stop-color="#ff4931" stop-opacity=".26"></stop>
+              </linearGradient>
+            </defs>
+            <path class="ro-outline" d="M95 64 Q123 44 156 46 L194 58 Q219 46 250 51 L289 68 Q320 86 336 118 L350 151 Q357 182 344 209 L335 235 Q341 262 355 297 Q359 321 345 345 L315 382 Q288 403 258 406 L224 438 Q198 452 169 440 L133 427 Q103 435 76 420 L53 399 Q36 374 38 342 L43 302 Q30 278 22 251 Q17 219 29 191 L40 161 Q31 131 39 104 Q54 79 95 64 Z"></path>
+            <path class="ro-outline-inner" d="M116 85 Q139 68 164 71 L194 80 Q216 70 243 74 L274 88 Q299 102 312 128 L323 155 Q328 178 318 202 L309 223 Q314 247 327 278 Q330 301 319 321 L294 351 Q271 369 246 372 L220 397 Q199 409 176 401 L147 390 Q121 397 99 386 L79 369 Q64 347 65 321 L70 289 Q58 267 51 244 Q47 217 56 194 L66 170 Q59 145 66 123 Q80 100 116 85 Z"></path>
+            <path class="ro-region" d="M154 94 L180 150 L156 208 L182 257 L163 323"></path>
+            <path class="ro-region" d="M222 76 L215 143 L238 201 L218 260 L224 331"></path>
+            <path class="ro-region" d="M280 100 L259 154 L283 213 L270 284 L294 340"></path>
+            <path class="ro-region" d="M105 208 L171 226 L246 228 L314 220"></path>
+            <path class="ro-region" d="M86 286 L153 302 L225 301 L301 292"></path>
+            <path class="ro-river" d="M322 121 Q292 145 274 172 Q254 201 233 227 Q213 252 200 283 Q187 313 173 352"></path>
+          </svg>
+          <span class="ro-city watch" data-label="Cluj-Napoca" style="top:27%;left:31%;--ping-delay:.2s"></span>
+          <span class="ro-city warn" data-label="Brasov" style="top:42%;left:49%;--ping-delay:.6s"></span>
+          <span class="ro-city warn" data-label="Ploiesti" style="top:49%;left:58%;--ping-delay:.9s;--label-top:-32px"></span>
+          <span class="ro-city hot" data-label="Bucharest" style="top:58%;left:58%;--ping-delay:1.2s;--label-top:12px;--label-left:8px"></span>
+          <span class="ro-city hot" data-label="Targu Jiu" style="top:58%;left:24%;--ping-delay:1.5s;--label-top:12px;--label-left:8px"></span>
+          <span class="ro-city watch" data-label="Timisoara" style="top:51%;left:10%;--ping-delay:1.9s"></span>
+          <span class="ro-city hot" data-label="Constanta" style="top:72%;left:79%;--ping-delay:2.2s;--label-left:-72px"></span>
+          <div class="ro-legend">
+            <span><i class="hot"></i>Critical incident</span>
+            <span><i class="watch"></i>Regional pressure</span>
+            <span><i class="warn"></i>Branch disruption</span>
+          </div>
         </div>
 
-        <span class="source-line blue" style="top:33%;left:29%;width:112px;transform:rotate(28deg)"></span>
-        <span class="source-line" style="top:49%;left:48%;width:44px;transform:rotate(18deg)"></span>
-        <span class="source-line" style="top:57%;left:31%;width:116px;transform:rotate(1deg)"></span>
-        <span class="source-line green" style="top:66%;left:56%;width:80px;transform:rotate(19deg)"></span>
-
-        <span class="intel-label" style="top:14%;left:34%"><strong>Actual city pressure points</strong></span>
-        <span class="intel-label" style="top:39%;left:8%">Energy branches</span>
-        <span class="intel-label" style="top:70%;left:59%">Port / transport</span>
-      </div>
-      <div class="intel-city-panel">
-        <div class="intel-city-item hot">
-          <div class="intel-city-head"><strong>Bucharest</strong><span>Critical</span></div>
-          <div class="intel-city-copy">Election systems, government, BFSI, Metrorex, airports.</div>
-        </div>
-        <div class="intel-city-item watch">
-          <div class="intel-city-head"><strong>Timisoara</strong><span>High</span></div>
-          <div class="intel-city-copy">City Hall ransomware disrupted local public services.</div>
-        </div>
-        <div class="intel-city-item hot">
-          <div class="intel-city-head"><strong>Constanta</strong><span>High</span></div>
-          <div class="intel-city-copy">Port and transport infrastructure remained exposed.</div>
-        </div>
-        <div class="intel-city-item hot">
-          <div class="intel-city-head"><strong>Targu Jiu</strong><span>Critical</span></div>
-          <div class="intel-city-copy">CE Oltenia ransomware hit the Oltenia energy footprint.</div>
-        </div>
-        <div class="intel-city-item warn">
-          <div class="intel-city-head"><strong>Cluj / Brasov</strong><span>Elevated</span></div>
-          <div class="intel-city-copy">Electrica branch systems were named in the 2024 disruption wave.</div>
-        </div>
-        <div class="intel-city-item warn">
-          <div class="intel-city-head"><strong>Ploiesti</strong><span>Elevated</span></div>
-          <div class="intel-city-copy">Electrica operations were also affected in the Ploiesti branch.</div>
-        </div>
-      </div>
-      <div class="intel-rings">
-        <div class="intel-radar-line"></div>
-        <div class="intel-radar-core"></div>
+        <span class="intel-label" style="top:12%;left:30%"><strong>Actual city pressure points</strong></span>
+        <span class="intel-label" style="top:38%;left:10%">Named 2024 branch disruptions</span>
+        <span class="intel-label" style="top:68%;left:58%">Port, transport, and infra exposure</span>
       </div>
       <div class="intel-feed">
         <div class="intel-list">
