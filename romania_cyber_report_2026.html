@@ -101,12 +101,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent--primary
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 6px 18px; background: rgba(16,16,16,.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border2); }
 .nav-logo { font-family: var(--mono); font-size: 14px; color: var(--text); letter-spacing: .04em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 .nav-logo::before { content: none; }
-.brand-stack { display: flex; align-items: center; gap: 12px; }
-.brand-link { display: inline-flex; align-items: center; text-decoration: none; }
+.brand-stack { display: flex; align-items: center; gap: 10px; }
+.brand-link { display: inline-flex; align-items: center; text-decoration: none; font-family: var(--mono); font-size: 13px; letter-spacing: .03em; text-transform: uppercase; color: var(--text); }
 .brand-divider { width: 1px; height: 30px; background: var(--border2); }
-.tvl-logo { height: 40px; width: auto; display: block; }
-.atic-link { padding: 5px 10px; border-radius: 999px; background: #ffffff; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
-.atic-logo { height: 26px; width: auto; display: block; }
 .nav-links { display: flex; gap: 6px; list-style: none; flex-wrap: nowrap; justify-content: center; overflow: hidden; }
 .nav-links a { display: inline-flex; align-items: center; min-height: 30px; padding: 0 8px; border-radius: 999px; border: 1px solid var(--border2); background: rgba(255,255,255,.03); font-family: var(--mono); font-size: 13px; color: var(--text); text-decoration: none; letter-spacing: .02em; text-transform: uppercase; transition: color .2s, background .2s, border-color .2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a:focus-visible { color: #0b0f12; background: var(--lime); border-color: var(--lime); }
@@ -425,8 +422,7 @@ section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
 
 /* ── FOOTER ── */
 footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap: 56px; border-top: 1px solid var(--border); }
-.footer-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-.footer-brand-row .atic-link { padding: 6px 12px; }
+.footer-brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .fb { font-family: var(--sans); font-weight: 800; font-size: 36px; line-height: 1; margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.05em; }
 .fd { font-size: 14px; color: var(--muted); max-width: 420px; line-height: 1.8; }
 .fc { font-family: var(--mono); font-size: 14px; color: var(--text); margin-top: 20px; letter-spacing: .03em; }
@@ -476,13 +472,9 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 <nav>
   <div class="nav-logo">
     <div class="brand-stack">
-      <a class="brand-link" href="index.html" aria-label="Report homepage">
-        <img class="tvl-logo" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66ea9ae1813efc2b2adce28f_a_logotip_principal%202.svg" alt="TVL Tech">
-      </a>
+      <a class="brand-link" href="index.html" aria-label="Report homepage">TVL Tech</a>
       <span class="brand-divider" aria-hidden="true"></span>
-      <a class="brand-link atic-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">
-        <img class="atic-logo" src="https://www.atic.org.ro/wp-content/uploads/2016/08/antet1.png" alt="ATIC">
-      </a>
+      <a class="brand-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">ATIC</a>
     </div>
   </div>
   <ul class="nav-links">
@@ -1353,13 +1345,9 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <div class="g2 fade" style="margin-bottom:40px;transition-delay:.15s">
     <div class="card"><div class="cs" style="background:var(--lime)"></div>
       <div class="footer-brand-row" style="margin-bottom:14px">
-        <a class="brand-link" href="index.html" aria-label="Report homepage">
-          <img class="tvl-logo" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66ea9ae1813efc2b2adce28f_a_logotip_principal%202.svg" alt="TVL Tech">
-        </a>
+        <a class="brand-link" href="index.html" aria-label="Report homepage">TVL Tech</a>
         <span class="brand-divider" aria-hidden="true"></span>
-        <a class="brand-link atic-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">
-          <img class="atic-logo" src="https://www.atic.org.ro/wp-content/uploads/2016/08/antet1.png" alt="ATIC">
-        </a>
+        <a class="brand-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">ATIC</a>
       </div>
       <h3>Why this report is co-branded</h3>
       <p>TVL Tech brings the management, delivery, and market-reading lens. ATIC adds institutional ecosystem context from Romania's long-running IT&amp;C association network. Together, that framing makes the report more useful as a practical market brief rather than only a static research note.</p>
@@ -1591,13 +1579,9 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 <footer>
   <div>
     <div class="footer-brand-row">
-      <a class="brand-link" href="index.html" aria-label="Report homepage">
-        <img class="tvl-logo" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66ea9ae1813efc2b2adce28f_a_logotip_principal%202.svg" alt="TVL Tech">
-      </a>
+      <a class="brand-link" href="index.html" aria-label="Report homepage">TVL Tech</a>
       <span class="brand-divider" aria-hidden="true"></span>
-      <a class="brand-link atic-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">
-        <img class="atic-logo" src="https://www.atic.org.ro/wp-content/uploads/2016/08/antet1.png" alt="ATIC">
-      </a>
+      <a class="brand-link" href="https://www.atic.org.ro/" aria-label="ATIC homepage">ATIC</a>
     </div>
     <div class="fb">TVL Tech + ATIC<br>Romania Cyber<br><em style="font-style:italic;color:var(--lime)">Intelligence</em></div>
     <p class="fd">This management report was prepared by TVL Tech in collaboration with ATIC from public sources, official regulatory filings, stock exchange disclosures, academic publications, and market research available as of Q1 2026. Analytical judgments are explicitly signposted where the source base is interpretive. Revenue figures for unlisted companies remain estimates unless otherwise noted. All figures in EUR unless noted.</p>
