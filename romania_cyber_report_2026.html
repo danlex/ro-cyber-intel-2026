@@ -264,6 +264,8 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 .fs h4 { font-family: var(--mono); font-size: 10px; color: var(--text); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
 .fs ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
 .fs li { font-family: var(--mono); font-size: 10.5px; color: var(--muted); display: flex; gap: 7px; }
+.fs a { color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(180,227,50,.35); }
+.fs a:hover { color: var(--text); border-bottom-color: var(--lime); }
 .fs li::before { content: '—'; color: var(--lime); }
 
 /* ── SCROLLBAR ── */
@@ -1036,46 +1038,22 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <p class="fc">© 2026 · TVL Tech · Romania Cybersecurity Intelligence Report · Compiled March 2026</p>
   </div>
   <div class="fs">
-    <h4>Primary Sources</h4>
+    <h4>Linked Sources</h4>
     <ul>
-      <li>DNSC — Raport anual 2024 (HCSAT 77/30.06.2025)</li>
-      <li>DNSC — Buletin H1 2025 (TLP:CLEAR, 15.07.2025)</li>
-      <li>Agerpres — Cyberfraud &amp; malware stats, Aug 2025</li>
-      <li>Romania Insider — DNSC sector targets, Aug 2025</li>
-      <li>Bitdefender — FY2024 financials (Profit.ro)</li>
-      <li>PitchBook — Bitdefender Mesh Security LBO, Jul 2025</li>
-      <li>Safetech Innovations — BVB reports FY2024 &amp; FY2025</li>
-      <li>Mordor Intelligence — Romania Cybersecurity Market 2025</li>
-      <li>Allianz Risk Barometer 2026 — Romania edition</li>
-      <li>IIEA — Romania 2024–2025 Election Crisis, 2025</li>
-      <li>Friends of Europe — Hybrid warfare Romania, Jul 2025</li>
-      <li>The Record — Russian DDoS on Romanian election, May 2025</li>
-      <li>Security Affairs — 85,000 attacks on electoral IT, Dec 2024</li>
-      <li>The Register — Romanian Waters ransomware, Dec 2025</li>
-      <li>Industrial Cyber — Oltenia "Gentlemen" attack, Jan 2026</li>
-      <li>Copla/Clifford Chance — NIS2 Romania fines, Jan 2026</li>
-      <li>ISMS.Online — NIS2 Romania compliance guide, Oct 2025</li>
-      <li>BCG — Quantum Computing Will Upend Cybersecurity</li>
-      <li>NIST — PQC Standards, Aug 2024</li>
-      <li>Google/Euronews — PQC migration commitment, Mar 2026</li>
-      <li>DNSC — SAFE Project grant 101190370</li>
-      <li>DNSC — CYRESRANGE Project grant 101128088</li>
-      <li>DNSC — JTAN Project INEA/CEF/ICT/A2020/2373165</li>
-      <li>DNSC — SIEMBIOT & IRIS research platforms</li>
-      <li>BCC2025 — Bucharest Cybersecurity Conference agenda</li>
-      <li>certSIGN — ENISA framework contract, Sep 2025</li>
-      <li>Safetech Innovations — BVB FY2025 filing (Feb 2026)</li>
-      <li>Politehnica Bucharest — SOCcare Project 101145843</li>
-      <li>Politehnica Bucharest — ECCC host institution page</li>
-      <li>SecITC 2024 — Springer LNCS vol. 15595 (16 papers)</li>
-      <li>SecITC 2025 — Springer Nature LNCS (20 papers)</li>
-      <li>CyberCon Romania 2025 — IC3 Proceedings Vol. XII</li>
-      <li>ECCC — Permanent offices inauguration, Oct 2024</li>
-      <li>ECCC — DEP Cyber Work Programme 2025–2027, Mar 2025</li>
-      <li>Horizon Europe — CL3 2025 call, €90.55M budget</li>
-      <li>EU Cyber Solidarity Act — entered force Feb 2025</li>
-      <li>UBB — Cyber Security MSc / EIT Digital partnership</li>
-      <li>Mordor Intelligence — Romania Cybersecurity Market 2025</li>
+      <li><a href="https://www.ox.ac.uk/news/2024-04-10-world-first-cybercrime-index-ranks-countries-cybercrime-threat-level">Oxford University: World Cybercrime Index 2024</a></li>
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555">EUR-Lex: NIS2 Directive (EU) 2022/2555</a></li>
+      <li><a href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">Romania: OUG 155/2024</a></li>
+      <li><a href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Romania: Law 124/2025 approving OUG 155/2024</a></li>
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554">EUR-Lex: DORA Regulation (EU) 2022/2554</a></li>
+      <li><a href="https://www.asfromania.ro/en/a/3115/regulamentul-%28ue%29-nr.-2022/2554-%28dora%29">ASF Romania: DORA overview</a></li>
+      <li><a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">EUR-Lex: Cyber Resilience Act</a></li>
+      <li><a href="https://eur-lex.europa.eu/eli/reg/2025/38/2025-01-15/eng">EUR-Lex: Cyber Solidarity Act</a></li>
+      <li><a href="https://cybersecurity-centre.europa.eu/news/eccc-opens-its-doors-bucharest-2023-05-09_en">ECCC: Headquarters in Bucharest</a></li>
+      <li><a href="https://cybersecurity-centre.europa.eu/news/eccc-governing-board-and-network-national-coordination-centres-met-bucharest-romania-2026-03-12_en">ECCC: Bucharest meeting, March 12, 2026</a></li>
+      <li><a href="https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards">NIST: First finalized PQC standards, August 13, 2024</a></li>
+      <li><a href="https://www.nist.gov/programs-projects/post-quantum-cryptography">NIST: Post-quantum cryptography program</a></li>
+      <li><a href="https://www.nist.gov/cybersecurity/what-post-quantum-cryptography">NIST: What is post-quantum cryptography?</a></li>
+      <li><a href="https://cybersecurity-centre.europa.eu/news/european-cybersecurity-competence-centre-eccc-held-its-first-info-day-bucharest-romania-2024-02-22_en">ECCC: Bucharest info day and DEP call context</a></li>
     </ul>
   </div>
 </footer>
