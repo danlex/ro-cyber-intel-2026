@@ -154,15 +154,18 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); padding: 7px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
 .intel-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
 .intel-map { position: absolute; inset: 78px 18px 18px 18px; border: 1px solid rgba(255,255,255,.14); background:
+  linear-gradient(rgba(16,16,16,.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(16,16,16,.04) 1px, transparent 1px),
   linear-gradient(180deg, #f7f1e5 0%, #ece2d3 100%);
+  background-size: 28px 28px, 28px 28px, auto;
   overflow: hidden;
   border-radius: 18px;
   box-shadow: 0 20px 40px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.4);
 }
 .intel-map::before, .intel-map::after { display: none; }
 .intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
-.ro-map { position: absolute; inset: 3% 2.5% 3% 2.5%; z-index: 1; display: flex; align-items: center; justify-content: center; }
-.ro-map-image { width: 100%; height: 100%; object-fit: contain; display: block; filter: saturate(.76) contrast(1.02) brightness(.98); }
+.ro-map { position: absolute; inset: 4% 2.5% 4% 2.5%; z-index: 1; display: flex; align-items: center; justify-content: center; }
+.ro-map-image { width: 100%; height: 100%; object-fit: contain; display: block; filter: saturate(1.08) contrast(1.04) brightness(.99); }
 .ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ro-outline { fill: none; stroke: rgba(255,255,255,.32); stroke-width: 1.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.18)); }
 .ro-outline-inner { display: none; }
@@ -176,12 +179,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .ro-zone.elevated-coast { fill: rgba(165, 112, 74, .72); }
 .ro-zone.critical-south { fill: rgba(182, 92, 97, .76); }
 .ro-zone.critical-southwest { fill: rgba(158, 84, 80, .74); }
-.ro-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.82); z-index: 4; border-radius: 12px; max-width: 220px; }
-.ro-legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 11px; color: var(--neutral--300); letter-spacing: .01em; }
-.ro-legend i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
-.ro-legend i.hot { background: var(--accent--primary-1); }
-.ro-legend i.elevated { background: var(--system--orange-300); }
-.ro-legend i.watch { background: var(--secondary--color-2); }
+.ro-legend { position: absolute; left: 16px; bottom: 16px; display: grid; gap: 8px; padding: 12px 14px; border: 1px solid rgba(16,16,16,.08); background: rgba(255,255,255,.9); z-index: 4; border-radius: 14px; max-width: 290px; box-shadow: 0 16px 30px rgba(16,16,16,.14); }
+.ro-legend-title { font-family: var(--mono); font-size: 10px; color: var(--neutral--700); letter-spacing: .08em; text-transform: uppercase; }
+.ro-legend-items { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+.ro-legend span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--sans); font-size: 12px; color: var(--neutral--800); letter-spacing: .01em; font-weight: 600; }
+.ro-legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; box-shadow: inset 0 0 0 1px rgba(16,16,16,.1); }
+.ro-legend i.critical { background: #d97768; }
+.ro-legend i.elevated { background: #d8aa63; }
+.ro-legend i.watch { background: #9db1c8; }
+.ro-legend-note { font-size: 11px; line-height: 1.45; color: var(--neutral--700); }
 .ro-city-g { pointer-events: none; }
 .ro-city-g.hot { color: var(--accent--primary-1); }
 .ro-city-g.watch { color: var(--secondary--color-2); }
@@ -538,13 +544,22 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <div class="hero-glow"></div>
     <div class="intel-stage" aria-hidden="true">
       <div class="intel-hud">
-        <span class="intel-tag">Romania County Map</span>
-        <span class="intel-meta">Administrative counties / Q1 2026</span>
+        <span class="intel-tag">Romania Threat Map</span>
+        <span class="intel-meta">County pressure / Q1 2026</span>
       </div>
-      <div class="intel-footnote">Public-domain administrative base</div>
+      <div class="intel-footnote">Management overlay from incident concentration and strategic exposure</div>
       <div class="intel-map">
+        <div class="ro-legend">
+          <div class="ro-legend-title">Threat Pressure</div>
+          <div class="ro-legend-items">
+            <span><i class="critical"></i>Critical</span>
+            <span><i class="elevated"></i>Elevated</span>
+            <span><i class="watch"></i>Watch</span>
+          </div>
+          <div class="ro-legend-note">Critical pressure concentrates around Bucharest and the southern corridor. Elevated pressure tracks the eastern flank. Western and central counties remain on watch.</div>
+        </div>
         <div class="ro-map">
-          <img class="ro-map-image" src="assets/romania-counties.svg" alt="Romania county-level administrative map" />
+          <img class="ro-map-image" src="assets/romania-counties.svg" alt="Romania county-level threat pressure map with color-coded administrative counties" />
         </div>
       </div>
     </div>
