@@ -153,7 +153,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-hud { position: absolute; top: 18px; left: 18px; right: 18px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
 .intel-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); padding: 7px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
 .intel-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
-.intel-map { position: absolute; inset: 78px 22px 150px 22px; border: 1px solid rgba(255,255,255,.07); background:
+.intel-map { position: absolute; inset: 78px 18px 18px 18px; border: 1px solid rgba(255,255,255,.07); background:
   radial-gradient(circle at 42% 34%, rgba(79,107,204,.14), transparent 22%),
   radial-gradient(circle at 60% 55%, rgba(255,73,49,.10), transparent 28%),
   linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
@@ -172,21 +172,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
   opacity: .28;
 }
 .intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
-.ro-map { position: absolute; inset: 10% 9% 8% 8%; z-index: 1; }
+.ro-map { position: absolute; inset: 8% 5% 12% 5%; z-index: 1; }
 .ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ro-outline { fill: url(#romaniaGradient); stroke: rgba(255,255,255,.20); stroke-width: 2.4; filter: drop-shadow(0 18px 34px rgba(0,0,0,.28)); }
 .ro-outline-inner { fill: none; stroke: rgba(255,255,255,.10); stroke-width: 1.2; }
 .ro-region { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
 .ro-river { fill: none; stroke: rgba(79,107,204,.32); stroke-width: 1.35; stroke-dasharray: 5 6; stroke-linecap: round; }
-.ro-legend { position: absolute; left: 12px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.78); backdrop-filter: blur(8px); z-index: 4; border-radius: 14px; }
-.ro-legend span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
-.ro-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ro-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 9px 11px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.74); backdrop-filter: blur(8px); z-index: 4; border-radius: 14px; max-width: 220px; }
+.ro-legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.ro-legend i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 .ro-legend i.hot { background: var(--accent--primary-1); box-shadow: 0 0 10px rgba(255,73,49,.45); }
 .ro-legend i.watch { background: var(--secondary--color-2); box-shadow: 0 0 10px rgba(79,107,204,.4); }
 .ro-legend i.warn { background: var(--system--orange-300); box-shadow: 0 0 10px rgba(255,158,44,.36); }
-.ro-city { position: absolute; width: 10px; height: 10px; border-radius: 50%; z-index: 3; }
+.ro-city { position: absolute; width: 12px; height: 12px; border-radius: 50%; z-index: 3; }
 .ro-city::before { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.6s ease-out infinite; animation-delay: var(--ping-delay, 0s); }
-.ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -22px); left: var(--label-left, 12px); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--neutral--100); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
+.ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -24px); left: var(--label-left, 14px); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--neutral--100); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.88); }
 .ro-city.hot { color: var(--lime); background: var(--lime); box-shadow: 0 0 16px rgba(255,73,49,.42); }
 .ro-city.watch { color: var(--cyan); background: var(--cyan); box-shadow: 0 0 16px rgba(79,107,204,.34); }
 .ro-city.clean { color: var(--teal); background: var(--teal); box-shadow: 0 0 14px rgba(5,193,104,.28); }
@@ -203,7 +203,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-link.hot { color: rgba(255,73,49,.95); }
 .intel-link.watch { color: rgba(79,107,204,.92); }
 .intel-link.clean { color: rgba(5,193,104,.86); }
-.intel-label { position: absolute; font-family: var(--mono); font-size: 11px; color: var(--neutral--300); letter-spacing: .04em; text-transform: uppercase; z-index: 2; white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
+.intel-label { position: absolute; font-family: var(--mono); font-size: 10px; color: var(--neutral--300); letter-spacing: .04em; text-transform: uppercase; z-index: 2; white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
 .intel-label strong { color: var(--text); font-weight: 600; }
 .intel-city-panel { display: none; }
 .intel-rings { position: absolute; right: 24px; bottom: 170px; width: 150px; height: 150px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 0 0 28px rgba(255,255,255,.015), inset 0 0 0 56px rgba(255,255,255,.015); z-index: 2; }
@@ -211,7 +211,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-rings::after { inset: 44px; border-color: rgba(79,107,204,.18); }
 .intel-radar-line { position: absolute; inset: -12px; border-radius: 50%; background: conic-gradient(from 210deg, transparent 0deg, rgba(255,73,49,.02) 230deg, rgba(255,73,49,.22) 262deg, transparent 290deg); animation: radar 5.5s linear infinite; }
 .intel-radar-core { position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--lime); box-shadow: 0 0 18px rgba(255,73,49,.45); }
-.intel-feed { position: absolute; left: 22px; right: 22px; bottom: 22px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 12px; z-index: 3; }
+.intel-feed { display: none; }
 .intel-list, .intel-summary { border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.88); backdrop-filter: blur(8px); }
 .intel-list { padding: 14px 14px 10px; }
 .intel-summary { padding: 14px; display: grid; gap: 10px; }
@@ -569,40 +569,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
           </div>
         </div>
 
-        <span class="intel-label" style="top:12%;left:30%"><strong>Actual city pressure points</strong></span>
-        <span class="intel-label" style="top:38%;left:10%">Named 2024 branch disruptions</span>
-        <span class="intel-label" style="top:68%;left:58%">Port, transport, and infra exposure</span>
-      </div>
-      <div class="intel-feed">
-        <div class="intel-list">
-          <div class="intel-headline">Named city signals</div>
-          <div class="intel-row">
-            <div class="intel-time">02:14Z</div>
-            <div class="intel-copy"><strong>Bucharest:</strong> election interference, public administration targeting, banking and transport concentration.</div>
-          </div>
-          <div class="intel-row">
-            <div class="intel-time">02:19Z</div>
-            <div class="intel-copy"><strong>Timisoara / Cluj / Brasov / Ploiesti:</strong> municipal and energy-system disruption shows regional spread.</div>
-          </div>
-          <div class="intel-row">
-            <div class="intel-time">02:31Z</div>
-            <div class="intel-copy"><strong>Constanta / Targu Jiu:</strong> ports, transport, and energy remain priority infrastructure targets.</div>
-          </div>
-        </div>
-        <div class="intel-summary">
-          <div class="intel-stat">
-            <div class="intel-value" style="color:var(--lime)">7</div>
-            <div class="intel-key">Cities mapped</div>
-          </div>
-          <div class="intel-stat">
-            <div class="intel-value" style="color:var(--cyan)">3</div>
-            <div class="intel-key">Priority clusters</div>
-          </div>
-          <div class="intel-stat">
-            <div class="intel-value" style="color:var(--amber)">2</div>
-            <div class="intel-key">Dec 2025 infra hits</div>
-          </div>
-        </div>
+        <span class="intel-label" style="top:14%;left:56%"><strong>Named Romanian city incidents</strong></span>
       </div>
     </div>
   </div>
