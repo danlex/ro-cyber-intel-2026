@@ -149,25 +149,20 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
   opacity: .65;
   animation: stageGrid 9s ease-in-out infinite;
 }
-.intel-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(16,16,16,.05) 56%, rgba(16,16,16,.55) 100%); pointer-events: none; }
+.intel-stage::after { display: none; }
 .intel-hud { position: absolute; top: 18px; left: 18px; right: 18px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
 .intel-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); padding: 7px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
 .intel-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
-.intel-map { position: absolute; inset: 78px 18px 18px 18px; border: 1px solid rgba(255,255,255,.07); background:
-  linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+.intel-map { position: absolute; inset: 78px 18px 18px 18px; border: 1px solid rgba(255,255,255,.14); background:
+  linear-gradient(180deg, #f7f1e5 0%, #ece2d3 100%);
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  box-shadow: 0 20px 40px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.4);
 }
-.intel-map::before { content: ''; position: absolute; inset: 8% 8%; background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.012) 100%); }
-.intel-map::after { content: ''; position: absolute; inset: 0; background:
-  linear-gradient(90deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%),
-  linear-gradient(180deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%);
-  opacity: .28;
-}
+.intel-map::before, .intel-map::after { display: none; }
 .intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
-.ro-map { position: absolute; inset: 5% 4% 9% 4%; z-index: 1; display: flex; align-items: center; justify-content: center; }
-.ro-map-image { width: 100%; height: 100%; object-fit: contain; display: block; filter: saturate(.9) contrast(.98); }
+.ro-map { position: absolute; inset: 3% 2.5% 3% 2.5%; z-index: 1; display: flex; align-items: center; justify-content: center; }
+.ro-map-image { width: 100%; height: 100%; object-fit: contain; display: block; filter: saturate(.76) contrast(1.02) brightness(.98); }
 .ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ro-outline { fill: none; stroke: rgba(255,255,255,.32); stroke-width: 1.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.18)); }
 .ro-outline-inner { display: none; }
@@ -213,7 +208,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-link.hot { color: rgba(255,73,49,.95); }
 .intel-link.watch { color: rgba(79,107,204,.92); }
 .intel-link.clean { color: rgba(5,193,104,.86); }
-.intel-label { position: absolute; font-family: var(--mono); font-size: 10px; color: var(--neutral--300); letter-spacing: .04em; text-transform: uppercase; z-index: 2; white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.85); }
+.intel-label { display: none; }
 .intel-label strong { color: var(--text); font-weight: 600; }
 .intel-city-panel { display: none; }
 .intel-rings { position: absolute; right: 24px; bottom: 170px; width: 150px; height: 150px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 0 0 28px rgba(255,255,255,.015), inset 0 0 0 56px rgba(255,255,255,.015); z-index: 2; }
@@ -543,16 +538,14 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <div class="hero-glow"></div>
     <div class="intel-stage" aria-hidden="true">
       <div class="intel-hud">
-        <span class="intel-tag">Romania County Threat Base</span>
-        <span class="intel-meta">Administrative polygons / Q1 2026</span>
+        <span class="intel-tag">Romania County Map</span>
+        <span class="intel-meta">Administrative counties / Q1 2026</span>
       </div>
-      <div class="intel-footnote">Illustrative management view</div>
+      <div class="intel-footnote">Public-domain administrative base</div>
       <div class="intel-map">
         <div class="ro-map">
           <img class="ro-map-image" src="assets/romania-counties.svg" alt="Romania county-level administrative map" />
         </div>
-
-        <span class="intel-label" style="top:14%;left:54%"><strong>County-level administrative view</strong></span>
       </div>
     </div>
   </div>
