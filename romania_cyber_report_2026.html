@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romania Cybersecurity Intelligence Report 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060708; --bg2: #0c0f12; --bg3: #12161b; --bg4: #181d23;
+  --border: rgba(255,255,255,0.06); --border2: rgba(255,255,255,0.12);
+  --text: #ffffff; --muted: #a0a0a0; --dim: #555;
+  --lime: #b4e332; --cyan: #28d0f0; --red: #ee2e3e;
+  --amber: #f09420; --purple: #8844ee; --teal: #18be8c;
+  --blue: #2c78e4; --pink: #e8388c;
+  --serif: 'Playfair Display', serif;
+  --sans: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+
+/* ── READING PROGRESS ── */
+#bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--lime); z-index: 300; width: 0; transition: width .08s linear; pointer-events: none; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; background: rgba(6,7,8,.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: var(--mono); font-size: 11px; color: var(--lime); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.nav-logo::before { content: '▲'; font-size: 7px; opacity: .7; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 10px; color: var(--dim); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover { color: var(--lime); }
+.nav-right { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .06em; }
+
+/* ── HERO ── */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1.15fr .85fr; border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 108px 56px 72px; position: relative; z-index: 2; }
+.hero-right { position: relative; border-left: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+/* animated grid */
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(180,227,50,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(180,227,50,.028) 1px, transparent 1px); background-size: 56px 56px; animation: gp 10s ease-in-out infinite; }
+@keyframes gp { 0%,100%{opacity:.4} 50%{opacity:1} }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(180,227,50,.04), transparent 70%); }
+.eyebrow { font-family: var(--mono); font-size: 10px; color: var(--lime); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lime); }
+.hero-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 88px); line-height: .93; letter-spacing: -.025em; margin-bottom: 32px; }
+.hero-title em { font-style: italic; color: var(--lime); }
+.hero-sub { font-size: 14px; color: var(--muted); max-width: 460px; line-height: 1.75; margin-bottom: 48px; }
+.hero-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); max-width: 640px; }
+.kpi { background: var(--bg); padding: 18px 16px; }
+.kpi-val { font-family: var(--serif); font-size: 26px; line-height: 1; letter-spacing: -.02em; }
+.kpi-lbl { font-family: var(--mono); font-size: 8px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
+
+/* Globe */
+.globe { position: relative; width: 300px; height: 300px; }
+.gr { position: absolute; border-radius: 50%; border: 1px solid; animation: spin linear infinite; }
+.gr:nth-child(1){inset:0;border-color:rgba(180,227,50,.1);animation-duration:24s}
+.gr:nth-child(2){inset:16px;border-color:rgba(40,208,240,.08);animation-duration:17s;animation-direction:reverse}
+.gr:nth-child(3){inset:48px;border-color:rgba(180,227,50,.07);animation-duration:30s}
+.gr:nth-child(4){inset:82px;border-color:rgba(40,208,240,.06);animation-duration:21s;animation-direction:reverse}
+.gr:nth-child(5){inset:108px;border-color:rgba(136,68,238,.06);animation-duration:38s}
+.gc { position:absolute;inset:112px;background:radial-gradient(circle at 36% 36%,rgba(180,227,50,.12),rgba(40,208,240,.04));border-radius:50%;display:flex;align-items:center;justify-content:center; }
+.gc span { font-family:var(--mono);font-size:7.5px;color:var(--lime);letter-spacing:.1em;text-align:center;text-transform:uppercase;line-height:1.7; }
+.gd { position:absolute;width:5px;height:5px;border-radius:50%;animation:pd 2s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pd { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.5)} }
+
+/* ── SECTIONS ── */
+section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
+.sec-tag { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 14px; }
+.sec-tag::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.sec-title { font-family: var(--serif); font-size: clamp(30px, 3.6vw, 52px); line-height: 1.03; letter-spacing: -.022em; margin-bottom: 40px; }
+.ac { color: var(--lime); } .ac-r { color: var(--red); } .ac-c { color: var(--cyan); } .ac-a { color: var(--amber); } .ac-p { color: var(--purple); }
+
+/* ── LAYOUTS ── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+/* ── STAT GRID ── */
+.sg { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 48px; }
+.sb { background: var(--bg); padding: 28px 24px; position: relative; overflow: hidden; cursor: default; transition: background .2s; }
+.sb:hover { background: var(--bg2); }
+.sb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.sb:hover::after { transform: scaleX(1); }
+.sn { font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -.03em; margin-bottom: 6px; }
+.sl { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.ss { font-family: var(--mono); font-size: 9px; color: var(--dim); margin-top: 6px; letter-spacing: .05em; }
+
+/* ── DNSC STRIP ── */
+.dnsc-strip { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 28px 0; }
+.ds { background: var(--bg); flex: 1; padding: 20px 12px; text-align: center; }
+.dv { font-family: var(--serif); font-size: 26px; line-height: 1; margin-bottom: 4px; }
+.dc { font-family: var(--mono); font-size: 9px; margin-bottom: 3px; }
+.dl { font-family: var(--mono); font-size: 8px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
+.up { color: var(--teal); } .dn { color: var(--red); } .wa { color: var(--amber); }
+
+/* ── BARS ── */
+.tbr { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.tbl { font-family: var(--mono); font-size: 10px; color: var(--muted); width: 148px; flex-shrink: 0; text-align: right; }
+.tbt { flex: 1; height: 20px; background: var(--bg3); overflow: hidden; }
+.tbf { height: 100%; display: flex; align-items: center; padding-left: 8px; font-family: var(--mono); font-size: 9px; font-weight: 500; white-space: nowrap; animation: bg 1.4s cubic-bezier(.16,1,.3,1) both; animation-delay: var(--d,0s); }
+@keyframes bg { from { width: 0 !important; } }
+
+/* ── COMPANY TABLE ── */
+.ct { width: 100%; border-collapse: collapse; }
+.ct thead th { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 0 0 12px; border-bottom: 1px solid var(--border); }
+.ct tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+.ct tbody tr:hover { background: rgba(255,255,255,.015); }
+.ct td { padding: 18px 12px 18px 0; vertical-align: middle; }
+.crk { font-family: var(--mono); font-size: 10px; color: var(--dim); width: 30px; }
+.cn { font-family: var(--serif); font-size: 18px; line-height: 1.1; margin-bottom: 2px; }
+.ctp { font-family: var(--mono); font-size: 8px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
+.cv { font-family: var(--mono); font-size: 15px; color: var(--lime); }
+.cg { font-family: var(--mono); font-size: 10px; margin-top: 3px; }
+.cd { font-size: 12px; color: var(--muted); max-width: 260px; line-height: 1.55; }
+.pill { display: inline-block; font-family: var(--mono); font-size: 7.5px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; margin: 1px; }
+.pl { background: rgba(40,208,240,.1); color: var(--cyan); }
+.pp { background: rgba(180,227,50,.1); color: var(--lime); }
+.pi { background: rgba(136,68,238,.1); color: var(--purple); }
+
+/* ── TIMELINE ── */
+.tl { padding-left: 24px; position: relative; }
+.tl::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 1px; background: var(--border); }
+.tli { position: relative; margin-bottom: 24px; }
+.tli::before { content: ''; position: absolute; left: -29px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--bg3); border: 1.5px solid var(--border2); }
+.tli.crit::before { background: var(--red); border-color: var(--red); box-shadow: 0 0 7px var(--red); }
+.tli.warn::before { background: var(--amber); border-color: var(--amber); box-shadow: 0 0 5px var(--amber); }
+.tli.info::before { background: var(--blue); border-color: var(--blue); }
+.tli.ok::before { background: var(--teal); border-color: var(--teal); }
+.tli.geo::before { background: var(--purple); border-color: var(--purple); box-shadow: 0 0 7px var(--purple); }
+.td { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .09em; margin-bottom: 4px; }
+.tt { font-size: 13px; font-weight: 500; margin-bottom: 4px; color: #fff; }
+.tb { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── RISK GRID ── */
+.rg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0; }
+.rc { border: 1px solid var(--border); padding: 20px; transition: border-color .2s, background .2s; }
+.rc:hover { border-color: var(--border2); background: var(--bg2); }
+.rb { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; margin-bottom: 9px; display: inline-block; }
+.bc { background: rgba(238,46,62,.15); color: var(--red); }
+.bh { background: rgba(240,148,32,.15); color: var(--amber); }
+.bm { background: rgba(44,120,228,.13); color: var(--blue); }
+.be { background: rgba(136,68,238,.13); color: var(--purple); }
+.bg2c { background: rgba(24,190,140,.12); color: var(--teal); }
+.rt { font-size: 13px; font-weight: 500; margin-bottom: 6px; color: #fff; }
+.rd { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── HEATMAP ── */
+.hm { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin: 28px 0; }
+.hmc { padding: 14px 12px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform .2s; cursor: default; }
+.hmc:hover { transform: translateY(-2px); }
+.hmb { position: absolute; inset: 0; }
+.hms { font-family: var(--mono); font-size: 8px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 6px; position: relative; }
+.hmv { font-family: var(--serif); font-size: 20px; line-height: 1; margin-bottom: 3px; position: relative; }
+.hml { font-size: 11px; color: var(--muted); position: relative; }
+
+/* ── AI SPLIT ── */
+.ai-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 36px 0; }
+.ai-pane { background: var(--bg); padding: 30px 26px; }
+.ai-pt { font-family: var(--mono); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.ai-i { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.ai-i:last-child { margin: 0; padding: 0; border: none; }
+.ai-h { font-size: 13px; font-weight: 500; margin-bottom: 6px; display: flex; align-items: baseline; gap: 6px; color: #fff; }
+.ai-ico { font-family: var(--mono); font-size: 10px; }
+.ai-b { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+/* ── QUANTUM ── */
+.qs { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 36px 0; }
+.qc { background: var(--bg); padding: 24px 18px; }
+.qy { font-family: var(--serif); font-size: 30px; letter-spacing: -.02em; margin-bottom: 6px; color: var(--dim); }
+.qt { font-size: 13px; font-weight: 500; margin-bottom: 7px; line-height: 1.4; color: #fff; }
+.qd { font-size: 12px; color: var(--muted); line-height: 1.65; }
+.qp { font-family: var(--mono); font-size: 8px; letter-spacing: .07em; margin-top: 10px; color: var(--dim); }
+.qnow { border-top: 2px solid var(--lime); } .qnow .qy { color: var(--lime); }
+.qnear { border-top: 2px solid var(--cyan); } .qnear .qy { color: var(--cyan); }
+.qmid { border-top: 2px solid var(--amber); } .qmid .qy { color: var(--amber); }
+.qfar { border-top: 2px solid var(--red); } .qfar .qy { color: var(--red); }
+
+/* ── NIS2 FINES ── */
+.fines { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 28px 0; }
+.fine { background: var(--bg); padding: 24px 20px; }
+.fine-cat { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+.fine-amt { font-family: var(--serif); font-size: 32px; line-height: 1; margin-bottom: 4px; }
+.fine-or { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-bottom: 8px; }
+.fine-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── GEO SECTION ── */
+.geo-box { border: 1px solid rgba(136,68,238,.3); background: rgba(136,68,238,.04); padding: 24px; margin: 24px 0; position: relative; overflow: hidden; }
+.geo-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--purple), transparent); }
+.geo-box h3 { font-family: var(--serif); font-size: 18px; margin-bottom: 10px; color: #fff; }
+.geo-box p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.geo-box p + p { margin-top: 8px; }
+.geo-stat { display: flex; gap: 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(136,68,238,.2); }
+.geo-num { font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--purple); }
+.geo-lab { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; margin-top: 3px; }
+
+/* ── CARDS ── */
+.card { background: var(--bg2); border: 1px solid var(--border); padding: 24px; margin-bottom: 12px; position: relative; transition: border-color .2s; }
+.card:hover { border-color: var(--border2); }
+.card:last-child { margin-bottom: 0; }
+.cs { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.card h3 { font-family: var(--serif); font-size: 17px; margin-bottom: 10px; color: #fff; line-height: 1.2; }
+.card p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 9px; }
+.card p:last-child { margin-bottom: 0; }
+
+/* ── OUTLOOK GRID ── */
+.og { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 36px; }
+.oc { background: var(--bg); padding: 26px 22px; transition: background .2s; }
+.oc:hover { background: var(--bg2); }
+.oc-s { height: 2px; margin: -26px -22px 20px; }
+.oc h3 { font-family: var(--serif); font-size: 18px; margin-bottom: 12px; color: #fff; line-height: 1.2; }
+.oc p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 9px; }
+.oc p:last-child { margin-bottom: 0; }
+
+/* ── PROSE ── */
+.prose { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 680px; }
+.prose strong { color: #fff; font-weight: 500; }
+.hl { border-left: 2px solid var(--lime); padding: 18px 22px; background: rgba(180,227,50,.04); margin: 22px 0; }
+.hl p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.hl strong { color: var(--lime); }
+.hl-r { border-left-color: var(--red); background: rgba(238,46,62,.04); }
+.hl-r strong { color: var(--red); }
+.hl-p { border-left-color: var(--purple); background: rgba(136,68,238,.04); }
+.hl-p strong { color: var(--purple); }
+.divl { width: 36px; height: 1px; background: var(--lime); margin: 22px 0; }
+
+/* ── CHART ── */
+.cw { position: relative; width: 100%; }
+.chart-fallback { min-height: 100%; border: 1px solid var(--border); background: var(--bg2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 24px; text-align: center; }
+.chart-fallback strong { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); }
+.chart-fallback span { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 320px; }
+
+/* ── FADE ── */
+.fade { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+/* ── FOOTER ── */
+footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap: 56px; border-top: 1px solid var(--border); }
+.fb { font-family: var(--serif); font-size: 36px; line-height: 1; margin-bottom: 14px; }
+.fd { font-size: 13px; color: var(--muted); max-width: 380px; line-height: 1.7; }
+.fc { font-family: var(--mono); font-size: 9px; color: var(--dim); margin-top: 20px; letter-spacing: .06em; }
+.fs h4 { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
+.fs ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.fs li { font-family: var(--mono); font-size: 9.5px; color: var(--muted); display: flex; gap: 7px; }
+.fs li::before { content: '—'; color: var(--dim); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+@media (max-width: 960px) {
+  nav { padding: 0 20px; } .nav-links, .nav-right { display: none; }
+  .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 90px 24px 56px; }
+  .hero-kpis { grid-template-columns: repeat(2,1fr); }
+  section, footer { padding: 56px 24px; }
+  .g2, .g3, .qs, .ai-split, .og, .fines, .rg { grid-template-columns: 1fr; }
+  .dnsc-strip { flex-wrap: wrap; } .ds { min-width: 30%; }
+  .cd { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+
+<nav>
+  <div class="nav-logo">RO · CYBER · INTEL · 2026</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#threats">Threats</a></li>
+    <li><a href="#geopolitics">Geopolitics</a></li>
+    <li><a href="#nis2">NIS2</a></li>
+    <li><a href="#companies">Companies</a></li>
+    <li><a href="#ai">AI</a></li>
+    <li><a href="#quantum">Quantum</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#grants">Grants</a></li>
+    <li><a href="#outlook">Outlook</a></li>
+  </ul>
+  <span class="nav-right">Q1 2026 · Intelligence Report</span>
+</nav>
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-left">
+    <div class="eyebrow">Intelligence Report · Romania · Q1 2026</div>
+    <h1 class="hero-title">Romania<br><em>Cybersecurity</em><br>Landscape</h1>
+    <p class="hero-sub">A deeply researched analysis of Romania's cybersecurity market, threat landscape, geopolitical context, NIS2 enforcement, industry leaders, AI impact, and quantum computing readiness — compiled from DNSC official data, financial filings, and primary sources.</p>
+    <div class="hero-kpis">
+      <div class="kpi"><div class="kpi-val ac" id="k1">—</div><div class="kpi-lbl">Market 2025</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--red)" id="k2">—</div><div class="kpi-lbl">Malware surge 2024</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--amber)" id="k3">—</div><div class="kpi-lbl">Election cyberattacks</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--purple)" id="k4">—</div><div class="kpi-lbl">NIS2 fine (essential)</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-glow"></div>
+    <div class="globe">
+      <div class="gr"></div><div class="gr"></div><div class="gr"></div><div class="gr"></div><div class="gr"></div>
+      <div class="gc"><span>Romania<br>Cyber<br>Space</span></div>
+      <div class="gd" style="background:var(--lime);box-shadow:0 0 6px var(--lime);top:15%;left:54%"></div>
+      <div class="gd" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);top:40%;left:80%;animation-delay:.7s"></div>
+      <div class="gd" style="background:var(--red);box-shadow:0 0 6px var(--red);top:66%;left:32%;animation-delay:1.3s"></div>
+      <div class="gd" style="background:var(--amber);box-shadow:0 0 6px var(--amber);top:25%;left:18%;animation-delay:.4s"></div>
+      <div class="gd" style="background:var(--purple);box-shadow:0 0 6px var(--purple);top:57%;left:65%;animation-delay:1s"></div>
+      <div class="gd" style="background:var(--pink);box-shadow:0 0 6px var(--pink);top:75%;left:55%;animation-delay:.2s"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ 01 OVERVIEW ════════════════════════ -->
+<section id="overview">
+  <div class="sec-tag">01 — Executive Overview</div>
+  <div class="g2">
+    <div>
+      <h2 class="sec-title">A market at a<br><em class="ac">strategic crossroads</em></h2>
+      <div class="prose fade">
+        <p>Romania enters 2026 as the most cyber-contested nation in Central and Eastern Europe — simultaneously a <strong>net exporter of elite SOC services</strong> to Western Europe and, paradoxically, the <strong>6th largest source of global cybercrime</strong> per the World Cybercrime Index 2024. This contradiction defines the strategic challenge of the decade.</p>
+        <p>The country faces three simultaneous pressure systems: a wave of ransomware against critical infrastructure revealing systemic unprotected gaps; an unprecedented Russian hybrid warfare campaign that annulled a presidential election; and a binding NIS2 framework now compelling tens of thousands of Romanian entities to fundamentally restructure their security posture.</p>
+        <p>Yet the fundamentals are compelling. Bitdefender's €330M revenue, Romania's 200,000+ IT specialists, and €310M in EU POCIDIF funding create a launchpad that few CEE peers can match. The question is execution velocity.</p>
+      </div>
+      <div class="hl fade" style="transition-delay:.12s">
+        <p><strong>DNSC 2024 headline:</strong> Health, public administration, and energy are Romania's three most targeted sectors. <strong>101 ransomware incidents</strong> officially handled. Cyberfraud rose <strong>+40%</strong>. Malware attacks surged a staggering <strong>+287%</strong> year-on-year — the clearest data signal of AI-accelerated automated attacks reaching Romanian infrastructure.</p>
+      </div>
+    </div>
+    <div class="fade" style="transition-delay:.1s">
+      <div class="sg" style="grid-template-columns:1fr 1fr">
+        <div class="sb"><div class="sn ac">$194M</div><div class="sl">Market size 2025</div><div class="ss">→ $326–750M by 2030–32</div></div>
+        <div class="sb"><div class="sn" style="color:var(--red)">+287%</div><div class="sl">Malware surge 2024</div><div class="ss">DNSC official data</div></div>
+        <div class="sb"><div class="sn" style="color:var(--purple)">85,000+</div><div class="sl">Election attacks 2024</div><div class="ss">Russian hybrid operation</div></div>
+        <div class="sb"><div class="sn" style="color:var(--amber)">101</div><div class="sl">Ransomware incidents</div><div class="ss">DNSC 2024 handled</div></div>
+        <div class="sb"><div class="sn ac">€310M</div><div class="sl">EU POCIDIF funding</div><div class="ss">Up to 70% cost coverage</div></div>
+        <div class="sb"><div class="sn" style="color:var(--cyan)">15.8%</div><div class="sl">Services CAGR 2025–30</div><div class="ss">SOC nearshoring driver</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 02 THREAT LANDSCAPE ════════════════════════ -->
+<section id="threats">
+  <div class="sec-tag">02 — Threat Landscape & DNSC Official Data</div>
+  <h2 class="sec-title">Inside Romania's<br><em class="ac">attack statistics</em></h2>
+  <p class="prose fade" style="margin-bottom:28px">The DNSC 2024 annual report (approved June 30, 2025) reveals a split reality: active countermeasures are working against some vectors while malware and fraud have undergone explosive growth driven by automation and AI-assisted campaigns. Romania is not a passive victim — it is also an active cybercrime originator, ranked 6th globally.</p>
+
+  <div class="dnsc-strip fade">
+    <div class="ds"><div class="dv dn">+287%</div><div class="dc dn">▲ YoY</div><div class="dl">Malware attacks</div></div>
+    <div class="ds"><div class="dv dn">+40%</div><div class="dc dn">▲ YoY</div><div class="dl">Cyberfraud</div></div>
+    <div class="ds"><div class="dv wa">101</div><div class="dc wa">Handled</div><div class="dl">Ransomware incidents</div></div>
+    <div class="ds"><div class="dv up">−21%</div><div class="dc up">▼ YoY</div><div class="dl">Phishing attacks</div></div>
+    <div class="ds"><div class="dv up">−28%</div><div class="dc up">▼ YoY</div><div class="dl">Infected IPs</div></div>
+    <div class="ds"><div class="dv up">−39%</div><div class="dc up">▼ YoY</div><div class="dl">DDoS attacks</div></div>
+    <div class="ds"><div class="dv up">−46%</div><div class="dc up">▼ YoY</div><div class="dl">Defacement</div></div>
+  </div>
+
+  <div class="g2 fade" style="transition-delay:.1s;margin-bottom:52px">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Attack vector trends (2024)</h3>
+      <div class="tbr"><span class="tbl">Malware</span><div class="tbt"><div class="tbf" style="width:100%;background:rgba(238,46,62,.8);color:#fff;--d:.08s">+286.8% ▲ (AI-automated harvesting)</div></div></div>
+      <div class="tbr"><span class="tbl">Cyberfraud</span><div class="tbt"><div class="tbf" style="width:58%;background:rgba(240,148,32,.75);color:#060708;--d:.16s">+40% ▲</div></div></div>
+      <div class="tbr"><span class="tbl">Ransomware</span><div class="tbt"><div class="tbf" style="width:44%;background:rgba(136,68,238,.7);color:#fff;--d:.24s">101 incidents handled</div></div></div>
+      <div class="tbr"><span class="tbl">Phishing</span><div class="tbt"><div class="tbf" style="width:34%;background:rgba(44,120,228,.65);color:#fff;--d:.32s">−21% ▼ (SPF/DKIM campaigns working)</div></div></div>
+      <div class="tbr"><span class="tbl">Infected IPs</span><div class="tbt"><div class="tbf" style="width:24%;background:rgba(24,190,140,.6);color:#060708;--d:.4s">−27.8% ▼</div></div></div>
+      <div class="tbr"><span class="tbl">DDoS</span><div class="tbt"><div class="tbf" style="width:16%;background:rgba(40,208,240,.55);color:#060708;--d:.48s">−38.5% ▼</div></div></div>
+      <div class="tbr"><span class="tbl">Web defacement</span><div class="tbt"><div class="tbf" style="width:9%;background:rgba(24,190,140,.45);color:#060708;--d:.56s">−45.8% ▼</div></div></div>
+      <div class="hl" style="margin-top:18px">
+        <p>The <strong>+287% malware surge</strong> is driven by automated credential-harvesting exploiting low MFA adoption and high platform proliferation. <strong>InfoStealer.AgentTesla, TrojanFormbook, ToolCoinMiner</strong> are the dominant payloads. The drop in phishing (−21%) reflects successful DNSC campaigns for SPF/DKIM/DMARC adoption.</p>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Most targeted sectors (DNSC 2024)</h3>
+      <div class="hm">
+        <div class="hmc"><div class="hmb" style="background:var(--red);opacity:.1"></div><div class="hms">Healthcare</div><div class="hmv" style="color:var(--red)">●●●</div><div class="hml">Critical, underfunded</div></div>
+        <div class="hmc"><div class="hmb" style="background:var(--red);opacity:.09"></div><div class="hms">Public Admin</div><div class="hmv" style="color:var(--red)">●●●</div><div class="hml">Senate, Gov, Cities</div></div>
+        <div class="hmc"><div class="hmb" style="background:var(--amber);opacity:.1"></div><div class="hms">Energy</div><div class="hmv" style="color:var(--amber)">●●○</div><div class="hml">IT/OT convergence</div></div>
+        <div class="hmc"><div class="hmb" style="background:var(--amber);opacity:.08"></div><div class="hms">BFSI</div><div class="hmv" style="color:var(--amber)">●●○</div><div class="hml">9 major banks hit</div></div>
+        <div class="hmc"><div class="hmb" style="background:var(--blue);opacity:.08"></div><div class="hms">Transport</div><div class="hmv" style="color:var(--blue)">●○○</div><div class="hml">CFR, ports, airports</div></div>
+        <div class="hmc"><div class="hmb" style="background:var(--purple);opacity:.07"></div><div class="hms">Telecoms</div><div class="hmv" style="color:var(--purple)">●○○</div><div class="hml">Orange, Telekom</div></div>
+      </div>
+      <div class="hl-r hl">
+        <p>In 2024, DNSC intervened at <strong>Alpha Bank, BT, BCR, NBR, Exim Bank, BVB</strong>; transport (CFR, CNAIR, Constanta Port, Metrorex, both Bucharest airports); telecoms (Orange, Telekom, GTS); and central government (Senate, MFA, Interior Ministry, Bucharest City Hall). <strong>No sector was immune.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incident Timeline -->
+  <h3 class="fade" style="font-family:var(--serif);font-size:26px;margin-bottom:24px">Critical incident timeline</h3>
+  <div class="g2 fade" style="transition-delay:.1s">
+    <div class="tl">
+      <div class="tli crit"><div class="td">20 DEC 2025</div><div class="tt">Apele Române — BitLocker ransomware</div><div class="tb">~1,000 systems compromised across national water authority and 10 of 11 river basin organizations. GIS, database, email, DNS, domain controllers encrypted via BitLocker (no custom payload needed). 7-day ransom window. Infrastructure was entirely outside CNI protection umbrella.</div></div>
+      <div class="tli crit"><div class="td">26 DEC 2025 · 01:40</div><div class="tt">C.E. Oltenia — "Gentlemen" agentic AI ransomware</div><div class="tb">Romania's largest coal energy producer hit 6 days later by the AI-automated "Gentlemen" group. ERP, email, website encrypted. National Energy System unaffected. Second major critical infrastructure attack in a single holiday window — almost certainly coordinated.</div></div>
+      <div class="tli warn"><div class="td">DEC 2024</div><div class="tt">Electrica S.A. — 800+ servers, 4,000+ workstations</div><div class="tb">Major ransomware across Bucharest, Ploiești, Brașov, Cluj branches. Electrica Furnizare and DEER operations disrupted. Accelerated OT segmentation planning across the entire Romanian energy sector.</div></div>
+      <div class="tli warn"><div class="td">2024 — BFSI</div><div class="tt">Coordinated banking sector wave</div><div class="tb">DNSC intervened across Alpha Bank, Banca Transilvania, BCR, NBR, Exim Bank, Bucharest Stock Exchange, and Bank Deposit Guarantee Fund — the most concentrated financial sector incident campaign in DNSC history.</div></div>
+    </div>
+    <div class="tl">
+      <div class="tli warn"><div class="td">2024 — TRANSPORT</div><div class="tt">Critical logistics infrastructure targeted</div><div class="tb">Simultaneous attacks on CFR, CNAIR, Bucharest National Airports, Port of Constanta, Metrorex, and Baneasa Airport. Romania's entire critical logistics chain attacked within a single calendar year.</div></div>
+      <div class="tli warn"><div class="td">2024 — PUBLIC ADMIN</div><div class="tt">Municipal ransomware cascade</div><div class="tb">Timisoara City Hall (~112 systems), Bucharest District 5 Hall, Romanian Government, Senate, MFA, Ministry of Internal Affairs, Special Telecommunications Service. Public service continuity severely disrupted across multiple cities simultaneously.</div></div>
+      <div class="tli ok"><div class="td">AUG 2025</div><div class="tt">NIS2 enforcement fully activated</div><div class="tb">DNSC Orders 1/2025 and 2/2025 entered force. 30-day registration window triggered (deadline: 19 Sept 2025). Maturity self-assessment and risk profile documentation now compulsory for thousands of entities. Fines enforcement framework drafted Oct 2025.</div></div>
+      <div class="tli info"><div class="td">JAN + JUL 2025</div><div class="tt">Bitdefender: two acquisitions in 2025</div><div class="tb">January: Bitshield Data Defense (endpoint IP). July: Mesh Security (LBO, network management). Two acquisitions in a single year signal aggressive M&A posture ahead of the anticipated 2026 US IPO. Employee count now 2,400.</div></div>
+    </div>
+  </div>
+
+  <!-- Risk Matrix -->
+  <h3 class="fade" style="font-family:var(--serif);font-size:26px;margin:48px 0 8px">Risk matrix 2026</h3>
+  <div class="rg fade" style="transition-delay:.1s">
+    <div class="rc"><span class="rb bc">Critical</span><div class="rt">Ransomware on unshielded infrastructure</div><div class="rd">Significant Romanian water, energy, and transport infrastructure remains outside the CNC protection umbrella. December 2025 proved this is an active operational gap, not a theoretical risk.</div></div>
+    <div class="rc"><span class="rb bc">Critical</span><div class="rt">Russian state hybrid warfare</div><div class="rd">34+ documented Russian hybrid attacks in 2024. Electoral infrastructure hit 85,000+ times. NoName057(16) DDoS on election re-run day. State-level adversary with persistent targeting of Romanian democratic infrastructure.</div></div>
+    <div class="rc"><span class="rb bh">High</span><div class="rt">AI-accelerated malware (+287%) & fraud (+40%)</div><div class="rd">Automated credential-harvesting and AI-generated campaigns drove historic surges in 2024. Low MFA adoption and high platform proliferation continue to amplify exposure across Romanian enterprises.</div></div>
+    <div class="rc"><span class="rb bh">High</span><div class="rt">NIS2 compliance gap — €10M fine exposure</div><div class="rd">Tens of thousands of Romanian essential entities must comply with GEO 155/2024 by Sept 2025. Many are late. Fines up to €10M or 2% of global turnover apply. Boards face personal accountability under Romanian transposition.</div></div>
+    <div class="rc"><span class="rb bm">Medium</span><div class="rt">Supply chain lateral exposure</div><div class="rd">Romania's deep integration in European IT supply chains creates downstream propagation risk. Third-party incidents in Western Europe propagate rapidly into Romanian delivery centers and subsidiaries.</div></div>
+    <div class="rc"><span class="rb be">Emerging</span><div class="rt">Quantum "harvest now, decrypt later"</div><div class="rd">Nation-state adversaries actively harvesting encrypted Romanian state and financial data for future quantum decryption. No national PQC migration programme launched as of Q1 2026.</div></div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 03 GEOPOLITICS ════════════════════════ -->
+<section id="geopolitics">
+  <div class="sec-tag">03 — Geopolitical Context: The Russian Hybrid Threat</div>
+  <h2 class="sec-title">A <em class="ac-p">near-miss</em> in the<br>heart of NATO</h2>
+  <div class="g2">
+    <div class="prose fade">
+      <p>Romania's 2024–2025 presidential election crisis represents the most significant geopolitical cybersecurity event in the country's post-communist history — and a watershed case study for NATO and the EU on the weaponization of digital infrastructure against democratic processes.</p>
+      <p>The first round of the November 2024 election was won by Călin Georgescu, a pro-Moscow fringe candidate polling under 5% just weeks earlier, driven by approximately <strong>150 million TikTok views in two months</strong>. Declassified intelligence assessments by Romania's CSATNA directly linked the result to <strong>"aggressive Russian hybrid actions"</strong> — a conclusion that led to the unprecedented annulment of the election by the Constitutional Court.</p>
+      <p>The May 2025 re-run was itself attacked on election day by the Russian-linked hacktivist group <strong>NoName057(16)</strong>, which delivered a coordinated DDoS against Romanian state websites. Pro-European reformer Nicușor Dan ultimately won, restoring democratic legitimacy — but exposing enduring vulnerabilities that adversaries will continue to probe.</p>
+    </div>
+    <div class="fade" style="transition-delay:.1s">
+      <div class="geo-box">
+        <h3>The 2024 Electoral Interference — By the Numbers</h3>
+        <p>Declassified intelligence revealed the scale of state-sponsored hybrid warfare against Romania's democratic infrastructure — combining technical cyberattacks with AI-driven information manipulation at unprecedented scale.</p>
+        <div class="geo-stat">
+          <div><div class="geo-num">85,000+</div><div class="geo-lab">Cyberattacks on electoral IT</div></div>
+          <div><div class="geo-num">34+</div><div class="geo-lab">Russian hybrid attacks in 2024</div></div>
+          <div><div class="geo-num">25,000+</div><div class="geo-lab">TikTok accounts mobilized</div></div>
+          <div><div class="geo-num">5,000+</div><div class="geo-lab">Telegram channels deployed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2 fade" style="transition-delay:.1s;margin-top:40px">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:18px">The hybrid warfare playbook used against Romania</h3>
+      <div class="tl">
+        <div class="tli geo"><div class="td">PHASE 1 — INFRASTRUCTURE ATTACKS</div><div class="tt">85,000+ attacks on electoral IT systems</div><div class="tb">Stolen election-server credentials appeared on Russian hacker forums before the vote. Attacks continued intensively on election day and the night after. DNSC confirmed: "The operating mode and amplitude leads us to conclude the attacker has considerable resources specific to an attacking state."</div></div>
+        <div class="tli geo"><div class="td">PHASE 2 — ALGORITHM MANIPULATION</div><div class="tt">TikTok weaponized at industrial scale</div><div class="tb">TikTok algorithms fed politically balanced users three times more far-right content than any other. 25,000+ TikTok accounts and 5,000+ Telegram channels mobilized. ~150M views in two months for a candidate polling under 5%.</div></div>
+        <div class="tli geo"><div class="td">PHASE 3 — AI DISINFORMATION</div><div class="tt">AI-generated content at campaign scale</div><div class="tb">AI-generated content, bot networks, and troll farms amplified pro-Russian messaging. Investigations linked the operation directly to Russian hybrid warfare doctrine. The Social Design Agency (EU-sanctioned, Moscow-funded) was implicated in coordinating distribution networks.</div></div>
+        <div class="tli ok"><div class="td">OUTCOME — RESILIENCE</div><div class="tt">Democratic institutions held — barely</div><div class="tb">The Constitutional Court, intelligence services, and electoral authority acted decisively to prevent a foreign-manipulated outcome. Pro-European Nicușor Dan won the May 2025 re-run. Romania is now cited as a regional precedent for addressing digital-era election interference within NATO.</div></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:18px">Geopolitical cyber implications for 2026+</h3>
+      <div class="card"><div class="cs" style="background:var(--purple)"></div><h3>Persistent Russian targeting</h3><p>Intelligence assessments conclude that Russian hybrid operations against Romania will intensify, not diminish. Romania's role as a key NATO Eastern Flank ally, its support for Ukraine, and its position as a Black Sea strategic hub make it a sustained priority target.</p></div>
+      <div class="card"><div class="cs" style="background:var(--red)"></div><h3>Critical infrastructure still exposed</h3><p>Romanian intelligence warned in 2025 that infrastructure vulnerabilities remain that could be exploited heading into further elections. The December 2025 attacks on Apele Române and Oltenia Energy demonstrate that adversaries are simultaneously probing physical infrastructure alongside political systems.</p></div>
+      <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>Romania–Moldova–Ukraine trilateral response</h3><p>DNSC participated in a trilateral working meeting to create a regional cybersecurity alliance between Romania, Moldova, and Ukraine — specifically to counter Russian hackers. Moldova faced similar interference in its September 2025 parliamentary election. A regional collective defence framework is emerging.</p></div>
+      <div class="card" style="margin-bottom:0"><div class="cs" style="background:var(--teal)"></div><h3>Bucharest Cybersecurity Conference — NATO hub</h3><p>BCC2025, organized by DNSC, established Bucharest as a strategic NATO cyber diplomacy venue, hosting panels on transatlantic cooperation against hybrid threats and Romania's role as "a key NATO ally on the Eastern flank setting the standard for countering hybrid threats across Europe."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 04 NIS2 ════════════════════════ -->
+<section id="nis2">
+  <div class="sec-tag">04 — NIS2 Enforcement: GEO 155/2024</div>
+  <h2 class="sec-title">The compliance<br><em class="ac">reckoning</em> is live</h2>
+  <div class="g2 fade">
+    <div class="prose">
+      <p>Romania did not drag its feet on NIS2. GEO 155/2024 was adopted December 30, 2024 — implementing a much broader, risk-based cybersecurity regime than the prior NIS1 framework under Law 362/2018. Law 124/2025, which entered force July 10, 2025, refined and expanded scope further, explicitly adding <strong>retail pharmacies and pharmaceutical supply chains</strong>.</p>
+      <p>DNSC Orders 1/2025 and 2/2025, entering force August 20, 2025, triggered the <strong>30-day registration window</strong> (deadline: September 19, 2025) via the NIS2@RO platform. As of Q1 2026, enforcement is active. DNSC published a draft sanctions order in October 2025. Boards are personally accountable. The era of treating cybersecurity as an IT problem is legally over.</p>
+      <p>One key surprise: NIS2 Romania does not use size as a safe harbour. If an entity underpins a critical sector — even as an SME SaaS provider — it may be classified as essential and face full audit standards. Digital supply chain exposure is pulling many SMEs unexpectedly into scope.</p>
+    </div>
+    <div class="fade" style="transition-delay:.1s">
+      <div class="hl" style="margin-bottom:16px">
+        <p><strong>Key obligation:</strong> 24-hour early warning → 72-hour detailed notification → 1-month final report. Miss the 24-hour window and regulatory timeouts trigger automatically. DNSC's NIS2@RO portal is the only valid submission route.</p>
+      </div>
+      <div class="hl-r hl" style="margin-bottom:16px">
+        <p><strong>Board liability:</strong> Once DNSC formally identifies an entity, management must designate a cybersecurity-responsible person within 30 days. Boards must actively understand and oversee cyber risk — not delegate it entirely to IT.</p>
+      </div>
+      <div class="hl-p hl">
+        <p><strong>Repeat offenders:</strong> Romanian law allows a <strong>50% increase</strong> over the applicable fine cap for repeat violations. For a large multinational, this means exposure to €15M+. Fines are calculated on <strong>global</strong> turnover — not Romanian revenue.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin:40px 0 16px">Fine structure — GEO 155/2024 / Law 124/2025</h3>
+  <div class="fines fade" style="transition-delay:.1s">
+    <div class="fine">
+      <div class="fine-cat">Essential entities</div>
+      <div class="fine-amt" style="color:var(--red)">€10M</div>
+      <div class="fine-or">or 2% of global annual turnover — whichever is higher</div>
+      <div class="fine-desc">Covers energy, transport, banking, financial market infrastructure, health, drinking water, wastewater, digital infrastructure, ICT managed services, public administration, and space sectors. Fines calculated on worldwide revenue of the entire corporate group.</div>
+    </div>
+    <div class="fine">
+      <div class="fine-cat">Important entities</div>
+      <div class="fine-amt" style="color:var(--amber)">€7M</div>
+      <div class="fine-or">or 1.4% of global annual turnover — whichever is higher</div>
+      <div class="fine-desc">Covers postal services, waste management, chemicals, food, medical devices, manufacturing, digital providers (search engines, social platforms, data centres). Public sector may face compliance orders and public disclosure instead of monetary fines.</div>
+    </div>
+  </div>
+
+  <div class="g3 fade" style="margin-top:4px;transition-delay:.15s">
+    <div class="card"><div class="cs" style="background:var(--lime)"></div><h3>Compliance opportunity: €50M+ pipeline</h3><p>NIS2 mandatory spending from entities previously underinvesting creates an estimated €50M+ annual procurement opportunity for Romanian MSPs and integrators through 2027. IAM and next-gen firewalls top procurement lists.</p></div>
+    <div class="card"><div class="cs" style="background:var(--cyan)"></div><h3>CYRESRANGE — national cyber range</h3><p>DNSC secured EU funding (€1.7M total, contract 101128088) for the CYRESRANGE project — building interconnected national cybersecurity training ranges with scenario-based exercises for CSIRTs and critical infrastructure teams.</p></div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>NCC-RO — European coordination</h3><p>Romania's National Coordination Centre (NCC-RO) coordinates EU cybersecurity investment under Digital Europe and Horizon Europe. Keynote at BCC2025: "Romania's cybersecurity ambition: Strengthening Europe's network through NCC-RO."</p></div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 05 COMPANIES ════════════════════════ -->
+<section id="companies">
+  <div class="sec-tag">05 — Industry Players & Revenue</div>
+  <h2 class="sec-title">The companies<br><em class="ac">defining the sector</em></h2>
+  <p class="prose fade" style="margin-bottom:36px">Romania's cybersecurity industry is sharply bifurcated: a single globally dominant champion (Bitdefender, ~€330M revenue) and a growing ecosystem of specialist firms scaling through nearshore SOC services, penetration testing, and EU-funded R&D. Safetech Innovations remains the only publicly listed pure-play cybersecurity firm on the Bucharest Stock Exchange. An anticipated Bitdefender IPO in 2026 could reshape the entire ecosystem.</p>
+
+  <div class="fade" style="margin-bottom:40px">
+    <div class="cw" style="height:190px"><canvas id="revChart"></canvas></div>
+  </div>
+
+  <table class="ct fade" style="transition-delay:.1s">
+    <thead><tr><th style="width:28px">#</th><th>Company</th><th>Revenue</th><th>Growth</th><th>Key metrics</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="crk">01</td>
+        <td><div class="cn">Bitdefender</div><div class="ctp">Endpoint · MDR · XDR · Cloud · Threat Intel</div></td>
+        <td><div class="cv">€330M</div></td>
+        <td><div class="cg up">▲ +62.6% FY2024</div></td>
+        <td class="cd">RON 1.67B revenue; RON 239.6M net profit. 30B threat queries/day. 400M endpoint telemetry. 2,400 employees. US = 40%+ revenue. GravityZone PHASR, Security Data Lake (2025). 2 acquisitions in 2025. Operation Endgame partner.</td>
+        <td><span class="pill pp">Private</span><span class="pill pi">Global</span></td>
+      </tr>
+      <tr>
+        <td class="crk">02</td>
+        <td><div class="cn">CyberGhost</div><div class="ctp">VPN · Privacy · Consumer Security</div></td>
+        <td><div class="cv">~€30M est.</div></td>
+        <td><div class="cg up">▲ Steady</div></td>
+        <td class="cd">38M+ global users. Bucharest HQ. Acquired by Kape Technologies (UK). One of Europe's largest VPN providers by user base. Consumer and SMB-focused privacy stack expanding into zero-trust.</td>
+        <td><span class="pill pp">Subsidiary</span><span class="pill pi">Global</span></td>
+      </tr>
+      <tr>
+        <td class="crk">03</td>
+        <td><div class="cn">Zitec</div><div class="ctp">MSSP · SOC-as-a-Service · Cloud Security</div></td>
+        <td><div class="cv">~€20M est.</div></td>
+        <td><div class="cg up">▲ SOC &gt;50% rev</div></td>
+        <td class="cd">ISO 27035-aligned 24×7 SOC. Major nearshore partner for Western EU clients. Bilingual analysts. 40–60% cost differential vs. Western EU peers. Core contributor to Romanian SOC nearshoring export leadership.</td>
+        <td><span class="pill pp">Private</span><span class="pill pi">Nearshore</span></td>
+      </tr>
+      <tr>
+        <td class="crk">04</td>
+        <td><div class="cn">Safetech Innovations</div><div class="ctp">SOC · Pentesting · DFIR · Advisory</div></td>
+        <td><div class="cv">€11M (FY25)</div></td>
+        <td><div class="cg up">▲ +53% H1 2024; FY25 RON 55M</div></td>
+        <td class="cd">RON 42.3M revenue (+36%) and RON 13.5M net profit in FY2024. RON 55M revenue in FY2025. 7 of Romania's top 10 banks as clients. BVB:SAFE. Bucharest, London, Abu Dhabi. Saudi Arabia expansion 2025. Targeting 57% revenue increase in 2026.</td>
+        <td><span class="pill pl">BVB Listed</span><span class="pill pi">Intl</span></td>
+      </tr>
+      <tr>
+        <td class="crk">05</td>
+        <td><div class="cn">CoSoSys</div><div class="ctp">Data Loss Prevention · Endpoint Protector</div></td>
+        <td><div class="cv">~€10M est.</div></td>
+        <td><div class="cg up">▲ Global DLP growth</div></td>
+        <td class="cd">Romanian DLP specialist with global enterprise customers. Endpoint Protector product line. CVE-2024-36075 vulnerability discovered Jan 2024 — patched. Major international footprint in regulated industries.</td>
+        <td><span class="pill pp">Private</span><span class="pill pi">Global</span></td>
+      </tr>
+      <tr>
+        <td class="crk">06</td>
+        <td><div class="cn">Bit Sentinel</div><div class="ctp">Red Team · Pentesting · DFIR</div></td>
+        <td><div class="cv">~€4M est.</div></td>
+        <td><div class="cg up">▲ High growth</div></td>
+        <td class="cd">Elite offensive security firm. Strong CTF roots via UNbreakable Romania (Gold Recognition, European Digital Skills Awards finalist 2024). Boutique red-team and incident response across CEE enterprises.</td>
+        <td><span class="pill pp">Private</span></td>
+      </tr>
+      <tr>
+        <td class="crk">07</td>
+        <td><div class="cn">PentestTools</div><div class="ctp">SaaS · Automated Pentesting</div></td>
+        <td><div class="cv">~€4M est.</div></td>
+        <td><div class="cg up">▲ SaaS scaling</div></td>
+        <td class="cd">Romanian SaaS automated penetration testing platform. Global B2B customers. Strong SME growth driven by NIS2 compliance demand. Early Game Ventures-backed. Penetration-testing automation aligned with AI-driven continuous validation trend.</td>
+        <td><span class="pill pp">SaaS</span><span class="pill pi">Global</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ════════════════════════ 06 AI ════════════════════════ -->
+<section id="ai">
+  <div class="sec-tag">06 — Artificial Intelligence Impact</div>
+  <h2 class="sec-title">AI as <em class="ac">weapon</em><br>and <em style="font-style:italic;color:var(--cyan)">shield</em></h2>
+  <p class="prose fade" style="margin-bottom:8px">Artificial intelligence has bifurcated Romania's cyber landscape into two concurrent realities. Romanian firms — led by Bitdefender — have embedded AI at industrial depth into their defensive stacks, creating a global competitive moat built on 400M-endpoint telemetry that no new entrant can replicate. Simultaneously, the same generative models are being weaponized by adversaries — as confirmed by DNSC's own +287% malware surge and the AI-automated "Gentlemen" attack on Oltenia Energy.</p>
+
+  <div class="fade" style="margin:28px 0">
+    <div class="cw" style="height:220px"><canvas id="aiChart"></canvas></div>
+  </div>
+
+  <div class="ai-split fade" style="transition-delay:.1s">
+    <div class="ai-pane">
+      <div class="ai-pt" style="color:var(--teal)">▲ AI as Defender — Romanian capabilities</div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--teal)">◈</span>Bitdefender — 30 billion queries/day engine</div>
+        <div class="ai-b">ML models trained on 400M endpoint telemetry. GravityZone PHASR (Oct 2025): industry's first AI-driven proactive hardening for individual users — closing security gaps before exploitation. GravityZone Security Data Lake (Nov 2025): unified telemetry across endpoints, networks, clouds — cutting alert overload and investigation time.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--teal)">◈</span>Scam Copilot — consumer AI at scale</div>
+        <div class="ai-b">Scamio (Dec 2023) → WhatsApp (Apr 2024) → Discord (Oct 2024) → consolidated Scam Copilot platform (Oct 2024). Hundreds of millions of users now have access to AI-powered scam detection. Romania pioneered consumer-facing AI security at messaging platform scale — a category largely unexplored by Western peers.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--teal)">◈</span>DNSC SAFE Project — national AI SOC</div>
+        <div class="ai-b">EU grant no. 101190370 (€692,504 budget) funds an AI-powered national SOC platform. SAFE deploys AI to identify, analyse, mitigate, and respond to threats across national civil cyberspace — transforming DNSC from reactive to predictive national cyber defence posture.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--teal)">◈</span>Voyager Ventures — AI startup investment</div>
+        <div class="ai-b">Bitdefender Voyager Ventures led participation in Gambit Cyber's $3.4M seed round (Dec 2025) — backing agentic AI-driven continuous threat exposure management. Romania's flagship cyber firm is actively investing in the next generation of AI security startups, seeding ecosystem growth beyond its own products.</div>
+      </div>
+    </div>
+    <div class="ai-pane">
+      <div class="ai-pt" style="color:var(--red)">▼ AI as Attacker — threats confirmed against Romania</div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--red)">◈</span>Malware automation (+287% — DNSC confirmed)</div>
+        <div class="ai-b">The largest single data point in Romania's 2024 threat report. Automated credential-harvesting malware exploiting poor MFA adoption and platform proliferation. InfoStealer.AgentTesla and TrojanFormbook generated at industrial scale using AI tooling. Attack preparation time collapsed from days to minutes.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--red)">◈</span>"Gentlemen" — agentic AI ransomware in action</div>
+        <div class="ai-b">The group that struck Oltenia Energy (Dec 2025) uses agentic AI to autonomously identify vulnerabilities, pivot across networks, and deploy payloads with minimal human direction. Identified in global 2026 threat intelligence as a novel AI-first ransomware actor. Response windows: collapsed from hours to under 30 minutes.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--red)">◈</span>AI disinformation at electoral scale</div>
+        <div class="ai-b">The 2024 electoral interference deployed AI-generated content, bot networks, and algorithm manipulation at campaign scale — driving 150M TikTok views for a fringe candidate. This represents a new AI threat category: not infrastructure compromise but democratic process corruption through synthetic information.</div>
+      </div>
+      <div class="ai-i">
+        <div class="ai-h"><span class="ai-ico" style="color:var(--red)">◈</span>Deepfake executive fraud & shadow AI</div>
+        <div class="ai-b">Voice and video deepfakes of Romanian executives emerging as BEC vectors. 85% of European organizations experienced deepfake-related incidents in 2025. Romania's nearshore IT sector faces additional risk from shadow AI — developers using unsanctioned LLMs to process proprietary client code outside any governance framework.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g3 fade" style="margin-top:18px;transition-delay:.15s">
+    <div class="card"><div class="cs" style="background:var(--teal)"></div><h3>NIS2 makes AI-detection mandatory</h3><p>NIS2's 24h early warning window makes AI-assisted threat detection functionally required — not optional. Manual processes cannot meet this timeline reliably at scale. Romanian entities without AI-augmented monitoring face structural compliance risk under GEO 155/2024.</p></div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>EU AI Act creates advisory opportunity</h3><p>AI systems in critical infrastructure security are high-risk under the EU AI Act, requiring conformity assessments. Romanian firms with dual AI + regulatory expertise — currently a rare combination — are positioned for a premium advisory market emerging from this intersection.</p></div>
+    <div class="card"><div class="cs" style="background:var(--purple)"></div><h3>Bitdefender's data moat</h3><p>400M-endpoint telemetry is an unreplicable competitive advantage — decades of Romanian R&D compounding into a dataset no new entrant can build. This positions Romania's flagship firm for sustained AI-era global relevance regardless of model commoditization trends.</p></div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 07 QUANTUM ════════════════════════ -->
+<section id="quantum">
+  <div class="sec-tag">07 — Quantum Computing Impact</div>
+  <h2 class="sec-title">The <em class="ac">cryptographic<br>reckoning</em> approaches</h2>
+  <div class="g2 fade" style="margin-bottom:36px">
+    <div class="prose">
+      <p>Quantum computing does not yet threaten Romanian encryption — but adversaries may <strong>already be collecting encrypted Romanian state, financial, and NATO-shared intelligence data</strong> with explicit intent to decrypt it once cryptographically-relevant quantum computers (CRQCs) arrive. This "harvest now, decrypt later" strategy is confirmed by intelligence agencies globally as actively deployed.</p>
+      <p>Google committed to full post-quantum cryptography (PQC) migration by 2029 (March 2026 announcement). NIST finalized its first PQC standards in August 2024. Yet Romania has launched no national PQC migration programme as of Q1 2026. The window for methodical, cost-efficient transition is narrowing — a delayed start compresses migration into a future crisis rather than a managed programme.</p>
+      <p>Romania's NATO membership creates a collective security obligation: CISA (US), NSA, and NATO cyber commands are actively pushing PQC migration across alliance members. Romania's lagging posture is both a domestic vulnerability and a NATO-level concern.</p>
+    </div>
+    <div class="fade" style="transition-delay:.1s">
+      <div class="cw" style="height:200px"><canvas id="qChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="qs fade" style="transition-delay:.1s">
+    <div class="qc qnow"><div class="qy">2026</div><div class="qt">Harvest active. No break yet.</div><div class="qd">No CRQC exists. RSA/ECC mathematically secure. Nation-state adversaries actively harvesting Romanian encrypted data. NIST PQC finalized (CRYSTALS-Kyber, CRYSTALS-Dilithium, FALCON, SPHINCS+). Romania: no national migration plan. Google: committed to migrate by 2029.</div><div class="qp">CRQC probability: &lt;1% · Harvest threat: Active</div></div>
+    <div class="qc qnear"><div class="qy">2027–29</div><div class="qt">Critical migration window</div><div class="qd">EuroQCI targets operational status 2027 (pan-European quantum communication). Google migrates by 2029. Romanian banks and government must complete cryptographic inventories and begin hybrid PQC deployments. OT systems (15–30 year lifecycles) require planning now.</div><div class="qp">CRQC probability: 1–5%</div></div>
+    <div class="qc qmid"><div class="qy">2030–34</div><div class="qt">High-risk window — act or expose</div><div class="qd">Global Risk Institute: 17–34% CRQC probability by 2034. Romanian healthcare data (lifetime protection), classified intelligence, and NATO-shared secrets face existential retroactive exposure if not migrated. Legacy PKI becomes critical liability.</div><div class="qp">CRQC probability: 17–34%</div></div>
+    <div class="qc qfar"><div class="qy">2035+</div><div class="qt">Post-quantum era</div><div class="qd">BCG/NIST consensus: CRQCs achieve cryptographic relevance ~2035. RSA, ECC, Diffie-Hellman simultaneously vulnerable. All data without PQC protection retroactively exposed. Internet trust infrastructure must be comprehensively rebuilt from the protocol layer up.</div><div class="qp">CRQC probability: 50–79%</div></div>
+  </div>
+
+  <div class="g2 fade" style="transition-delay:.15s">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Romania's quantum exposure profile</h3>
+      <div class="tl">
+        <div class="tli crit"><div class="td">Immediate · Banking &amp; Finance</div><div class="tt">RSA-encrypted transaction records harvested today</div><div class="tb">Romanian banks process billions in daily RSA/ECC-secured transactions. The NBR has no published quantum migration timeline. BFSI leads Romanian cybersecurity spending (22.4% share) — yet quantum preparedness is effectively zero across the sector.</div></div>
+        <div class="tli warn"><div class="td">High Risk · Government &amp; NATO Intelligence</div><div class="tt">Collective security obligation — not just domestic risk</div><div class="tb">Romanian SRI, diplomatic, and NATO-shared intelligence communications are high-value harvest targets with decade-long adversary planning horizons. Romania's NATO membership makes PQC preparedness a collective security obligation, not merely a domestic IT decision.</div></div>
+        <div class="tli warn"><div class="td">High Risk · Healthcare</div><div class="tt">Patient record lifetime exceeds CRQC window</div><div class="tb">Healthcare records require protection over decades — far beyond the CRQC arrival window. Healthcare is Romania's fastest-growing cyber segment at 16.3% CAGR. Yet PQC adoption is effectively zero, compounded by the sector's already-underfunded security infrastructure.</div></div>
+        <div class="tli info"><div class="td">Medium · Energy OT Systems</div><div class="tt">Long-lifecycle infrastructure: plan now, deploy later</div><div class="tb">Energy infrastructure lifetimes of 15–30 years mean systems procured in 2026 will be operational when CRQCs arrive. OT cryptographic upgrades are operationally complex. Post-incident planning momentum from December 2025 attacks creates a rare opening for proactive quantum readiness.</div></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Romania's recommended quantum roadmap</h3>
+      <div class="card"><div class="cs" style="background:var(--lime)"></div><h3>1. National cryptographic inventory (2026)</h3><p>DNSC mandates all NIS2 essential entities to inventory RSA, ECC, and DH deployments — piggybacking existing NIS2 compliance audits at zero additional budget. Establishes migration baseline across public and financial sector simultaneously.</p></div>
+      <div class="card"><div class="cs" style="background:var(--cyan)"></div><h3>2. NIST PQC in all new procurement (2026–27)</h3><p>CRYSTALS-Kyber and CRYSTALS-Dilithium incorporated into all new public sector IT procurement and TLS configurations. Align with Google's 2029 target and expected EU PQC mandates. Make PQC compliance a default procurement criterion, not a future retrofit.</p></div>
+      <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>3. EuroQCI integration — QKD for government (2027)</h3><p>Accelerate Romanian integration into the European Quantum Communication Infrastructure targeting operational status 2027. Provides quantum key distribution for highest-sensitivity SRI and diplomatic communications — NATO's most urgent Romanian requirement.</p></div>
+      <div class="card" style="margin-bottom:0"><div class="cs" style="background:var(--purple)"></div><h3>4. Mandate crypto-agile architectures</h3><p>All new public systems require modular cryptographic design and automated update mechanisms — per NIST's March 2025 crypto-agility memo. Build the migration capability now; execute it incrementally. Rigid implementations that cannot update rapidly carry severe long-term risk, as demonstrated by the Heartbleed precedent.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 08 RESEARCH & ACADEMIA ════════════════════════ -->
+<section id="research">
+  <div class="sec-tag">08 — Research Institutions & Academic Output</div>
+  <h2 class="sec-title">Romania's <em class="ac">academic</em><br>cybersecurity engine</h2>
+  <p class="prose fade" style="margin-bottom:36px">Romania has developed a substantive academic cybersecurity research ecosystem anchored by three major universities, a national research institute, and a growing conference tradition with internationally peer-reviewed publications. This academic layer is the talent pipeline feeding both the domestic industry and the ECCC — Europe's cybersecurity research headquarters, which chose Bucharest for a reason.</p>
+
+  <div class="g2 fade" style="margin-bottom:48px">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Key academic institutions</h3>
+      <div class="tl">
+        <div class="tli ok">
+          <div class="td">Bucharest · Host of ECCC Headquarters</div>
+          <div class="tt">Politehnica University of Bucharest (UPB)</div>
+          <div class="tb">Romania's premier technical university and host institution of the European Cybersecurity Competence Centre (ECCC) — the first EU body headquartered in Romania, located in UPB's Campus building. UPB offers an Advanced Cybersecurity master's programme and actively participates in EU-funded research consortia. Key faculty include Prof. Emil Simion (cryptography) and Dr. Andrei-George Oprina (security). UPB also operates the E2 Center in partnership with the US Government and Nuclearelectrica.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">Cluj-Napoca · EIT Digital Partner</div>
+          <div class="tt">Babeș-Bolyai University (UBB)</div>
+          <div class="tb">UBB's Faculty of Mathematics and Computer Science runs Romania's leading Cyber Security MSc programme in partnership with EIT Digital — the European Institute of Innovation and Technology's digital innovation network. Dr. Darius Bufnea leads cybersecurity education programmes with 40+ research papers across networking, congestion control, and cybersecurity topics. UBB has directed multiple Romanian national research grants and participated in six EU-funded research projects.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">Bucharest · Military & National Security Research</div>
+          <div class="tt">"Carol I" National Defence University</div>
+          <div class="tt" style="font-size:12px;font-weight:400;color:var(--muted);margin-top:-2px">+ Military Technical Academy</div>
+          <div class="tb">Carol I NDU's Department of Cybersecurity (head: Col. Dănuț Turcu) focuses on cyber defence in the context of hybrid warfare, geopolitical security, and NATO interoperability. The Military Technical Academy offers an Information Technology Security Master's programme and has participated in joint research contracts (PCCDI #17/2018) with Politehnica Bucharest, UPB, and Bucharest University of Economic Studies.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">Bucharest · National Research Institute</div>
+          <div class="tt">ICI Bucharest — National Institute for Research & Development in Informatics</div>
+          <div class="tb">ICI Bucharest is Romania's primary national informatics R&D institute, led by Dr. Adrian Victor Vevera (former CERT-RO General Director). ICI serves as Scientific Director through Dr. Carmen Cîrnu, publishes the Romanian Journal of Computer Science and Automation and the Romanian Cyber Security Journal, and regularly participates in European research consortia. ICI is a key partner in the CYRESRANGE project (EU-funded national cyber range network).</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">Bucharest · Economic Security Research</div>
+          <div class="tt">Bucharest University of Economic Studies (ASE)</div>
+          <div class="tb">ASE hosts the Cyber Knowledge Club (non-profit, CIF 31079668), organizer of the SecITC conference — Romania's leading international cryptography and information security conference. ASE's IT Security programme produces graduates specializing in cybersecurity for financial and regulatory environments. The university hosted the 18th SecITC 2025 international conference in November 2025.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Key research conferences & publications</h3>
+      <div class="card"><div class="cs" style="background:var(--lime)"></div>
+        <h3>SecITC — Springer LNCS Series (Annual, Bucharest)</h3>
+        <p>Romania's flagship international cryptography conference, now in its 18th year. SecITC 2025 (November 20–21, ASE Bucharest) published 20 full papers selected from 44 submissions, covering: <em>Cryptographic Primitives & Protocols · Post-quantum Cryptography · AI Techniques for Security · Application, System & Network Security</em>. Published as Springer LNCS volume — internationally indexed.</p>
+        <p>Past LNCS volumes: 2024 (vol. 15595, 16 papers from 49 submissions) · 2023 (vol. 14534) · 2022 (vol. 13809) · 10 consecutive annual volumes since 2015.</p>
+      </div>
+      <div class="card"><div class="cs" style="background:var(--cyan)"></div>
+        <h3>CyberCon Romania 2025 (November, EC Representation)</h3>
+        <p>Organized by RAISA (Romanian Association for Information Security Assurance), held at the European Commission Representation in Romania — emphasizing EU-level significance. IC3 Proceedings Vol. XII, 2025 (ISSN 2393-0837) included:</p>
+        <p><em>"AI-Assisted Anomaly Detection for Cybersecurity in IMS Core Networks: A KPI-Driven Study Based on Real-World Telecom Data"</em> (Văduva, Politehnica) · <em>"Enhancing the Security of High-Responsibility Information Systems Through Fault Tree Modeling"</em> (Copaci, Bacivarov) · <em>"Enhancing 5G Infrastructure to Withstand Emerging Digital Threats"</em> (Benchea) · <em>"Post-Quantum Cryptography: Encryption Methods and Performance Evaluation"</em> (Copaci, Copaci).</p>
+      </div>
+      <div class="card"><div class="cs" style="background:var(--purple)"></div>
+        <h3>Bucharest Cybersecurity Conference (BCC) — Annual NATO-level event</h3>
+        <p>DNSC's annual flagship conference, now one of Europe's leading cybersecurity policy events. BCC2025 (October 6–8, 2025) co-organized with ECCC, ENISA, and NCC-RO. Partners: IEEE Romania, Carol I NDU, Politehnica Bucharest, ICI Bucharest, FBI US Embassy. The conference covers hybrid warfare, critical infrastructure, AI/quantum security, and transatlantic cooperation — firmly establishing Bucharest as the NATO Eastern Flank cybersecurity diplomatic hub.</p>
+      </div>
+      <div class="card" style="margin-bottom:0"><div class="cs" style="background:var(--amber)"></div>
+        <h3>Romanian Cyber Security Journal · Romanian Journal of CS & Automation</h3>
+        <p>Two nationally-indexed academic journals published by ICI Bucharest covering cybersecurity research, policy, and applied computer science. Combined with the Springer LNCS SecITC proceedings, Romania now has a multi-tier academic publication ecosystem spanning national to international indexing.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Romania's academic cybersecurity talent pipeline</h3>
+  <div class="g3 fade" style="transition-delay:.1s">
+    <div class="card"><div class="cs" style="background:var(--lime)"></div>
+      <h3>10,000 tech graduates/year · 4th EU talent pool</h3>
+      <p>Romania produces approximately 10,000 IT and tech graduates annually, representing the 4th largest IT talent pool in Europe. 24% of ICT graduates are female — 3rd in EU statistics — well above EU average, providing exceptional gender diversity for cybersecurity hiring.</p>
+      <p>Key feeder universities: UPB (Bucharest), UBB (Cluj-Napoca), "Alexandru Ioan Cuza" University (Iași), and Politehnica Timișoara — all running dedicated security programmes.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--cyan)"></div>
+      <h3>UNbreakable Romania — CTF pipeline</h3>
+      <p>The national CTF competition for high-school and university students, operated by Bit Sentinel on the CyberEDU platform. UNbreakable received the <strong>Gold Recognition</strong> from the Global Cybersecurity Education Framework (2025 edition, 1,200+ projects analysed) and was named a finalist in the European Digital Skills Awards 2024 (Cybersecurity Skills category) — for the second consecutive year.</p>
+      <p>2026 edition adds local CTF rounds at schools and universities, plus "Girls in Cyber" bootcamp (20 participants, mentorship and career guidance).</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div>
+      <h3>Safetech EU R&D investment — published financial data</h3>
+      <p>Safetech Innovations' BVB FY2025 annual report confirms: <strong>"income from the production of fixed assets rose 8% to RON 17.9M, reflecting investments in intangible assets and cybersecurity solutions financed through both EU funds and Company's own resources."</strong></p>
+      <p>Headcount grew from 73 to 78 employees specifically to staff <strong>"ongoing projects financed by European and national funds."</strong> Safetech participates in 5 EU/national R&D projects with combined value ~RON 14M.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 09 EUROPEAN GRANTS ════════════════════════ -->
+<section id="grants">
+  <div class="sec-tag">09 — European Grants & Romanian Beneficiaries</div>
+  <h2 class="sec-title">Romania at the<br><em class="ac">heart of EU funding</em></h2>
+  <p class="prose fade" style="margin-bottom:36px">Romania occupies a uniquely advantageous position in EU cybersecurity funding: it hosts the ECCC headquarters, participates actively in Horizon Europe and Digital Europe consortia, has secured multiple DNSC project grants, and now has an ENISA framework contract held by a Romanian-led consortium. The total EU cybersecurity investment flowing through or to Romanian entities is substantial — and accelerating under the 2025–2027 work programmes.</p>
+
+  <div class="g2 fade" style="margin-bottom:44px">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">ECCC — Romania's strategic anchor</h3>
+      <div class="geo-box" style="border-color:rgba(180,227,50,.25);background:rgba(180,227,50,.03)">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),transparent)"></div>
+        <h3 style="color:#fff">European Cybersecurity Competence Centre — Bucharest</h3>
+        <p>The ECCC is the first EU body headquartered in Romania, located at Politehnica University of Bucharest (Campus building, inaugurated Oct 2024). It manages EU cybersecurity investment under Digital Europe and Horizon Europe programmes.</p>
+        <p>Since establishment, the ECCC has invested over <strong style="color:var(--lime)">€600 million</strong> in cybersecurity projects across Europe, with an additional <strong style="color:var(--lime)">€400 million</strong> expected by 2027. Romania's strategic positioning as the ECCC host gives Romanian entities privileged proximity to funding decisions, consortium calls, and matchmaking events — including the Access-2-Market series connecting buyers and suppliers.</p>
+        <div class="geo-stat">
+          <div><div class="geo-num" style="color:var(--lime)">€600M+</div><div class="geo-lab">Invested since establishment</div></div>
+          <div><div class="geo-num" style="color:var(--lime)">€400M</div><div class="geo-lab">Additional by 2027</div></div>
+          <div><div class="geo-num" style="color:var(--lime)">€145.5M</div><div class="geo-lab">2025 open call budget</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Active Romanian EU projects (confirmed)</h3>
+      <div class="tl">
+        <div class="tli ok">
+          <div class="td">ECCC Grant · Digital Europe · Active 2025</div>
+          <div class="tt">DNSC — SAFE Project (Grant 101190370)</div>
+          <div class="tb">Budget: €692,504 (50% non-reimbursable). Purpose: AI-powered national SOC platform for detecting, sharing, responding to, and recovering from cyber threats and IoT vulnerabilities. Partners: Datasentics (CZ). DNSC budget: €346,252 non-reimbursable EU contribution.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">ECCC Grant · Digital Europe · Active 2024–2025</div>
+          <div class="tt">DNSC — CYRESRANGE (Grant 101128088)</div>
+          <div class="tb">Total project value: €1,746,240 (€1,101,643 non-reimbursable). Purpose: National cyber range network — interconnected Cybersecurity Centers of Excellence based on cyber ranges. Partners include ICI Bucharest RA. Key outputs: unified cyber range API, gamification platform, large-scale exercise scenarios for CSIRTs and critical infrastructure operators.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">ECCC Grant · Digital Europe · Active 2025</div>
+          <div class="tt">POLITEHNICA Bucharest — SOCcare (Grant 101145843)</div>
+          <div class="tb">Purpose: Build better insights into cyber threats by enhancing analysis of digital artifacts and sharing threat intelligence across Eastern Europe. Partners: NRD Cyber Security (LT), RevelSI, Politehnica Bucharest. March 2025: first threat dataset sharing phase activated. Focus: enhanced cyber resilience across the Digital Europe region.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">CEF Grant · JTAN · Active</div>
+          <div class="tt">DNSC — JTAN (Grant INEA/CEF/ICT/A2020/2373165)</div>
+          <div class="tb">CEF/ICT-funded JTAN project includes free network traffic monitoring sensors offered to Romanian SMEs — 150 sensors distributed at no cost to enable early cyber threat detection and network vulnerability identification. Target: SMEs that cannot afford commercial security monitoring.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">DNSC Project · Active 2024–2026</div>
+          <div class="tt">DNSC — SIEMBIOT (Open Collaboration Platform)</div>
+          <div class="tb">SIEMBIOT is DNSC's open collaboration platform for cybersecurity research — facilitating creation and dissemination of vulnerability detection methods, advanced threat search queries, and response runbooks. National R&D initiative complementing the EU-funded SAFE and CYRESRANGE projects.</div>
+        </div>
+        <div class="tli ok">
+          <div class="td">DNSC Project · Active 2024</div>
+          <div class="tt">DNSC — IRIS Project (IoT & AI Threat Response)</div>
+          <div class="tb">IRIS creates a framework to support European CERTs/CSIRTs for detecting, sharing, responding to, and recovering from cybersecurity threats in IoT and AI-based ICT systems. A Platform-as-a-Service (PaaS) against AI and IoT cyber threats. Three core technology components integrate with CSIRT operational workflows.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cw fade" style="height:180px;margin:36px 0">
+    <canvas id="grantsChart"></canvas>
+  </div>
+
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Romanian companies winning European contracts</h3>
+  <div class="g2 fade" style="transition-delay:.1s">
+    <div class="card"><div class="cs" style="background:var(--cyan)"></div>
+      <h3>certSIGN + Bit Sentinel + CybrOps — ENISA Contract (Sep 2025)</h3>
+      <p>A Romanian-led consortium secured a framework contract with the European Union Agency for Cybersecurity (ENISA) following a competitive international tender. certSIGN leads, with Bit Sentinel and CybrOps as partners. Budget: up to <strong>€900,000</strong> over three years.</p>
+      <p>Scope: Cybersecurity preparedness and response services for Romania under the NIS2 Directive implementation. DNSC coordinates delivery to NIS2-regulated entities. This is the first major ENISA operational contract held by a Romanian-led consortium — a significant signal of maturity in the Romanian cybersecurity services market.</p>
+      <p style="font-size:11px;color:var(--dim);margin-top:8px">certSIGN: Romania-based, specialized in cryptographic solutions and digital trust services. Operates a private CSIRT accredited by Trusted Introducer. CEO: Adrian Floarea, PhD (cryptographic algorithms).</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div>
+      <h3>Safetech Innovations — 5 EU/national R&D projects (active 2025)</h3>
+      <p>From Safetech's BVB FY2025 filing: the company participates in <strong>5 EU and national research projects</strong> with a combined value of approximately <strong>RON 14 million</strong>. Projects include European consortia focused on cybersecurity for healthcare, industrial control systems, and critical infrastructure.</p>
+      <p>Safetech has also executed cybersecurity projects for securing critical infrastructure in: <strong>USA, Canada, Brazil, Morocco, EU, Singapore, Philippines, India, China, and New Zealand</strong> — demonstrating that Romanian cybersecurity expertise now operates at global scale.</p>
+      <p>FY2025 income from intangible asset development (largely EU-funded R&D): <strong>RON 17.9M</strong> (+8% YoY). EU project participation directly funded 78 full-time employees in 2025.</p>
+    </div>
+  </div>
+
+  <!-- EU Funding programmes overview -->
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin:40px 0 16px">EU funding landscape for Romanian entities (2025–2027)</h3>
+  <div class="g3 fade" style="transition-delay:.1s">
+    <div class="card"><div class="cs" style="background:var(--lime)"></div>
+      <h3>Digital Europe Programme — Cyber WP 2025–27</h3>
+      <p>The ECCC's DEP Cyber Work Programme 2025–2027 (adopted March 2025, amended June 2025) covers: <em>Transition to post-quantum PKI (€15M) · AI-based cybersecurity systems for national SOCs (€15M) · SME cybersecurity uptake (open call) · National Cyber Hubs (€2M) · Advanced enabling technologies for SOCs.</em></p>
+      <p>Total 2025 open call budget: <strong>€55M</strong> under Digital Europe. Romanian entities (companies, SMEs, public bodies, universities) are directly eligible. ECCC's Bucharest location means Romanian applicants have unique proximity to programme managers.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--purple)"></div>
+      <h3>Horizon Europe — Cluster 3 Civil Security (2025)</h3>
+      <p>Horizon Europe 2025 call (HORIZON-CL3-2025-02-CS-ECCC) totals <strong>€90.55M</strong> across 6 topics: <em>Generative AI for cybersecurity (€40M) · Advanced operational cybersecurity tools (€23.55M) · Privacy Enhancing Technologies (€11M) · Post-Quantum Cryptography security evaluations (€4M + €6M + €6M).</em></p>
+      <p>Romanian universities and research institutions (UPB, UBB, ICI Bucharest, Military Technical Academy) are natural consortium partners for PQC and AI security topics given their established research track records in these areas.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--red)"></div>
+      <h3>POCIDIF National Programme (ongoing)</h3>
+      <p>The national POCIDIF programme allocates <strong>€160M for R&D</strong> and <strong>€150M for advanced digital tools</strong>, covering up to 70% of eligible cybersecurity costs. Quarterly award rounds create a predictable pipeline.</p>
+      <p>Beneficiaries bundle grants with bank credit, stretching subsidies across licence renewals and multi-year services. SME CAGR of 17.2% through 2030 is directly driven by POCIDIF subsidy-enabled adoption of endpoint detection, MFA, and zero-trust solutions. DigiLocal (200M lei) additionally targets municipalities.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--cyan)"></div>
+      <h3>Cyber Solidarity Act — EU Reserve (Feb 2025)</h3>
+      <p>The EU Cyber Solidarity Act entered force February 4, 2025. It establishes a <strong>€36M EU Cybersecurity Reserve</strong> (ENISA-managed) for trusted incident response services across critical sectors, and funds National + Cross-Border Cyber Hubs (€2M per hub, Dec 2025 call).</p>
+      <p>Romania's DNSC is positioned to benefit from both the Reserve (as a national CSIRT receiving EU surge capacity support) and the Cyber Hub funding — which aligns with the ongoing CYRESRANGE national cyber range programme already operational.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--teal)"></div>
+      <h3>EIT Digital — UBB Cybersecurity MSc</h3>
+      <p>Babeș-Bolyai University's Cyber Security MSc programme is delivered in partnership with <strong>EIT Digital</strong> — the European Institute of Innovation and Technology's digital innovation network. This positions UBB's graduates within EIT Digital's pan-European talent network, connecting them to European tech companies and startups.</p>
+      <p>Programme contact: cyber-master@cs.ubbcluj.ro (European/EIT Digital path). UBB is the only Romanian university with an EIT-partnered cybersecurity Master's programme — a significant differentiator.</p>
+    </div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div>
+      <h3>RoEduNet EU-funded network security</h3>
+      <p>The EU-financed overhaul of RoEduNet (Romania's national education and research network) deploys 14.4 Tbit/s routers and elastic cloud nodes, with approximately <strong>20% of project value earmarked for security appliances</strong> — including deep packet inspection, SASE gateways, and automated compliance reporting.</p>
+      <p>This creates a significant procurement opportunity for Romanian security vendors with education sector expertise, particularly for endpoint protection, network monitoring, and academic cloud security.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 10 OUTLOOK ════════════════════════ -->
+<section id="outlook">
+  <div class="sec-tag">10 — Strategic Outlook 2026–2030</div>
+  <h2 class="sec-title">Seven forces shaping<br><em class="ac">the decade</em></h2>
+  <p class="prose fade" style="margin-bottom:8px">Romania stands at a rare convergence of legislative mandate, EU funding at scale, a globally recognized champion, a deepening talent ecosystem — against the fastest-growing and most geopolitically charged threat landscape in Romanian digital history. The December 2025 attacks and 2024 election interference together forced a national reckoning that may ultimately accelerate the transformation that slow-moving market forces alone could not.</p>
+  <div class="og fade" style="transition-delay:.1s">
+    <div class="oc"><div class="oc-s" style="background:var(--lime)"></div><h3>NIS2 compliance demand surge</h3><p>GEO 155/2024 creates mandatory security spending across tens of thousands of previously underinvesting entities. A €50M+ annual procurement opportunity for Romanian MSPs through 2027.</p><p>IAM, next-gen firewalls, and 24/7 SOC monitoring top procurement lists. Boards now face personal accountability — transforming cybersecurity from IT cost to governance priority.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--cyan)"></div><h3>SOC nearshoring leadership</h3><p>Romania delivers 24×7 ISO 27035-aligned SOC monitoring at 40–60% of Western EU cost equivalents. Services revenue at 15.8% CAGR — nearly 50% faster than solutions growth through 2030.</p><p>The Romania–Moldova–Ukraine trilateral cyber alliance creates a regional collective defence framework that reinforces Romania's strategic positioning as an Eastern Flank cyber hub.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--amber)"></div><h3>EU funding acceleration</h3><p>POCIDIF's €310M covers up to 70% of eligible cybersecurity costs. DigiLocal's 200M lei targets municipalities — the most critically underprotected segment. CYRESRANGE (€1.7M) builds national cyber training ranges.</p><p>Quarterly award rounds create predictable pipeline for integrators. SME CAGR of 17.2% driven by subsidy-enabled adoption of endpoint detection, MFA, and zero-trust.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--red)"></div><h3>Critical infrastructure remediation</h3><p>December 2025 created the political will to accelerate CNC integration for water, energy, and transport infrastructure previously outside the protection umbrella. This represents both an urgent security need and a significant procurement opportunity.</p><p>DNSC Steps already taken to integrate Apele Române. Energy OT security is the priority target sector for 2026.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--purple)"></div><h3>Bitdefender IPO — ecosystem catalyst</h3><p>An anticipated US IPO in 2026 — JP Morgan and Morgan Stanley previously engaged — would be transformative for Romanian tech. 2,400 employees. €330M revenue. Two 2025 acquisitions. +62.6% YoY growth. The public market narrative is compelling.</p><p>A unicorn-or-above valuation catalyses VC inflows, talent retention, and international visibility for the entire Romanian cyber ecosystem.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--teal)"></div><h3>Healthcare &amp; OT frontier</h3><p>Healthcare at 16.3% CAGR — underfunded infrastructure plus high-value patient data plus NIS2 explicit inclusion. IT/OT convergence in energy creates specialist demand currently among the scarcest skills in the Romanian talent market.</p><p>Both sectors represent underserved, high-margin opportunities for firms with genuine domain expertise and government relationships.</p></div>
+    <div class="oc"><div class="oc-s" style="background:var(--pink)"></div><h3>Geopolitical cyber defence — NATO role</h3><p>Romania's role as NATO's Eastern Flank cyber hub is hardening. BCC2025 established Bucharest as a strategic NATO cyber diplomacy venue. The trilateral Romania–Moldova–Ukraine alliance creates a regional collective defence framework.</p><p>NATO and EU investment in Romanian cyber capabilities — including ENISA cooperation, ECCC coordination, and EU Cyber Solidarity Act reserve — position Romania for sustained strategic significance.</p></div>
+  </div>
+</section>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <div>
+    <div class="fb">Romania<br>Cyber<br><em style="font-style:italic;color:var(--lime)">Intel</em></div>
+    <p class="fd">This intelligence report was compiled from public sources, official regulatory filings, stock exchange disclosures, and primary market research as of Q1 2026. Revenue figures for unlisted companies represent market estimates. All figures in EUR unless noted. For informational purposes only — not investment advice.</p>
+    <p class="fc">© 2026 · Romania Cybersecurity Intelligence Report · Q1 2026 Edition · Compiled March 2026</p>
+  </div>
+  <div class="fs">
+    <h4>Primary Sources</h4>
+    <ul>
+      <li>DNSC — Raport anual 2024 (HCSAT 77/30.06.2025)</li>
+      <li>DNSC — Buletin H1 2025 (TLP:CLEAR, 15.07.2025)</li>
+      <li>Agerpres — Cyberfraud &amp; malware stats, Aug 2025</li>
+      <li>Romania Insider — DNSC sector targets, Aug 2025</li>
+      <li>Bitdefender — FY2024 financials (Profit.ro)</li>
+      <li>PitchBook — Bitdefender Mesh Security LBO, Jul 2025</li>
+      <li>Safetech Innovations — BVB reports FY2024 &amp; FY2025</li>
+      <li>Mordor Intelligence — Romania Cybersecurity Market 2025</li>
+      <li>Allianz Risk Barometer 2026 — Romania edition</li>
+      <li>IIEA — Romania 2024–2025 Election Crisis, 2025</li>
+      <li>Friends of Europe — Hybrid warfare Romania, Jul 2025</li>
+      <li>The Record — Russian DDoS on Romanian election, May 2025</li>
+      <li>Security Affairs — 85,000 attacks on electoral IT, Dec 2024</li>
+      <li>The Register — Romanian Waters ransomware, Dec 2025</li>
+      <li>Industrial Cyber — Oltenia "Gentlemen" attack, Jan 2026</li>
+      <li>Copla/Clifford Chance — NIS2 Romania fines, Jan 2026</li>
+      <li>ISMS.Online — NIS2 Romania compliance guide, Oct 2025</li>
+      <li>BCG — Quantum Computing Will Upend Cybersecurity</li>
+      <li>NIST — PQC Standards, Aug 2024</li>
+      <li>Google/Euronews — PQC migration commitment, Mar 2026</li>
+      <li>DNSC — SAFE Project grant 101190370</li>
+      <li>DNSC — CYRESRANGE Project grant 101128088</li>
+      <li>DNSC — JTAN Project INEA/CEF/ICT/A2020/2373165</li>
+      <li>DNSC — SIEMBIOT & IRIS research platforms</li>
+      <li>BCC2025 — Bucharest Cybersecurity Conference agenda</li>
+      <li>certSIGN — ENISA framework contract, Sep 2025</li>
+      <li>Safetech Innovations — BVB FY2025 filing (Feb 2026)</li>
+      <li>Politehnica Bucharest — SOCcare Project 101145843</li>
+      <li>Politehnica Bucharest — ECCC host institution page</li>
+      <li>SecITC 2024 — Springer LNCS vol. 15595 (16 papers)</li>
+      <li>SecITC 2025 — Springer Nature LNCS (20 papers)</li>
+      <li>CyberCon Romania 2025 — IC3 Proceedings Vol. XII</li>
+      <li>ECCC — Permanent offices inauguration, Oct 2024</li>
+      <li>ECCC — DEP Cyber Work Programme 2025–2027, Mar 2025</li>
+      <li>Horizon Europe — CL3 2025 call, €90.55M budget</li>
+      <li>EU Cyber Solidarity Act — entered force Feb 2025</li>
+      <li>UBB — Cyber Security MSc / EIT Digital partnership</li>
+      <li>Mordor Intelligence — Romania Cybersecurity Market 2025</li>
+    </ul>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ── PROGRESS BAR ──
+const progBar = document.getElementById('bar');
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  progBar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+}, { passive: true });
+
+// ── SCROLL FADE ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+// ── HERO COUNTERS ──
+function count(el, val, suffix, decimals, delay, prefix='') {
+  setTimeout(() => {
+    const dur = 1600, t0 = performance.now();
+    const step = ts => {
+      const p = Math.min((ts - t0) / dur, 1);
+      const v = val * (1 - Math.pow(1 - p, 3));
+      el.textContent = prefix + (decimals ? v.toFixed(decimals) : Math.round(v)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, delay);
+}
+count(document.getElementById('k1'), 194, 'M', 0, 400, '$');
+count(document.getElementById('k2'), 287, '%', 0, 600, '+');
+count(document.getElementById('k3'), 85000, '+', 0, 800);
+count(document.getElementById('k4'), 10, 'M', 0, 1000, '€');
+
+const mono = "'JetBrains Mono', monospace";
+function renderChartFallback(id, description) {
+  const canvas = document.getElementById(id);
+  if (!canvas || !canvas.parentElement) return;
+  canvas.parentElement.innerHTML = `<div class="chart-fallback"><strong>Chart unavailable</strong><span>${description}</span></div>`;
+}
+
+if (window.Chart) {
+  // ── CHART.JS DEFAULTS ──
+  Chart.defaults.color = '#a0a0a0';
+  Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+
+  // ── REVENUE CHART ──
+  new Chart(document.getElementById('revChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Bitdefender', 'CyberGhost*', 'Zitec*', 'Safetech', 'CoSoSys*', 'Bit Sentinel*', 'PentestTools*'],
+      datasets: [{
+        label: 'Revenue (€M)',
+        data: [330, 30, 20, 11, 10, 4, 4],
+        backgroundColor: [
+          'rgba(180,227,50,.82)', 'rgba(40,208,240,.65)', 'rgba(136,68,238,.6)',
+          'rgba(240,148,32,.72)', 'rgba(24,190,140,.65)', 'rgba(238,46,62,.6)', 'rgba(232,56,140,.55)'
+        ],
+        borderWidth: 0, borderRadius: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ' €' + c.parsed.y + 'M' + (c.label.includes('*') ? ' (est.)' : '') } }
+      },
+      scales: {
+        x: { ticks: { font: { family: mono, size: 9 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: { ticks: { font: { family: mono, size: 9 }, callback: v => '€' + v + 'M' }, grid: { color: 'rgba(255,255,255,.04)' } }
+      }
+    }
+  });
+
+  // ── AI ARMS RACE CHART ──
+  new Chart(document.getElementById('aiChart'), {
+    type: 'line',
+    data: {
+      labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026e'],
+      datasets: [
+        {
+          label: 'AI-assisted attacks (global index)',
+          data: [10, 15, 26, 44, 82, 148, 220],
+          borderColor: '#ee2e3e', backgroundColor: 'rgba(238,46,62,.07)',
+          fill: true, tension: .4, pointRadius: 3, pointBackgroundColor: '#ee2e3e', borderWidth: 2
+        },
+        {
+          label: 'AI-assisted defence (global index)',
+          data: [18, 26, 40, 60, 88, 128, 175],
+          borderColor: '#b4e332', backgroundColor: 'rgba(180,227,50,.06)',
+          fill: true, tension: .4, pointRadius: 3, pointBackgroundColor: '#b4e332', borderWidth: 2
+        },
+        {
+          label: 'Romanian AI cyber spend (index)',
+          data: [4, 7, 13, 22, 40, 70, 112],
+          borderColor: '#28d0f0', backgroundColor: 'rgba(40,208,240,.05)',
+          fill: true, tension: .4, pointRadius: 3, pointBackgroundColor: '#28d0f0', borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { family: mono, size: 9 }, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { ticks: { font: { family: mono, size: 9 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: {
+          ticks: { font: { family: mono, size: 9 } }, grid: { color: 'rgba(255,255,255,.04)' },
+          title: { display: true, text: 'Relative index (2026e = 100)', color: '#555', font: { family: mono, size: 8 } }
+        }
+      }
+    }
+  });
+
+  // ── QUANTUM PROBABILITY CHART ──
+  new Chart(document.getElementById('qChart'), {
+    type: 'line',
+    data: {
+      labels: ['2025', '2027', '2029', '2031', '2033', '2035', '2037', '2040'],
+      datasets: [{
+        label: 'CRQC probability (Global Risk Institute)',
+        data: [0.5, 1, 3, 8, 17, 34, 55, 79],
+        borderColor: '#f09420', backgroundColor: 'rgba(240,148,32,.08)',
+        fill: true, tension: .4, pointRadius: 4, pointBackgroundColor: '#f09420', borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ' ' + c.parsed.y + '% probability of CRQC' } }
+      },
+      scales: {
+        x: { ticks: { font: { family: mono, size: 9 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: {
+          ticks: { font: { family: mono, size: 9 }, callback: v => v + '%' },
+          grid: { color: 'rgba(255,255,255,.04)' },
+          title: { display: true, text: 'CRQC arrival probability', color: '#555', font: { family: mono, size: 8 } }
+        }
+      }
+    }
+  });
+
+  // ── GRANTS CHART ──
+  new Chart(document.getElementById('grantsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['ECCC Total\n(Europe)', 'ECCC 2025\nOpen Calls', 'Horizon CL3\n2025 Call', 'POCIDIF\nR&D (RO)', 'POCIDIF\nDigital (RO)', 'Cyber Sol.\nReserve', 'CYRESRANGE\n(RO)', 'SAFE Project\n(DNSC)', 'certSIGN\nENISA', 'Safetech\nR&D Projects'],
+      datasets: [{
+        label: 'EU Grant Value (€M)',
+        data: [600, 145.5, 90.55, 160, 150, 36, 1.746, 0.692, 0.9, 3.5],
+        backgroundColor: [
+          'rgba(180,227,50,.8)', 'rgba(180,227,50,.6)',
+          'rgba(40,208,240,.7)', 'rgba(240,148,32,.75)', 'rgba(240,148,32,.6)',
+          'rgba(136,68,238,.65)', 'rgba(24,190,140,.7)', 'rgba(24,190,140,.55)',
+          'rgba(40,120,228,.65)', 'rgba(232,56,140,.6)'
+        ],
+        borderWidth: 0, borderRadius: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ' €' + c.parsed.y.toFixed(c.parsed.y < 10 ? 3 : 1) + 'M' } }
+      },
+      scales: {
+        x: { ticks: { font: { family: mono, size: 8 }, maxRotation: 30 }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: { type: 'logarithmic', ticks: { font: { family: mono, size: 9 }, callback: v => '€' + (v >= 1 ? v.toFixed(0) : v) + 'M' }, grid: { color: 'rgba(255,255,255,.04)' }, title: { display: true, text: 'Log scale (€M)', color: '#555', font: { family: mono, size: 8 } } }
+      }
+    }
+  });
+} else {
+  renderChartFallback('revChart', 'Revenue chart requires Chart.js. The rest of the report remains available without third-party scripts.');
+  renderChartFallback('aiChart', 'AI trend chart requires Chart.js. The narrative analysis remains available below.');
+  renderChartFallback('qChart', 'Quantum probability chart requires Chart.js. The roadmap and exposure analysis remain available in text.');
+  renderChartFallback('grantsChart', 'EU grants comparison chart requires Chart.js. Funding details remain available in the report text.');
+}
+
+
+document.querySelectorAll('.ct tbody tr').forEach((row, i) => {
+  row.style.opacity = '0';
+  row.style.transition = `opacity 0.4s ease ${i * 0.06}s, background .15s`;
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { row.style.opacity = '1'; ro.unobserve(row); } });
+  }, { threshold: 0.1 });
+  ro.observe(row);
+});
+</script>
+</body>
+</html>
