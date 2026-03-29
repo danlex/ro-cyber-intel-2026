@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Romania Cybersecurity Intelligence Report 2026</title>
+<title>TVL Tech | Romania Cybersecurity Intelligence Report 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #060708; --bg2: #0c0f12; --bg3: #12161b; --bg4: #181d23;
-  --border: rgba(255,255,255,0.06); --border2: rgba(255,255,255,0.12);
-  --text: #ffffff; --muted: #a0a0a0; --dim: #555;
+  --bg: #0b0f12; --bg2: #10161c; --bg3: #171f27; --bg4: #1f2933;
+  --border: rgba(255,255,255,0.12); --border2: rgba(255,255,255,0.24);
+  --text: #ffffff; --muted: #d8e0e8; --dim: #b4c0cc;
   --lime: #b4e332; --cyan: #28d0f0; --red: #ee2e3e;
   --amber: #f09420; --purple: #8844ee; --teal: #18be8c;
   --blue: #2c78e4; --pink: #e8388c;
@@ -20,19 +20,23 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.8; overflow-x: hidden; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+.skip-link { position: absolute; left: 12px; top: -40px; z-index: 400; background: var(--lime); color: #060708; padding: 10px 12px; text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; }
+.skip-link:focus { top: 10px; }
 
 /* ── READING PROGRESS ── */
 #bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--lime); z-index: 300; width: 0; transition: width .08s linear; pointer-events: none; }
 
 /* ── NAV ── */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; background: rgba(6,7,8,.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: var(--mono); font-size: 11px; color: var(--lime); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; min-height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 10px 28px; background: rgba(11,15,18,.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border2); }
+.nav-logo { font-family: var(--mono); font-size: 13px; color: var(--text); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 .nav-logo::before { content: '▲'; font-size: 7px; opacity: .7; }
-.nav-links { display: flex; gap: 24px; list-style: none; }
-.nav-links a { font-family: var(--mono); font-size: 10px; color: var(--dim); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
-.nav-links a:hover { color: var(--lime); }
-.nav-right { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .06em; }
+.nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; justify-content: center; }
+.nav-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--border2); background: rgba(255,255,255,.04); font-family: var(--mono); font-size: 12px; color: var(--text); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; transition: color .2s, background .2s, border-color .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { color: #0b0f12; background: var(--lime); border-color: var(--lime); }
+.nav-right { font-family: var(--mono); font-size: 11px; color: var(--text); letter-spacing: .06em; }
 
 /* ── HERO ── */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1.15fr .85fr; border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
@@ -46,11 +50,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 52px; di
 .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lime); }
 .hero-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 88px); line-height: .93; letter-spacing: -.025em; margin-bottom: 32px; }
 .hero-title em { font-style: italic; color: var(--lime); }
-.hero-sub { font-size: 14px; color: var(--muted); max-width: 460px; line-height: 1.75; margin-bottom: 48px; }
+.hero-sub { font-size: 17px; color: var(--muted); max-width: 620px; line-height: 1.8; margin-bottom: 48px; }
 .hero-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); max-width: 640px; }
 .kpi { background: var(--bg); padding: 18px 16px; }
-.kpi-val { font-family: var(--serif); font-size: 26px; line-height: 1; letter-spacing: -.02em; }
-.kpi-lbl { font-family: var(--mono); font-size: 8px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
+.kpi-val { font-family: var(--serif); font-size: 34px; line-height: 1; letter-spacing: -.02em; }
+.kpi-lbl { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 6px; }
 
 /* Globe */
 .globe { position: relative; width: 300px; height: 300px; }
@@ -67,10 +71,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 52px; di
 @keyframes pd { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.5)} }
 
 /* ── SECTIONS ── */
-section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
-.sec-tag { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 14px; }
+section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
+.sec-tag { font-family: var(--mono); font-size: 10px; color: var(--text); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 14px; }
 .sec-tag::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.sec-title { font-family: var(--serif); font-size: clamp(30px, 3.6vw, 52px); line-height: 1.03; letter-spacing: -.022em; margin-bottom: 40px; }
+.sec-title { font-family: var(--serif); font-size: clamp(36px, 4.2vw, 58px); line-height: 1.05; letter-spacing: -.022em; margin-bottom: 40px; }
 .ac { color: var(--lime); } .ac-r { color: var(--red); } .ac-c { color: var(--cyan); } .ac-a { color: var(--amber); } .ac-p { color: var(--purple); }
 
 /* ── LAYOUTS ── */
@@ -80,41 +84,41 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 
 /* ── STAT GRID ── */
 .sg { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 48px; }
-.sb { background: var(--bg); padding: 28px 24px; position: relative; overflow: hidden; cursor: default; transition: background .2s; }
+.sb { background: var(--bg); padding: 30px 24px; position: relative; overflow: hidden; cursor: default; transition: background .2s; }
 .sb:hover { background: var(--bg2); }
 .sb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.16,1,.3,1); }
 .sb:hover::after { transform: scaleX(1); }
-.sn { font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -.03em; margin-bottom: 6px; }
-.sl { font-size: 13px; color: var(--muted); line-height: 1.4; }
-.ss { font-family: var(--mono); font-size: 9px; color: var(--dim); margin-top: 6px; letter-spacing: .05em; }
+.sn { font-family: var(--serif); font-size: 54px; line-height: 1; letter-spacing: -.03em; margin-bottom: 8px; }
+.sl { font-size: 15px; color: var(--muted); line-height: 1.5; }
+.ss { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 8px; letter-spacing: .05em; }
 
 /* ── DNSC STRIP ── */
 .dnsc-strip { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 28px 0; }
 .ds { background: var(--bg); flex: 1; padding: 20px 12px; text-align: center; }
-.dv { font-family: var(--serif); font-size: 26px; line-height: 1; margin-bottom: 4px; }
-.dc { font-family: var(--mono); font-size: 9px; margin-bottom: 3px; }
-.dl { font-family: var(--mono); font-size: 8px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
+.dv { font-family: var(--serif); font-size: 32px; line-height: 1; margin-bottom: 6px; }
+.dc { font-family: var(--mono); font-size: 10px; margin-bottom: 4px; }
+.dl { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
 .up { color: var(--teal); } .dn { color: var(--red); } .wa { color: var(--amber); }
 
 /* ── BARS ── */
-.tbr { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.tbl { font-family: var(--mono); font-size: 10px; color: var(--muted); width: 148px; flex-shrink: 0; text-align: right; }
-.tbt { flex: 1; height: 20px; background: var(--bg3); overflow: hidden; }
-.tbf { height: 100%; display: flex; align-items: center; padding-left: 8px; font-family: var(--mono); font-size: 9px; font-weight: 500; white-space: nowrap; animation: bg 1.4s cubic-bezier(.16,1,.3,1) both; animation-delay: var(--d,0s); }
+.tbr { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.tbl { font-family: var(--mono); font-size: 11px; color: var(--text); width: 170px; flex-shrink: 0; text-align: right; }
+.tbt { flex: 1; height: 26px; background: var(--bg3); overflow: hidden; }
+.tbf { height: 100%; display: flex; align-items: center; padding-left: 10px; font-family: var(--mono); font-size: 10px; font-weight: 500; white-space: nowrap; animation: bg 1.4s cubic-bezier(.16,1,.3,1) both; animation-delay: var(--d,0s); }
 @keyframes bg { from { width: 0 !important; } }
 
 /* ── COMPANY TABLE ── */
 .ct { width: 100%; border-collapse: collapse; }
-.ct thead th { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 0 0 12px; border-bottom: 1px solid var(--border); }
+.ct thead th { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 0 0 14px; border-bottom: 1px solid var(--border); }
 .ct tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
 .ct tbody tr:hover { background: rgba(255,255,255,.015); }
-.ct td { padding: 18px 12px 18px 0; vertical-align: middle; }
+.ct td { padding: 20px 12px 20px 0; vertical-align: middle; }
 .crk { font-family: var(--mono); font-size: 10px; color: var(--dim); width: 30px; }
-.cn { font-family: var(--serif); font-size: 18px; line-height: 1.1; margin-bottom: 2px; }
-.ctp { font-family: var(--mono); font-size: 8px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
-.cv { font-family: var(--mono); font-size: 15px; color: var(--lime); }
-.cg { font-family: var(--mono); font-size: 10px; margin-top: 3px; }
-.cd { font-size: 12px; color: var(--muted); max-width: 260px; line-height: 1.55; }
+.cn { font-family: var(--serif); font-size: 21px; line-height: 1.15; margin-bottom: 4px; }
+.ctp { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
+.cv { font-family: var(--mono); font-size: 18px; color: var(--lime); }
+.cg { font-family: var(--mono); font-size: 11px; margin-top: 4px; }
+.cd { font-size: 13px; color: var(--muted); max-width: 340px; line-height: 1.7; }
 .pill { display: inline-block; font-family: var(--mono); font-size: 7.5px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; margin: 1px; }
 .pl { background: rgba(40,208,240,.1); color: var(--cyan); }
 .pp { background: rgba(180,227,50,.1); color: var(--lime); }
@@ -144,17 +148,17 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 .bm { background: rgba(44,120,228,.13); color: var(--blue); }
 .be { background: rgba(136,68,238,.13); color: var(--purple); }
 .bg2c { background: rgba(24,190,140,.12); color: var(--teal); }
-.rt { font-size: 13px; font-weight: 500; margin-bottom: 6px; color: #fff; }
-.rd { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.rt { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+.rd { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
 /* ── HEATMAP ── */
 .hm { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin: 28px 0; }
 .hmc { padding: 14px 12px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform .2s; cursor: default; }
 .hmc:hover { transform: translateY(-2px); }
 .hmb { position: absolute; inset: 0; }
-.hms { font-family: var(--mono); font-size: 8px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 6px; position: relative; }
-.hmv { font-family: var(--serif); font-size: 20px; line-height: 1; margin-bottom: 3px; position: relative; }
-.hml { font-size: 11px; color: var(--muted); position: relative; }
+.hms { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 6px; position: relative; }
+.hmv { font-family: var(--serif); font-size: 24px; line-height: 1; margin-bottom: 5px; position: relative; }
+.hml { font-size: 13px; color: var(--muted); position: relative; }
 
 /* ── AI SPLIT ── */
 .ai-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 36px 0; }
@@ -170,8 +174,8 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 .qs { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 36px 0; }
 .qc { background: var(--bg); padding: 24px 18px; }
 .qy { font-family: var(--serif); font-size: 30px; letter-spacing: -.02em; margin-bottom: 6px; color: var(--dim); }
-.qt { font-size: 13px; font-weight: 500; margin-bottom: 7px; line-height: 1.4; color: #fff; }
-.qd { font-size: 12px; color: var(--muted); line-height: 1.65; }
+.qt { font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.45; color: #fff; }
+.qd { font-size: 13px; color: var(--muted); line-height: 1.7; }
 .qp { font-family: var(--mono); font-size: 8px; letter-spacing: .07em; margin-top: 10px; color: var(--dim); }
 .qnow { border-top: 2px solid var(--lime); } .qnow .qy { color: var(--lime); }
 .qnear { border-top: 2px solid var(--cyan); } .qnear .qy { color: var(--cyan); }
@@ -201,9 +205,25 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 .card:hover { border-color: var(--border2); }
 .card:last-child { margin-bottom: 0; }
 .cs { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-.card h3 { font-family: var(--serif); font-size: 17px; margin-bottom: 10px; color: #fff; line-height: 1.2; }
-.card p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 9px; }
+.card h3 { font-family: var(--serif); font-size: 21px; margin-bottom: 10px; color: #fff; line-height: 1.25; }
+.card p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 10px; }
 .card p:last-child { margin-bottom: 0; }
+.mgmt-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 36px; }
+.mgmt-card { background: var(--bg); padding: 26px 22px; }
+.mgmt-label { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .11em; text-transform: uppercase; margin-bottom: 10px; }
+.mgmt-card h3 { font-family: var(--serif); font-size: 24px; line-height: 1.1; margin-bottom: 10px; }
+.mgmt-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.chart-note { margin-top: 12px; font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 760px; }
+.law-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 28px 0; }
+.law-card { border: 1px solid var(--border); background: var(--bg2); padding: 22px 20px; }
+.law-kicker { font-family: var(--mono); font-size: 8px; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+.law-card h3 { font-family: var(--serif); font-size: 20px; margin-bottom: 10px; line-height: 1.15; }
+.law-card p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+.law-card p:last-child { margin-bottom: 0; }
+.src-list { margin-top: 18px; padding-left: 18px; }
+.src-list li { margin-bottom: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.src-list a, .prose a, .law-card a, .hl a { color: var(--lime); text-decoration: none; border-bottom: 1px solid rgba(180,227,50,.35); }
+.src-list a:hover, .prose a:hover, .law-card a:hover, .hl a:hover { border-bottom-color: var(--lime); }
 
 /* ── OUTLOOK GRID ── */
 .og { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 36px; }
@@ -215,10 +235,10 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 .oc p:last-child { margin-bottom: 0; }
 
 /* ── PROSE ── */
-.prose { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 680px; }
+.prose { font-size: 18px; color: var(--muted); line-height: 1.9; max-width: 860px; }
 .prose strong { color: #fff; font-weight: 500; }
-.hl { border-left: 2px solid var(--lime); padding: 18px 22px; background: rgba(180,227,50,.04); margin: 22px 0; }
-.hl p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.hl { border-left: 3px solid var(--lime); padding: 20px 24px; background: rgba(180,227,50,.04); margin: 24px 0; }
+.hl p { font-size: 16px; color: var(--muted); line-height: 1.8; }
 .hl strong { color: var(--lime); }
 .hl-r { border-left-color: var(--red); background: rgba(238,46,62,.04); }
 .hl-r strong { color: var(--red); }
@@ -239,12 +259,12 @@ section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
 /* ── FOOTER ── */
 footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap: 56px; border-top: 1px solid var(--border); }
 .fb { font-family: var(--serif); font-size: 36px; line-height: 1; margin-bottom: 14px; }
-.fd { font-size: 13px; color: var(--muted); max-width: 380px; line-height: 1.7; }
-.fc { font-family: var(--mono); font-size: 9px; color: var(--dim); margin-top: 20px; letter-spacing: .06em; }
-.fs h4 { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
-.fs ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-.fs li { font-family: var(--mono); font-size: 9.5px; color: var(--muted); display: flex; gap: 7px; }
-.fs li::before { content: '—'; color: var(--dim); }
+.fd { font-size: 14px; color: var(--muted); max-width: 420px; line-height: 1.8; }
+.fc { font-family: var(--mono); font-size: 10px; color: var(--text); margin-top: 20px; letter-spacing: .06em; }
+.fs h4 { font-family: var(--mono); font-size: 10px; color: var(--text); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
+.fs ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.fs li { font-family: var(--mono); font-size: 10.5px; color: var(--muted); display: flex; gap: 7px; }
+.fs li::before { content: '—'; color: var(--lime); }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 4px; }
@@ -252,27 +272,38 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
 @media (max-width: 960px) {
-  nav { padding: 0 20px; } .nav-links, .nav-right { display: none; }
+  nav { padding: 10px 20px; } .nav-links, .nav-right { display: none; }
   .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 90px 24px 56px; }
   .hero-kpis { grid-template-columns: repeat(2,1fr); }
   section, footer { padding: 56px 24px; }
-  .g2, .g3, .qs, .ai-split, .og, .fines, .rg { grid-template-columns: 1fr; }
+  .g2, .g3, .qs, .ai-split, .og, .fines, .rg, .law-grid, .mgmt-strip { grid-template-columns: 1fr; }
   .dnsc-strip { flex-wrap: wrap; } .ds { min-width: 30%; }
+  .tbl { width: 110px; text-align: left; }
+  .tbr { align-items: flex-start; }
+  .tbt { min-height: 30px; }
   .cd { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .fade { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to report</a>
 <div id="bar"></div>
 
 <nav>
-  <div class="nav-logo">RO · CYBER · INTEL · 2026</div>
+  <div class="nav-logo">TVL TECH · ROMANIA CYBER INTEL</div>
   <ul class="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#threats">Threats</a></li>
     <li><a href="#geopolitics">Geopolitics</a></li>
     <li><a href="#nis2">NIS2</a></li>
+    <li><a href="#eu-laws">EU Laws</a></li>
     <li><a href="#companies">Companies</a></li>
     <li><a href="#ai">AI</a></li>
     <li><a href="#quantum">Quantum</a></li>
@@ -280,14 +311,15 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <li><a href="#grants">Grants</a></li>
     <li><a href="#outlook">Outlook</a></li>
   </ul>
-  <span class="nav-right">Q1 2026 · Intelligence Report</span>
+  <span class="nav-right">Prepared for TVL Tech · Q1 2026</span>
 </nav>
 
+<main id="main-content">
 <!-- ════════════════════════ HERO ════════════════════════ -->
 <div class="hero">
   <div class="hero-grid"></div>
   <div class="hero-left">
-    <div class="eyebrow">Intelligence Report · Romania · Q1 2026</div>
+    <div class="eyebrow">TVL Tech Intelligence · Romania · Q1 2026</div>
     <h1 class="hero-title">Romania<br><em>Cybersecurity</em><br>Landscape</h1>
     <p class="hero-sub">A deeply researched analysis of Romania's cybersecurity market, threat landscape, geopolitical context, NIS2 enforcement, industry leaders, AI impact, and quantum computing readiness — compiled from DNSC official data, financial filings, and primary sources.</p>
     <div class="hero-kpis">
@@ -311,6 +343,33 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     </div>
   </div>
 </div>
+
+<section id="management-brief">
+  <div class="sec-tag">Management Brief</div>
+  <h2 class="sec-title">What leadership needs to know<br><em class="ac">in five minutes</em></h2>
+  <div class="mgmt-strip fade">
+    <div class="mgmt-card">
+      <div class="mgmt-label">What Changed</div>
+      <h3>Cyber risk is now a board issue.</h3>
+      <p>Romania moved from a mainly technical cyber conversation to a regulated, executive-accountability model. NIS2, DORA, and related EU laws now turn cyber controls into legal and governance obligations.</p>
+    </div>
+    <div class="mgmt-card">
+      <div class="mgmt-label">Why It Matters</div>
+      <h3>Operational disruption is the real cost.</h3>
+      <p>The most important impact is not only fines. It is service outage, reputational damage, supplier contagion, and regulatory scrutiny after an incident affecting customers, infrastructure, or public trust.</p>
+    </div>
+    <div class="mgmt-card">
+      <div class="mgmt-label">Immediate Priority</div>
+      <h3>Know your scope and evidence.</h3>
+      <p>Management teams need a clear view of which laws apply, who reports incidents, which suppliers matter most, and what proof of compliance exists today rather than in a slide deck.</p>
+    </div>
+    <div class="mgmt-card">
+      <div class="mgmt-label">Board Question</div>
+      <h3>Could we explain our posture tomorrow?</h3>
+      <p>If a regulator, shareholder, or journalist asked how the company handles cyber incidents, third parties, and product vulnerabilities, the answer should already exist in writing and be testable.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ════════════════════════ 01 OVERVIEW ════════════════════════ -->
 <section id="overview">
@@ -505,6 +564,82 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   </div>
 </section>
 
+<!-- ════════════════════════ 04B EU LAWS ════════════════════════ -->
+<section id="eu-laws">
+  <div class="sec-tag">04B — European Cybersecurity Laws in Romanian Implementation</div>
+  <h2 class="sec-title">From Brussels text to<br><em class="ac">Romanian enforcement</em></h2>
+  <div class="g2 fade">
+    <div class="prose">
+      <p>Romania is no longer dealing with a single cyber rulebook. The legal stack now includes one <strong>transposed directive</strong> and several <strong>directly applicable EU regulations</strong>. In practice, that means compliance work is split between national law, Romanian regulators, and EU-level technical standards.</p>
+      <p>The dividing line matters. <strong>NIS2</strong> required Romanian transposition, which Romania implemented through <a href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">OUG 155/2024</a>, later approved and amended by <a href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Law 124/2025</a>. By contrast, <strong>DORA</strong>, the <strong>Cyber Resilience Act</strong>, and the <strong>Cyber Solidarity Act</strong> apply directly across the EU, so Romanian entities do not wait for a local copy of the law to become binding; they wait for supervisory processes, implementing standards, and national coordination mechanisms.</p>
+      <div class="hl" style="margin-top:18px">
+        <p><strong>Implementation takeaway:</strong> for Romanian boards, the question is no longer "Which law applies?" but <strong>"Which regulator, which deadline, and which evidence set applies to this entity, this product, or this incident?"</strong></p>
+      </div>
+    </div>
+    <div class="fade" style="transition-delay:.1s">
+      <div class="sg" style="grid-template-columns:1fr 1fr">
+        <div class="sb"><div class="sn ac">NIS2</div><div class="sl">Transposed into Romanian law</div><div class="ss">DNSC-led national enforcement</div></div>
+        <div class="sb"><div class="sn" style="color:var(--cyan)">DORA</div><div class="sl">Directly applicable since 17 Jan 2025</div><div class="ss">Financial-sector operational resilience</div></div>
+        <div class="sb"><div class="sn" style="color:var(--amber)">CRA</div><div class="sl">In force at EU level</div><div class="ss">Product security and vuln handling</div></div>
+        <div class="sb"><div class="sn" style="color:var(--purple)">CSA</div><div class="sl">EU cyber reserve & solidarity</div><div class="ss">Romania benefits via DNSC and CSIRT roles</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-grid fade" style="transition-delay:.1s">
+    <div class="law-card">
+      <div class="law-kicker">Directive + National Law</div>
+      <h3>NIS2 in Romania</h3>
+      <p><strong>EU base:</strong> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555">Directive (EU) 2022/2555</a>.</p>
+      <p><strong>Romanian implementation:</strong> <a href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">OUG 155/2024</a>, approved and expanded by <a href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Law 124/2025</a>. Romania assigned DNSC a central operational role, built the registration and reporting path around the national platform, and imposed governance duties directly on management bodies.</p>
+      <p><strong>What implementation looks like:</strong> entity identification, registration, risk-management measures, incident reporting, vulnerability handling, supervisory review, and sanctions inside the Romanian legal system rather than through the directive text alone.</p>
+    </div>
+    <div class="law-card">
+      <div class="law-kicker">EU Regulation</div>
+      <h3>DORA for Romanian finance</h3>
+      <p><strong>EU base:</strong> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554</a>.</p>
+      <p><strong>Romanian implementation layer:</strong> DORA does not need transposition, but Romanian supervised entities still need local supervisory interfaces. The <a href="https://www.asfromania.ro/en/a/3115/regulamentul-%28ue%29-nr.-2022/2554-%28dora%29">ASF DORA page</a> and its <a href="https://asfromania.ro/ro/a/3117/standarde-tehnice%2C-ghiduri-si-acte-delegate-emise-in-aplicarea-regulamentului-%28ue%29-nr.-2022/2554-%28dora%29">implementing standards page</a> show how the regulation is operationalized for supervised firms.</p>
+      <p><strong>What implementation looks like:</strong> ICT risk governance, incident classification and reporting, testing, third-party register discipline, and supervisory evidence for banks, insurers, investment firms, and other covered financial entities.</p>
+    </div>
+    <div class="law-card">
+      <div class="law-kicker">EU Regulation</div>
+      <h3>Cyber Resilience Act and the Romanian product market</h3>
+      <p><strong>EU base:</strong> <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847</a>.</p>
+      <p>The CRA targets <strong>products with digital elements</strong>, not just operators of essential services. For Romanian software vendors, integrators, hardware distributors, and importers, the practical shift is that cybersecurity becomes a product-market access issue, with secure-by-default design, vulnerability processes, and manufacturer obligations built into the compliance model.</p>
+      <p><strong>Key timing:</strong> the regulation is in force, vulnerability and severe incident reporting obligations start earlier, and broad application follows from <strong>11 December 2027</strong> according to the EUR-Lex summary.</p>
+    </div>
+    <div class="law-card">
+      <div class="law-kicker">EU Regulation</div>
+      <h3>Cyber Solidarity Act and Romania's incident capacity</h3>
+      <p><strong>EU base:</strong> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02025R0038-20250115">Regulation (EU) 2025/38</a>.</p>
+      <p>This is not a corporate compliance rule in the same way as NIS2 or DORA. Its implementation effect is mainly institutional: it creates a framework for EU-level preparedness, a Cybersecurity Reserve, and cross-border support arrangements that Romania can use through DNSC, national CSIRT functions, and EU-funded capability projects.</p>
+      <p><strong>What implementation looks like:</strong> stronger detection, shared response capacity, and a pathway for Romania to plug national incident response into EU-level surge support rather than relying purely on domestic capacity.</p>
+    </div>
+  </div>
+
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin:40px 0 14px">What this means for Romanian organizations</h3>
+  <div class="g3 fade" style="transition-delay:.15s">
+    <div class="card"><div class="cs" style="background:var(--lime)"></div><h3>Operators now map to multiple regimes</h3><p>A Romanian bank may face DORA directly, NIS2-derived obligations through national law depending on entity status, and supplier-side exposure to the CRA through the technology it buys and sells. Legal scoping is now a board-level architecture task.</p></div>
+    <div class="card"><div class="cs" style="background:var(--cyan)"></div><h3>Implementation is increasingly evidence-based</h3><p>The laws converge around artifacts: risk registers, incident logs, supplier inventories, management accountability, testing records, and vulnerability workflows. Romanian entities should expect supervision to focus on evidence quality, not policy text alone.</p></div>
+    <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>Vendors are pulled into the compliance perimeter</h3><p>NIS2 widened the operator perimeter, while the CRA extends cyber accountability to products. Romanian software firms and integrators can no longer treat cybersecurity regulation as something that only hits utilities, banks, or ministries.</p></div>
+  </div>
+
+  <div class="fade" style="transition-delay:.2s">
+    <h3 style="font-family:var(--serif);font-size:22px;margin:34px 0 12px">Sources for this section</h3>
+    <ul class="src-list">
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555">Directive (EU) 2022/2555 (NIS2), EUR-Lex</a></li>
+      <li><a href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">Romania OUG 155/2024 on the national cybersecurity framework</a></li>
+      <li><a href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Romania Law 124/2025 approving and amending OUG 155/2024</a></li>
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554 (DORA), EUR-Lex</a></li>
+      <li><a href="https://www.asfromania.ro/en/a/3115/regulamentul-%28ue%29-nr.-2022/2554-%28dora%29">ASF Romania DORA overview</a></li>
+      <li><a href="https://asfromania.ro/ro/a/3117/standarde-tehnice%2C-ghiduri-si-acte-delegate-emise-in-aplicarea-regulamentului-%28ue%29-nr.-2022/2554-%28dora%29">ASF Romania DORA implementing technical standards and guidance</a></li>
+      <li><a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847 (Cyber Resilience Act), EUR-Lex</a></li>
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/LSU/?uri=CELEX:32024R2847">EUR-Lex summary of the Cyber Resilience Act application timeline</a></li>
+      <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02025R0038-20250115">Regulation (EU) 2025/38 (Cyber Solidarity Act), EUR-Lex</a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ════════════════════════ 05 COMPANIES ════════════════════════ -->
 <section id="companies">
   <div class="sec-tag">05 — Industry Players & Revenue</div>
@@ -512,7 +647,8 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <p class="prose fade" style="margin-bottom:36px">Romania's cybersecurity industry is sharply bifurcated: a single globally dominant champion (Bitdefender, ~€330M revenue) and a growing ecosystem of specialist firms scaling through nearshore SOC services, penetration testing, and EU-funded R&D. Safetech Innovations remains the only publicly listed pure-play cybersecurity firm on the Bucharest Stock Exchange. An anticipated Bitdefender IPO in 2026 could reshape the entire ecosystem.</p>
 
   <div class="fade" style="margin-bottom:40px">
-    <div class="cw" style="height:190px"><canvas id="revChart"></canvas></div>
+    <div class="cw" style="height:260px"><canvas id="revChart" role="img" aria-label="Bar chart comparing public and estimated revenues for selected Romanian cybersecurity companies"></canvas></div>
+    <p class="chart-note">This chart is useful for scale, not precision. Bitdefender and Safetech are grounded in reported figures; several other companies are shown as market estimates and should not be read as audited comparables.</p>
   </div>
 
   <table class="ct fade" style="transition-delay:.1s">
@@ -585,7 +721,8 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <p class="prose fade" style="margin-bottom:8px">Artificial intelligence has bifurcated Romania's cyber landscape into two concurrent realities. Romanian firms — led by Bitdefender — have embedded AI at industrial depth into their defensive stacks, creating a global competitive moat built on 400M-endpoint telemetry that no new entrant can replicate. Simultaneously, the same generative models are being weaponized by adversaries — as confirmed by DNSC's own +287% malware surge and the AI-automated "Gentlemen" attack on Oltenia Energy.</p>
 
   <div class="fade" style="margin:28px 0">
-    <div class="cw" style="height:220px"><canvas id="aiChart"></canvas></div>
+    <div class="cw" style="height:280px"><canvas id="aiChart" role="img" aria-label="Line chart showing illustrative growth in AI-assisted attacks, AI-assisted defense, and Romanian AI cyber spending"></canvas></div>
+    <p class="chart-note">This is an illustrative trend chart designed to explain direction of travel to non-technical readers. It should be treated as a visual summary, not as an official statistical series.</p>
   </div>
 
   <div class="ai-split fade" style="transition-delay:.1s">
@@ -647,7 +784,8 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
       <p>Romania's NATO membership creates a collective security obligation: CISA (US), NSA, and NATO cyber commands are actively pushing PQC migration across alliance members. Romania's lagging posture is both a domestic vulnerability and a NATO-level concern.</p>
     </div>
     <div class="fade" style="transition-delay:.1s">
-      <div class="cw" style="height:200px"><canvas id="qChart"></canvas></div>
+      <div class="cw" style="height:250px"><canvas id="qChart" role="img" aria-label="Line chart showing an illustrative probability curve for cryptographically relevant quantum computing over time"></canvas></div>
+      <p class="chart-note">The quantum chart is scenario-based. Its purpose is to show why migration planning starts early, not to claim a precise break date for current encryption.</p>
     </div>
   </div>
 
@@ -817,9 +955,10 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     </div>
   </div>
 
-  <div class="cw fade" style="height:180px;margin:36px 0">
-    <canvas id="grantsChart"></canvas>
+  <div class="cw fade" style="height:240px;margin:36px 0">
+    <canvas id="grantsChart" role="img" aria-label="Bar chart comparing selected EU cybersecurity funding programs and Romanian cybersecurity projects"></canvas>
   </div>
+  <p class="chart-note fade" style="transition-delay:.12s">The grants chart mixes Europe-wide programs and Romania-specific projects on a log scale so that large and small programs can be seen together. It is meant to show relative order of magnitude.</p>
 
   <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Romanian companies winning European contracts</h3>
   <div class="g2 fade" style="transition-delay:.1s">
@@ -892,9 +1031,9 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 <!-- ════════════════════════ FOOTER ════════════════════════ -->
 <footer>
   <div>
-    <div class="fb">Romania<br>Cyber<br><em style="font-style:italic;color:var(--lime)">Intel</em></div>
-    <p class="fd">This intelligence report was compiled from public sources, official regulatory filings, stock exchange disclosures, and primary market research as of Q1 2026. Revenue figures for unlisted companies represent market estimates. All figures in EUR unless noted. For informational purposes only — not investment advice.</p>
-    <p class="fc">© 2026 · Romania Cybersecurity Intelligence Report · Q1 2026 Edition · Compiled March 2026</p>
+    <div class="fb">TVL Tech<br>Romania Cyber<br><em style="font-style:italic;color:var(--lime)">Intelligence</em></div>
+    <p class="fd">This management report was prepared in a TVL Tech presentation style from public sources, official regulatory filings, stock exchange disclosures, and market research available as of Q1 2026. Revenue figures for unlisted companies remain estimates unless otherwise noted. All figures in EUR unless noted.</p>
+    <p class="fc">© 2026 · TVL Tech · Romania Cybersecurity Intelligence Report · Compiled March 2026</p>
   </div>
   <div class="fs">
     <h4>Primary Sources</h4>
@@ -940,6 +1079,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     </ul>
   </div>
 </footer>
+</main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
