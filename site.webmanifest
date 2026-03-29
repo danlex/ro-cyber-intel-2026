@@ -1,0 +1,17 @@
+{
+  "name": "Romania Cybersecurity Intelligence Report 2026",
+  "short_name": "RO Cyber Intel",
+  "description": "TVL Tech and ATIC report on Romania's cybersecurity landscape in 2026.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101010",
+  "theme_color": "#101010",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
