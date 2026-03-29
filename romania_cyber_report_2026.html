@@ -78,7 +78,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,73,49,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79,107,204,.028) 1px, transparent 1px); background-size: 56px 56px; animation: gp 10s ease-in-out infinite; }
 @keyframes gp { 0%,100%{opacity:.4} 50%{opacity:1} }
 .hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(255,73,49,.08), transparent 70%); }
-.hero-mark { position: absolute; width: min(34vw, 360px); opacity: .92; filter: drop-shadow(0 18px 40px rgba(255,73,49,.18)); z-index: 2; }
 .eyebrow { font-family: var(--mono); font-size: 14px; color: var(--lime); letter-spacing: .03em; text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
 .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lime); }
 .hero-title { font-family: var(--sans); font-weight: 800; font-size: clamp(48px, 6vw, 88px); line-height: .93; letter-spacing: -.05em; margin-bottom: 32px; text-transform: uppercase; }
@@ -89,19 +88,74 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .kpi-val { font-family: var(--serif); font-size: 34px; line-height: 1; letter-spacing: -.02em; }
 .kpi-lbl { font-family: var(--mono); font-size: 14px; color: var(--muted); letter-spacing: .03em; text-transform: uppercase; margin-top: 6px; }
 
-/* Globe */
-.globe { position: relative; width: 300px; height: 300px; }
-.gr { position: absolute; border-radius: 50%; border: 1px solid; animation: spin linear infinite; }
-.gr:nth-child(1){inset:0;border-color:rgba(255,73,49,.11);animation-duration:24s}
-.gr:nth-child(2){inset:16px;border-color:rgba(79,107,204,.09);animation-duration:17s;animation-direction:reverse}
-.gr:nth-child(3){inset:48px;border-color:rgba(255,73,49,.08);animation-duration:30s}
-.gr:nth-child(4){inset:82px;border-color:rgba(29,136,254,.07);animation-duration:21s;animation-direction:reverse}
-.gr:nth-child(5){inset:108px;border-color:rgba(158,45,30,.08);animation-duration:38s}
-.gc { position:absolute;inset:112px;background:radial-gradient(circle at 36% 36%,rgba(255,73,49,.14),rgba(79,107,204,.05));border-radius:50%;display:flex;align-items:center;justify-content:center; }
-.gc span { font-family:var(--mono);font-size:7.5px;color:var(--lime);letter-spacing:.1em;text-align:center;text-transform:uppercase;line-height:1.7; }
-.gd { position:absolute;width:5px;height:5px;border-radius:50%;animation:pd 2s ease-in-out infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes pd { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(.5)} }
+/* Threat Intel Hero */
+.intel-stage { position: relative; width: min(38vw, 520px); height: min(42vw, 560px); max-height: 82vh; border: 1px solid var(--border2); background:
+  linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+  radial-gradient(circle at 20% 18%, rgba(79,107,204,.14), transparent 34%),
+  radial-gradient(circle at 72% 70%, rgba(255,73,49,.14), transparent 36%),
+  #121212;
+  box-shadow: 0 30px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.04);
+  overflow: hidden;
+  z-index: 2;
+}
+.intel-stage::before { content: ''; position: absolute; inset: 0; background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: .65;
+}
+.intel-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(16,16,16,.05) 56%, rgba(16,16,16,.55) 100%); pointer-events: none; }
+.intel-hud { position: absolute; top: 18px; left: 18px; right: 18px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
+.intel-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); padding: 7px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
+.intel-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+.intel-map { position: absolute; inset: 78px 22px 150px 22px; border: 1px solid rgba(255,255,255,.07); background:
+  radial-gradient(circle at 42% 34%, rgba(79,107,204,.14), transparent 22%),
+  radial-gradient(circle at 60% 55%, rgba(255,73,49,.10), transparent 28%),
+  linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  overflow: hidden;
+}
+.intel-map::before { content: ''; position: absolute; inset: 12% 11% 16% 13%; border-radius: 50% 42% 46% 38% / 44% 35% 48% 40%; border: 1px solid rgba(255,255,255,.05); opacity: .8; transform: rotate(-8deg); }
+.intel-map::after { content: ''; position: absolute; inset: 8% 8%; background: radial-gradient(circle at 56% 44%, rgba(255,73,49,.08), transparent 26%); }
+.intel-sweep { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(255,73,49,.16) 48%, transparent 100%); transform: translateY(-110%); animation: sweep 4.8s linear infinite; mix-blend-mode: screen; }
+.intel-node { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--neutral--100); box-shadow: 0 0 0 4px rgba(255,255,255,.04); z-index: 2; }
+.intel-node::after { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.4s ease-out infinite; }
+.intel-node.hot { color: var(--lime); background: var(--lime); box-shadow: 0 0 18px rgba(255,73,49,.45); }
+.intel-node.watch { color: var(--cyan); background: var(--cyan); box-shadow: 0 0 16px rgba(79,107,204,.38); }
+.intel-node.clean { color: var(--teal); background: var(--teal); box-shadow: 0 0 16px rgba(5,193,104,.32); }
+.intel-link { position: absolute; height: 2px; transform-origin: left center; opacity: .8; z-index: 1; overflow: hidden; }
+.intel-link::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0), currentColor 18%, currentColor 82%, rgba(255,255,255,0)); }
+.intel-link::after { content: ''; position: absolute; top: -2px; left: -24%; width: 24%; height: 6px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent); animation: packet 2.6s linear infinite; }
+.intel-link.hot { color: rgba(255,73,49,.95); }
+.intel-link.watch { color: rgba(79,107,204,.92); }
+.intel-link.clean { color: rgba(5,193,104,.86); }
+.intel-label { position: absolute; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; z-index: 2; white-space: nowrap; }
+.intel-label strong { color: var(--text); font-weight: 600; }
+.intel-rings { position: absolute; right: 24px; bottom: 170px; width: 150px; height: 150px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); box-shadow: inset 0 0 0 28px rgba(255,255,255,.015), inset 0 0 0 56px rgba(255,255,255,.015); z-index: 2; }
+.intel-rings::before, .intel-rings::after { content: ''; position: absolute; border-radius: 50%; inset: 18px; border: 1px solid rgba(255,73,49,.18); }
+.intel-rings::after { inset: 44px; border-color: rgba(79,107,204,.18); }
+.intel-radar-line { position: absolute; inset: -12px; border-radius: 50%; background: conic-gradient(from 210deg, transparent 0deg, rgba(255,73,49,.02) 230deg, rgba(255,73,49,.22) 262deg, transparent 290deg); animation: radar 5.5s linear infinite; }
+.intel-radar-core { position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--lime); box-shadow: 0 0 18px rgba(255,73,49,.45); }
+.intel-feed { position: absolute; left: 22px; right: 22px; bottom: 22px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 12px; z-index: 3; }
+.intel-list, .intel-summary { border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.88); backdrop-filter: blur(8px); }
+.intel-list { padding: 14px 14px 10px; }
+.intel-summary { padding: 14px; display: grid; gap: 10px; }
+.intel-headline { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.intel-row { display: grid; grid-template-columns: 66px 1fr; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.06); }
+.intel-row:first-of-type { border-top: none; padding-top: 0; }
+.intel-time { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: .06em; text-transform: uppercase; }
+.intel-copy { font-size: 12px; line-height: 1.5; color: var(--muted); }
+.intel-copy strong { color: var(--text); font-weight: 600; }
+.intel-stat { padding: 10px 10px 8px; border: 1px solid rgba(255,255,255,.05); background: rgba(255,255,255,.015); }
+.intel-value { font-family: var(--sans); font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -.04em; margin-bottom: 4px; }
+.intel-key { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; }
+.intel-signal { position: absolute; width: 94px; height: 94px; border: 1px solid rgba(255,73,49,.18); border-radius: 50%; top: 22%; left: 22%; z-index: 1; animation: breathe 4.2s ease-in-out infinite; }
+.intel-signal::before, .intel-signal::after { content: ''; position: absolute; inset: 14px; border: 1px solid rgba(79,107,204,.16); border-radius: 50%; }
+.intel-signal::after { inset: 28px; border-color: rgba(5,193,104,.16); }
+@keyframes ping { 0% { transform: scale(.55); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes packet { to { left: 106%; } }
+@keyframes sweep { 0% { transform: translateY(-110%); } 100% { transform: translateY(110%); } }
+@keyframes radar { to { transform: rotate(360deg); } }
+@keyframes breathe { 0%,100% { transform: scale(.96); opacity: .55; } 50% { transform: scale(1.05); opacity: .95; } }
 
 /* ── SECTIONS ── */
 section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
@@ -376,16 +430,68 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   </div>
   <div class="hero-right">
     <div class="hero-glow"></div>
-    <img class="hero-mark" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66fa9dbf32372da934e45da5_Group%2041969.svg" alt="" aria-hidden="true">
-    <div class="globe">
-      <div class="gr"></div><div class="gr"></div><div class="gr"></div><div class="gr"></div><div class="gr"></div>
-      <div class="gc"><span>Romania<br>Cyber<br>Space</span></div>
-      <div class="gd" style="background:var(--lime);box-shadow:0 0 6px var(--lime);top:15%;left:54%"></div>
-      <div class="gd" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);top:40%;left:80%;animation-delay:.7s"></div>
-      <div class="gd" style="background:var(--red);box-shadow:0 0 6px var(--red);top:66%;left:32%;animation-delay:1.3s"></div>
-      <div class="gd" style="background:var(--amber);box-shadow:0 0 6px var(--amber);top:25%;left:18%;animation-delay:.4s"></div>
-      <div class="gd" style="background:var(--purple);box-shadow:0 0 6px var(--purple);top:57%;left:65%;animation-delay:1s"></div>
-      <div class="gd" style="background:var(--pink);box-shadow:0 0 6px var(--pink);top:75%;left:55%;animation-delay:.2s"></div>
+    <div class="intel-stage" aria-hidden="true">
+      <div class="intel-hud">
+        <span class="intel-tag">Live Threat Intel</span>
+        <span class="intel-meta">Eastern Flank / RO / 24x7</span>
+      </div>
+      <div class="intel-map">
+        <div class="intel-sweep"></div>
+        <div class="intel-signal"></div>
+
+        <span class="intel-link hot" style="top:24%;left:18%;width:188px;transform:rotate(14deg)"></span>
+        <span class="intel-link watch" style="top:44%;left:29%;width:146px;transform:rotate(-18deg);animation-delay:.4s"></span>
+        <span class="intel-link clean" style="top:62%;left:40%;width:120px;transform:rotate(-34deg);animation-delay:.9s"></span>
+        <span class="intel-link hot" style="top:39%;left:46%;width:128px;transform:rotate(26deg);animation-delay:1.3s"></span>
+
+        <span class="intel-node hot" style="top:21%;left:20%"></span>
+        <span class="intel-node watch" style="top:30%;left:56%"></span>
+        <span class="intel-node hot" style="top:44%;left:39%"></span>
+        <span class="intel-node clean" style="top:63%;left:53%"></span>
+        <span class="intel-node watch" style="top:54%;left:74%"></span>
+        <span class="intel-node hot" style="top:72%;left:29%"></span>
+
+        <span class="intel-label" style="top:16%;left:10%"><strong>Ingress</strong> / ext feed</span>
+        <span class="intel-label" style="top:25%;left:60%">Bucharest SOC</span>
+        <span class="intel-label" style="top:48%;left:15%">Public admin</span>
+        <span class="intel-label" style="top:58%;left:57%">Energy OT</span>
+        <span class="intel-label" style="top:76%;left:34%">Banking</span>
+      </div>
+      <div class="intel-rings">
+        <div class="intel-radar-line"></div>
+        <div class="intel-radar-core"></div>
+      </div>
+      <div class="intel-feed">
+        <div class="intel-list">
+          <div class="intel-headline">Latest signals</div>
+          <div class="intel-row">
+            <div class="intel-time">02:14Z</div>
+            <div class="intel-copy"><strong>Credential theft spike</strong> aligned with public-sector exposure window.</div>
+          </div>
+          <div class="intel-row">
+            <div class="intel-time">02:19Z</div>
+            <div class="intel-copy"><strong>Election influence monitoring</strong> remains active across social platforms.</div>
+          </div>
+          <div class="intel-row">
+            <div class="intel-time">02:31Z</div>
+            <div class="intel-copy"><strong>OT watchlist elevated</strong> for water, power, and transport entities.</div>
+          </div>
+        </div>
+        <div class="intel-summary">
+          <div class="intel-stat">
+            <div class="intel-value" style="color:var(--lime)">287%</div>
+            <div class="intel-key">Malware delta</div>
+          </div>
+          <div class="intel-stat">
+            <div class="intel-value" style="color:var(--cyan)">101</div>
+            <div class="intel-key">Ransomware cases</div>
+          </div>
+          <div class="intel-stat">
+            <div class="intel-value" style="color:var(--amber)">85k+</div>
+            <div class="intel-key">Election attacks</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
