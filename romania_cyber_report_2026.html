@@ -178,12 +178,17 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .ro-outline-inner { fill: none; stroke: rgba(255,255,255,.10); stroke-width: 1.2; }
 .ro-region { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
 .ro-river { fill: none; stroke: rgba(79,107,204,.32); stroke-width: 1.35; stroke-dasharray: 5 6; stroke-linecap: round; }
+.ro-zone { stroke: rgba(255,255,255,.11); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.ro-zone.base { fill: rgba(255,255,255,.06); }
+.ro-zone.watch { fill: rgba(79,107,204,.46); }
+.ro-zone.elevated { fill: rgba(255,158,44,.44); }
+.ro-zone.critical { fill: rgba(255,73,49,.40); }
 .ro-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 9px 11px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.74); backdrop-filter: blur(8px); z-index: 4; border-radius: 14px; max-width: 220px; }
 .ro-legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
 .ro-legend i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 .ro-legend i.hot { background: var(--accent--primary-1); box-shadow: 0 0 10px rgba(255,73,49,.45); }
+.ro-legend i.elevated { background: var(--system--orange-300); box-shadow: 0 0 10px rgba(255,158,44,.36); }
 .ro-legend i.watch { background: var(--secondary--color-2); box-shadow: 0 0 10px rgba(79,107,204,.4); }
-.ro-legend i.warn { background: var(--system--orange-300); box-shadow: 0 0 10px rgba(255,158,44,.36); }
 .ro-city { position: absolute; width: 12px; height: 12px; border-radius: 50%; z-index: 3; }
 .ro-city::before { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.6s ease-out infinite; animation-delay: var(--ping-delay, 0s); }
 .ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -24px); left: var(--label-left, 14px); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--neutral--100); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.88); }
@@ -545,8 +550,20 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
                 <stop offset="45%" stop-color="#ffffff" stop-opacity=".08"></stop>
                 <stop offset="100%" stop-color="#ff4931" stop-opacity=".26"></stop>
               </linearGradient>
+              <clipPath id="romaniaHeroClip">
+                <path d="M96 60 L130 45 L165 42 L201 54 L236 46 L278 58 L314 82 L338 118 L348 156 L364 191 L356 223 L369 257 L386 297 L382 334 L352 368 L318 392 L282 404 L250 430 L214 443 L178 436 L141 423 L108 428 L78 408 L56 378 L45 341 L47 302 L36 266 L26 228 L34 190 L44 154 L40 118 L55 88 L96 60 Z"></path>
+              </clipPath>
             </defs>
-            <path class="ro-outline" d="M96 60 L130 45 L165 42 L201 54 L236 46 L278 58 L314 82 L338 118 L348 156 L364 191 L356 223 L369 257 L386 297 L382 334 L352 368 L318 392 L282 404 L250 430 L214 443 L178 436 L141 423 L108 428 L78 408 L56 378 L45 341 L47 302 L36 266 L26 228 L34 190 L44 154 L40 118 L55 88 L96 60 Z"></path>
+            <g clip-path="url(#romaniaHeroClip)">
+              <path class="ro-zone base" d="M96 60 L130 45 L165 42 L201 54 L236 46 L278 58 L314 82 L338 118 L348 156 L364 191 L356 223 L369 257 L386 297 L382 334 L352 368 L318 392 L282 404 L250 430 L214 443 L178 436 L141 423 L108 428 L78 408 L56 378 L45 341 L47 302 L36 266 L26 228 L34 190 L44 154 L40 118 L55 88 L96 60 Z"></path>
+              <path class="ro-zone watch" d="M54 103 L96 72 L142 58 L176 68 L171 128 L145 171 L115 196 L82 198 L53 174 L43 132 Z"></path>
+              <path class="ro-zone watch" d="M246 78 L285 83 L318 105 L340 139 L350 177 L340 206 L304 213 L285 177 L268 147 L242 116 Z"></path>
+              <path class="ro-zone elevated" d="M151 132 L205 117 L254 126 L285 155 L292 202 L276 245 L237 274 L191 268 L165 236 L154 186 Z"></path>
+              <path class="ro-zone critical" d="M161 300 L204 286 L252 293 L292 307 L320 331 L310 379 L282 405 L242 420 L192 410 L171 371 Z"></path>
+              <path class="ro-zone elevated" d="M287 230 L330 231 L365 248 L383 286 L377 336 L347 367 L311 360 L300 320 L297 275 Z"></path>
+              <path class="ro-zone critical" d="M67 286 L101 276 L138 287 L157 318 L147 367 L111 389 L79 372 L59 337 L56 301 Z"></path>
+            </g>
+            <path class="ro-outline" fill="none" d="M96 60 L130 45 L165 42 L201 54 L236 46 L278 58 L314 82 L338 118 L348 156 L364 191 L356 223 L369 257 L386 297 L382 334 L352 368 L318 392 L282 404 L250 430 L214 443 L178 436 L141 423 L108 428 L78 408 L56 378 L45 341 L47 302 L36 266 L26 228 L34 190 L44 154 L40 118 L55 88 L96 60 Z"></path>
             <path class="ro-outline-inner" d="M112 82 L141 69 L168 66 L200 76 L232 69 L267 78 L296 98 L317 127 L326 158 L339 190 L333 219 L343 248 L357 282 L353 314 L328 342 L299 362 L268 372 L241 392 L212 403 L182 396 L150 385 L121 390 L96 374 L77 349 L67 318 L69 287 L60 257 L51 225 L58 193 L67 163 L63 133 L75 109 L112 82 Z"></path>
             <path class="ro-region" d="M154 92 L172 146 L160 214 L176 274 L164 334"></path>
             <path class="ro-region" d="M222 74 L220 136 L236 195 L224 262 L230 330"></path>
@@ -563,13 +580,13 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
           <span class="ro-city watch" data-label="Timisoara" style="top:51%;left:10%;--ping-delay:1.9s"></span>
           <span class="ro-city hot" data-label="Constanta" style="top:72%;left:79%;--ping-delay:2.2s;--label-left:-72px"></span>
           <div class="ro-legend">
-            <span><i class="hot"></i>Critical incident</span>
-            <span><i class="watch"></i>Regional pressure</span>
-            <span><i class="warn"></i>Branch disruption</span>
+            <span><i class="hot"></i>Critical threat</span>
+            <span><i class="elevated"></i>Elevated threat</span>
+            <span><i class="watch"></i>Watch</span>
           </div>
         </div>
 
-        <span class="intel-label" style="top:14%;left:56%"><strong>Named Romanian city incidents</strong></span>
+        <span class="intel-label" style="top:14%;left:54%"><strong>Threat level by named incident cluster</strong></span>
       </div>
     </div>
   </div>
