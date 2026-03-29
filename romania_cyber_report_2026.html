@@ -166,7 +166,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
   opacity: .28;
 }
 .intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
-.ro-map { position: absolute; inset: 8% 5% 12% 5%; z-index: 1; }
+.ro-map { position: absolute; inset: 5% 4% 9% 4%; z-index: 1; display: flex; align-items: center; justify-content: center; }
+.ro-map-image { width: 100%; height: 100%; object-fit: contain; display: block; filter: saturate(.9) contrast(.98); }
 .ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ro-outline { fill: none; stroke: rgba(255,255,255,.32); stroke-width: 1.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.18)); }
 .ro-outline-inner { display: none; }
@@ -542,78 +543,16 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <div class="hero-glow"></div>
     <div class="intel-stage" aria-hidden="true">
       <div class="intel-hud">
-        <span class="intel-tag">Romania City Threat Map</span>
-        <span class="intel-meta">Named incidents / cities / Q1 2026</span>
+        <span class="intel-tag">Romania County Threat Base</span>
+        <span class="intel-meta">Administrative polygons / Q1 2026</span>
       </div>
       <div class="intel-footnote">Illustrative management view</div>
       <div class="intel-map">
         <div class="ro-map">
-          <svg class="ro-svg" viewBox="0 0 420 460" aria-hidden="true">
-            <defs>
-              <linearGradient id="romaniaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#4f6bcc" stop-opacity=".40"></stop>
-                <stop offset="45%" stop-color="#ffffff" stop-opacity=".08"></stop>
-                <stop offset="100%" stop-color="#ff4931" stop-opacity=".26"></stop>
-              </linearGradient>
-              <clipPath id="romaniaHeroClip">
-                <path d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
-              </clipPath>
-            </defs>
-            <g clip-path="url(#romaniaHeroClip)">
-              <path class="ro-zone base" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
-              <path class="ro-zone watch-west" d="M25.2 142.2 L103.5 142.2 L201.3 165.6 L185.6 220.4 L126.9 263.4 L36.9 259.5 L25.2 142.2 Z"></path>
-              <path class="ro-zone watch-east" d="M228.6 134.3 L400.8 134.3 L400.8 212.6 L330.4 224.3 L256.0 220.4 L228.6 134.3 Z"></path>
-              <path class="ro-zone elevated-core" d="M126.9 185.2 L213.0 169.5 L291.2 189.1 L314.7 232.1 L283.4 267.3 L216.9 279.1 L142.6 255.6 L126.9 185.2 Z"></path>
-              <path class="ro-zone critical-south" d="M130.8 247.8 L220.8 247.8 L303.0 259.5 L349.9 275.2 L353.8 322.1 L177.8 326.0 L126.9 306.5 L130.8 247.8 Z"></path>
-              <path class="ro-zone elevated-coast" d="M291.2 220.4 L404.7 228.2 L404.7 306.5 L342.1 306.5 L295.2 283.0 L291.2 220.4 Z"></path>
-              <path class="ro-zone critical-southwest" d="M56.5 236.1 L126.9 247.8 L142.6 290.8 L99.5 314.3 L48.7 294.7 L40.9 259.5 L56.5 236.1 Z"></path>
-            </g>
-            <path class="ro-outline" fill="none" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
-            <path class="ro-outline-inner" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
-            <g class="ro-city-g watch">
-              <circle class="ro-city-ring" cx="64.7" cy="237.8" r="18" style="animation-delay:1.9s"></circle>
-              <circle class="ro-city-dot" cx="64.7" cy="237.8" r="6.5"></circle>
-              <text class="ro-city-label" x="76" y="208">TIMISOARA</text>
-            </g>
-            <g class="ro-city-g watch">
-              <circle class="ro-city-ring" cx="159.2" cy="198.3" r="18" style="animation-delay:.2s"></circle>
-              <circle class="ro-city-dot" cx="159.2" cy="198.3" r="6.5"></circle>
-              <text class="ro-city-label" x="170" y="170">CLUJ-NAPOCA</text>
-            </g>
-            <g class="ro-city-g warn">
-              <circle class="ro-city-ring" cx="236" cy="242.4" r="18" style="animation-delay:.6s"></circle>
-              <circle class="ro-city-dot" cx="236" cy="242.4" r="6.5"></circle>
-              <text class="ro-city-label" x="246" y="214">BRASOV</text>
-            </g>
-            <g class="ro-city-g warn">
-              <circle class="ro-city-ring" cx="252.4" cy="270" r="18" style="animation-delay:.9s"></circle>
-              <circle class="ro-city-dot" cx="252.4" cy="270" r="6.5"></circle>
-              <text class="ro-city-label" x="264" y="243">PLOIESTI</text>
-            </g>
-            <g class="ro-city-g hot">
-              <circle class="ro-city-ring" cx="256.2" cy="289.8" r="18" style="animation-delay:1.2s"></circle>
-              <circle class="ro-city-dot" cx="256.2" cy="289.8" r="6.5"></circle>
-              <text class="ro-city-label" x="263" y="320">BUCHAREST</text>
-            </g>
-            <g class="ro-city-g hot">
-              <circle class="ro-city-ring" cx="145.3" cy="265.9" r="18" style="animation-delay:1.5s"></circle>
-              <circle class="ro-city-dot" cx="145.3" cy="265.9" r="6.5"></circle>
-              <text class="ro-city-label" x="150" y="297">TARGU JIU</text>
-            </g>
-            <g class="ro-city-g hot">
-              <circle class="ro-city-ring" cx="355.3" cy="300.4" r="18" style="animation-delay:2.2s"></circle>
-              <circle class="ro-city-dot" cx="355.3" cy="300.4" r="6.5"></circle>
-              <text class="ro-city-label" x="340" y="283" text-anchor="end">CONSTANTA</text>
-            </g>
-          </svg>
-          <div class="ro-legend">
-            <span><i class="hot"></i>Critical threat</span>
-            <span><i class="elevated"></i>Elevated threat</span>
-            <span><i class="watch"></i>Watch</span>
-          </div>
+          <img class="ro-map-image" src="assets/romania-counties.svg" alt="Romania county-level administrative map" />
         </div>
 
-        <span class="intel-label" style="top:14%;left:54%"><strong>Threat level by named incident cluster</strong></span>
+        <span class="intel-label" style="top:14%;left:54%"><strong>County-level administrative view</strong></span>
       </div>
     </div>
   </div>
