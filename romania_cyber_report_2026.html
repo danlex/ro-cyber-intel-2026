@@ -154,18 +154,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); padding: 7px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
 .intel-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
 .intel-map { position: absolute; inset: 78px 18px 18px 18px; border: 1px solid rgba(255,255,255,.07); background:
-  radial-gradient(circle at 42% 34%, rgba(79,107,204,.14), transparent 22%),
-  radial-gradient(circle at 60% 55%, rgba(255,73,49,.10), transparent 28%),
   linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
   overflow: hidden;
   border-radius: 18px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
 }
-.intel-map::before { content: ''; position: absolute; inset: 8% 8%; background:
-  linear-gradient(180deg, transparent 0%, rgba(255,255,255,.015) 100%),
-  radial-gradient(circle at 62% 38%, rgba(255,73,49,.05), transparent 20%),
-  radial-gradient(circle at 28% 60%, rgba(79,107,204,.05), transparent 24%);
-}
+.intel-map::before { content: ''; position: absolute; inset: 8% 8%; background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.012) 100%); }
 .intel-map::after { content: ''; position: absolute; inset: 0; background:
   linear-gradient(90deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%),
   linear-gradient(180deg, transparent 0%, transparent 78%, rgba(255,255,255,.02) 78%, rgba(255,255,255,.02) 79%, transparent 79%);
@@ -174,28 +168,31 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; di
 .intel-map-scan, .intel-map-pulse, .intel-packet-cloud, .intel-signal, .intel-rings { display: none; }
 .ro-map { position: absolute; inset: 8% 5% 12% 5%; z-index: 1; }
 .ro-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ro-outline { fill: url(#romaniaGradient); stroke: rgba(255,255,255,.20); stroke-width: 2.4; filter: drop-shadow(0 18px 34px rgba(0,0,0,.28)); }
-.ro-outline-inner { fill: none; stroke: rgba(255,255,255,.10); stroke-width: 1.2; }
+.ro-outline { fill: none; stroke: rgba(255,255,255,.32); stroke-width: 1.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.18)); }
+.ro-outline-inner { display: none; }
 .ro-region { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
 .ro-river { fill: none; stroke: rgba(79,107,204,.32); stroke-width: 1.35; stroke-dasharray: 5 6; stroke-linecap: round; }
-.ro-zone { stroke: rgba(255,255,255,.11); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-.ro-zone.base { fill: rgba(255,255,255,.06); }
-.ro-zone.watch { fill: rgba(79,107,204,.46); }
-.ro-zone.elevated { fill: rgba(255,158,44,.44); }
-.ro-zone.critical { fill: rgba(255,73,49,.40); }
-.ro-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 9px 11px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.74); backdrop-filter: blur(8px); z-index: 4; border-radius: 14px; max-width: 220px; }
-.ro-legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.ro-zone { stroke: rgba(255,255,255,.18); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.ro-zone.base { fill: rgba(248,248,248,.05); }
+.ro-zone.watch-west { fill: rgba(93, 112, 185, .74); }
+.ro-zone.watch-east { fill: rgba(126, 95, 178, .72); }
+.ro-zone.elevated-core { fill: rgba(186, 133, 76, .76); }
+.ro-zone.elevated-coast { fill: rgba(165, 112, 74, .72); }
+.ro-zone.critical-south { fill: rgba(182, 92, 97, .76); }
+.ro-zone.critical-southwest { fill: rgba(158, 84, 80, .74); }
+.ro-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.08); background: rgba(16,16,16,.82); z-index: 4; border-radius: 12px; max-width: 220px; }
+.ro-legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 11px; color: var(--neutral--300); letter-spacing: .01em; }
 .ro-legend i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
-.ro-legend i.hot { background: var(--accent--primary-1); box-shadow: 0 0 10px rgba(255,73,49,.45); }
-.ro-legend i.elevated { background: var(--system--orange-300); box-shadow: 0 0 10px rgba(255,158,44,.36); }
-.ro-legend i.watch { background: var(--secondary--color-2); box-shadow: 0 0 10px rgba(79,107,204,.4); }
+.ro-legend i.hot { background: var(--accent--primary-1); }
+.ro-legend i.elevated { background: var(--system--orange-300); }
+.ro-legend i.watch { background: var(--secondary--color-2); }
 .ro-city-g { pointer-events: none; }
 .ro-city-g.hot { color: var(--accent--primary-1); }
 .ro-city-g.watch { color: var(--secondary--color-2); }
 .ro-city-g.warn { color: var(--system--orange-300); }
-.ro-city-ring { fill: none; stroke: currentColor; stroke-width: 1.6; opacity: .32; transform-origin: center; transform-box: fill-box; animation: ringPulse 3.2s ease-in-out infinite; }
-.ro-city-dot { fill: currentColor; filter: drop-shadow(0 0 12px currentColor); }
-.ro-city-label { font-family: var(--mono); font-size: 14px; letter-spacing: .05em; fill: var(--neutral--100); paint-order: stroke; stroke: rgba(16,16,16,.9); stroke-width: 3px; stroke-linejoin: round; }
+.ro-city-ring { display: none; }
+.ro-city-dot { fill: currentColor; stroke: rgba(255,255,255,.88); stroke-width: 1.4; }
+.ro-city-label { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .06em; fill: var(--neutral--100); paint-order: stroke; stroke: rgba(16,16,16,.86); stroke-width: 3px; stroke-linejoin: round; }
 .ro-city { position: absolute; width: 12px; height: 12px; border-radius: 50%; z-index: 3; }
 .ro-city::before { content: ''; position: absolute; inset: -6px; border: 1px solid currentColor; border-radius: 50%; opacity: .45; animation: ping 2.6s ease-out infinite; animation-delay: var(--ping-delay, 0s); }
 .ro-city::after { content: attr(data-label); position: absolute; top: var(--label-top, -24px); left: var(--label-left, 14px); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--neutral--100); white-space: nowrap; text-shadow: 0 1px 10px rgba(0,0,0,.88); }
@@ -564,49 +561,49 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
             </defs>
             <g clip-path="url(#romaniaHeroClip)">
               <path class="ro-zone base" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
-              <path class="ro-zone watch" d="M25.2 142.2 L103.5 142.2 L201.3 165.6 L185.6 220.4 L126.9 263.4 L36.9 259.5 L25.2 142.2 Z"></path>
-              <path class="ro-zone watch" d="M228.6 134.3 L400.8 134.3 L400.8 212.6 L330.4 224.3 L256.0 220.4 L228.6 134.3 Z"></path>
-              <path class="ro-zone elevated" d="M126.9 185.2 L213.0 169.5 L291.2 189.1 L314.7 232.1 L283.4 267.3 L216.9 279.1 L142.6 255.6 L126.9 185.2 Z"></path>
-              <path class="ro-zone critical" d="M130.8 247.8 L220.8 247.8 L303.0 259.5 L349.9 275.2 L353.8 322.1 L177.8 326.0 L126.9 306.5 L130.8 247.8 Z"></path>
-              <path class="ro-zone elevated" d="M291.2 220.4 L404.7 228.2 L404.7 306.5 L342.1 306.5 L295.2 283.0 L291.2 220.4 Z"></path>
-              <path class="ro-zone critical" d="M56.5 236.1 L126.9 247.8 L142.6 290.8 L99.5 314.3 L48.7 294.7 L40.9 259.5 L56.5 236.1 Z"></path>
+              <path class="ro-zone watch-west" d="M25.2 142.2 L103.5 142.2 L201.3 165.6 L185.6 220.4 L126.9 263.4 L36.9 259.5 L25.2 142.2 Z"></path>
+              <path class="ro-zone watch-east" d="M228.6 134.3 L400.8 134.3 L400.8 212.6 L330.4 224.3 L256.0 220.4 L228.6 134.3 Z"></path>
+              <path class="ro-zone elevated-core" d="M126.9 185.2 L213.0 169.5 L291.2 189.1 L314.7 232.1 L283.4 267.3 L216.9 279.1 L142.6 255.6 L126.9 185.2 Z"></path>
+              <path class="ro-zone critical-south" d="M130.8 247.8 L220.8 247.8 L303.0 259.5 L349.9 275.2 L353.8 322.1 L177.8 326.0 L126.9 306.5 L130.8 247.8 Z"></path>
+              <path class="ro-zone elevated-coast" d="M291.2 220.4 L404.7 228.2 L404.7 306.5 L342.1 306.5 L295.2 283.0 L291.2 220.4 Z"></path>
+              <path class="ro-zone critical-southwest" d="M56.5 236.1 L126.9 247.8 L142.6 290.8 L99.5 314.3 L48.7 294.7 L40.9 259.5 L56.5 236.1 Z"></path>
             </g>
             <path class="ro-outline" fill="none" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
             <path class="ro-outline-inner" d="M123.4 154.6 L140.3 146.2 L164.5 150.5 L189.6 150.7 L207.8 160.2 L221.1 154.2 L250.0 150.5 L259.8 141.3 L276.4 141.3 L288.3 145.2 L300.4 156.8 L312.8 173.3 L335.4 196.5 L336.6 213.7 L332.5 230.4 L339.5 248.2 L357.0 255.5 L375.3 249.2 L393.1 255.9 L394.0 266.0 L375.0 274.4 L363.1 270.7 L352.2 317.9 L329.2 313.8 L300.7 299.6 L254.7 308.7 L235.3 318.7 L177.8 316.6 L147.8 310.5 L132.6 313.4 L121.3 297.3 L114.2 290.5 L123.2 283.9 L113.6 279.0 L101.3 287.8 L78.5 276.4 L75.4 260.3 L51.6 251.1 L47.2 238.6 L26.0 223.2 L57.4 215.9 L81.0 189.3 L99.5 162.8 Z"></path>
             <g class="ro-city-g watch">
               <circle class="ro-city-ring" cx="64.7" cy="237.8" r="18" style="animation-delay:1.9s"></circle>
-              <circle class="ro-city-dot" cx="64.7" cy="237.8" r="7.5"></circle>
-              <text class="ro-city-label" x="78" y="208">TIMISOARA</text>
+              <circle class="ro-city-dot" cx="64.7" cy="237.8" r="6.5"></circle>
+              <text class="ro-city-label" x="76" y="208">TIMISOARA</text>
             </g>
             <g class="ro-city-g watch">
               <circle class="ro-city-ring" cx="159.2" cy="198.3" r="18" style="animation-delay:.2s"></circle>
-              <circle class="ro-city-dot" cx="159.2" cy="198.3" r="7.5"></circle>
-              <text class="ro-city-label" x="171" y="168">CLUJ-NAPOCA</text>
+              <circle class="ro-city-dot" cx="159.2" cy="198.3" r="6.5"></circle>
+              <text class="ro-city-label" x="170" y="170">CLUJ-NAPOCA</text>
             </g>
             <g class="ro-city-g warn">
               <circle class="ro-city-ring" cx="236" cy="242.4" r="18" style="animation-delay:.6s"></circle>
-              <circle class="ro-city-dot" cx="236" cy="242.4" r="7.5"></circle>
+              <circle class="ro-city-dot" cx="236" cy="242.4" r="6.5"></circle>
               <text class="ro-city-label" x="246" y="214">BRASOV</text>
             </g>
             <g class="ro-city-g warn">
               <circle class="ro-city-ring" cx="252.4" cy="270" r="18" style="animation-delay:.9s"></circle>
-              <circle class="ro-city-dot" cx="252.4" cy="270" r="7.5"></circle>
-              <text class="ro-city-label" x="263" y="238">PLOIESTI</text>
+              <circle class="ro-city-dot" cx="252.4" cy="270" r="6.5"></circle>
+              <text class="ro-city-label" x="264" y="243">PLOIESTI</text>
             </g>
             <g class="ro-city-g hot">
               <circle class="ro-city-ring" cx="256.2" cy="289.8" r="18" style="animation-delay:1.2s"></circle>
-              <circle class="ro-city-dot" cx="256.2" cy="289.8" r="7.5"></circle>
-              <text class="ro-city-label" x="262" y="324">BUCHAREST</text>
+              <circle class="ro-city-dot" cx="256.2" cy="289.8" r="6.5"></circle>
+              <text class="ro-city-label" x="263" y="320">BUCHAREST</text>
             </g>
             <g class="ro-city-g hot">
               <circle class="ro-city-ring" cx="145.3" cy="265.9" r="18" style="animation-delay:1.5s"></circle>
-              <circle class="ro-city-dot" cx="145.3" cy="265.9" r="7.5"></circle>
-              <text class="ro-city-label" x="152" y="299">TARGU JIU</text>
+              <circle class="ro-city-dot" cx="145.3" cy="265.9" r="6.5"></circle>
+              <text class="ro-city-label" x="150" y="297">TARGU JIU</text>
             </g>
             <g class="ro-city-g hot">
               <circle class="ro-city-ring" cx="355.3" cy="300.4" r="18" style="animation-delay:2.2s"></circle>
-              <circle class="ro-city-dot" cx="355.3" cy="300.4" r="7.5"></circle>
-              <text class="ro-city-label" x="341" y="279" text-anchor="end">CONSTANTA</text>
+              <circle class="ro-city-dot" cx="355.3" cy="300.4" r="6.5"></circle>
+              <text class="ro-city-label" x="340" y="283" text-anchor="end">CONSTANTA</text>
             </g>
           </svg>
           <div class="ro-legend">
