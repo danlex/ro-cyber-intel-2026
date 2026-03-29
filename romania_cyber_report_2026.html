@@ -33,7 +33,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 58px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; padding: 6px 20px; background: rgba(11,15,18,.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border2); }
 .nav-logo { font-family: var(--mono); font-size: 14px; color: var(--text); letter-spacing: .04em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
 .nav-logo::before { content: none; }
-.tvl-logo { height: 20px; width: auto; display: block; }
+.tvl-logo { height: 28px; width: auto; display: block; }
 .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: nowrap; justify-content: center; overflow: hidden; }
 .nav-links a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--border2); background: rgba(255,255,255,.04); font-family: var(--mono); font-size: 14px; color: var(--text); text-decoration: none; letter-spacing: .03em; text-transform: uppercase; transition: color .2s, background .2s, border-color .2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a:focus-visible { color: #0b0f12; background: var(--lime); border-color: var(--lime); }
@@ -306,7 +306,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 <div id="bar"></div>
 
 <nav>
-  <div class="nav-logo"><img class="tvl-logo" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66ea9ae1813efc2b2adce28f_a_logotip_principal%202.svg" alt="TVL Tech"> <span>Romania Cyber Intel</span></div>
+  <div class="nav-logo"><img class="tvl-logo" src="https://cdn.prod.website-files.com/66ea9ae1813efc2b2adce14f/66ea9ae1813efc2b2adce28f_a_logotip_principal%202.svg" alt="TVL Tech"></div>
   <ul class="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#threats">Threats</a></li>
@@ -320,7 +320,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <li><a href="#grants">Grants</a></li>
     <li><a href="#outlook">Outlook</a></li>
   </ul>
-  <span class="nav-right">Prepared for TVL Tech · Q1 2026</span>
+  <span class="nav-right"></span>
 </nav>
 
 <main id="main-content">
