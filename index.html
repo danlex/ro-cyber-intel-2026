@@ -383,6 +383,51 @@ section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
 .mgmt-label { font-family: var(--mono); font-size: 14px; color: var(--dim); letter-spacing: .03em; text-transform: uppercase; margin-bottom: 10px; }
 .mgmt-card h3 { font-family: var(--sans); font-weight: 800; font-size: 24px; line-height: 1.1; margin-bottom: 10px; text-transform: uppercase; }
 .mgmt-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.incident-map-wrap { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(320px, .82fr); gap: 18px; margin-top: 36px; align-items: start; }
+.incident-map-board { position: relative; min-height: 760px; border: 1px solid var(--border); background:
+  radial-gradient(circle at 18% 16%, rgba(79,107,204,.18), transparent 26%),
+  radial-gradient(circle at 76% 64%, rgba(255,73,49,.14), transparent 24%),
+  linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+  var(--bg2);
+  overflow: hidden;
+}
+.incident-map-board::before { content: ''; position: absolute; inset: 0; background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: .45;
+  pointer-events: none;
+}
+.incident-map-kicker { position: absolute; top: 18px; left: 18px; z-index: 4; font-family: var(--mono); font-size: 12px; color: var(--lime); letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px; border: 1px solid rgba(255,73,49,.28); background: rgba(255,73,49,.08); }
+.incident-map-meta { position: absolute; top: 22px; right: 18px; z-index: 4; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+.ro-map-xl { position: absolute; inset: 78px 34px 34px 34px; z-index: 2; }
+.ro-map-xl .ro-svg { filter: drop-shadow(0 18px 30px rgba(0,0,0,.24)); }
+.ro-map-xl .ro-city { width: 14px; height: 14px; }
+.ro-map-xl .ro-city::after { font-size: 12px; top: var(--label-top, -26px); left: var(--label-left, 15px); }
+.ro-map-xl .ro-legend { top: auto; bottom: 14px; left: 14px; max-width: none; background: rgba(16,16,16,.8); }
+.ro-map-xl .intel-label { font-size: 11px; }
+.map-side { display: grid; gap: 12px; }
+.map-summary-card, .map-city-card { border: 1px solid var(--border); background: var(--bg2); padding: 18px 18px 16px; }
+.map-summary-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.map-summary-card strong { color: var(--text); font-weight: 600; }
+.map-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 16px; background: var(--border); border: 1px solid var(--border); }
+.map-metric { background: var(--bg); padding: 16px 14px; }
+.map-metric-val { font-family: var(--sans); font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: -.05em; margin-bottom: 6px; }
+.map-metric-lbl { font-family: var(--mono); font-size: 12px; color: var(--dim); letter-spacing: .05em; text-transform: uppercase; }
+.map-city-grid { display: grid; gap: 12px; }
+.map-city-card { border-left: 3px solid transparent; }
+.map-city-card.hot { border-left-color: var(--accent--primary-1); }
+.map-city-card.watch { border-left-color: var(--secondary--color-2); }
+.map-city-card.warn { border-left-color: var(--system--orange-300); }
+.map-city-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.map-city-head strong { font-family: var(--mono); font-size: 13px; color: var(--text); letter-spacing: .05em; text-transform: uppercase; }
+.map-city-head span { font-family: var(--mono); font-size: 12px; color: var(--dim); letter-spacing: .05em; text-transform: uppercase; }
+.map-city-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+.map-city-card p:last-child { margin-bottom: 0; }
+.map-chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.map-chip { display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.map-note { margin-top: 18px; font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 980px; }
+.map-note strong { color: var(--text); font-weight: 600; }
 .chart-note { margin-top: 12px; font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 760px; }
 .law-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 28px 0; }
 .law-card { border: 1px solid var(--border); background: var(--bg2); padding: 22px 20px; }
@@ -460,13 +505,18 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 90px 24px 56px; }
   .hero-kpis { grid-template-columns: repeat(2,1fr); }
   section, footer { padding: 56px 24px; }
-  .g2, .g3, .qs, .ai-split, .og, .fines, .rg, .law-grid, .mgmt-strip { grid-template-columns: 1fr; }
+  .g2, .g3, .qs, .ai-split, .og, .fines, .rg, .law-grid, .mgmt-strip, .incident-map-wrap, .map-metrics { grid-template-columns: 1fr; }
   .dnsc-strip { flex-wrap: wrap; } .ds { min-width: 30%; }
   .cta-row { flex-direction: column; align-items: stretch; }
   .tbl { width: 110px; text-align: left; }
   .tbr { align-items: flex-start; }
   .tbt { min-height: 30px; }
   .cd { display: none; }
+  .incident-map-board { min-height: 620px; }
+  .incident-map-kicker, .incident-map-meta { position: static; display: inline-flex; margin: 18px 18px 0; }
+  .incident-map-meta { display: block; margin-top: 8px; }
+  .ro-map-xl { inset: 110px 18px 22px 18px; }
+  .ro-map-xl .ro-legend { max-width: 180px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -519,7 +569,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     </div>
     <div class="cta-row">
       <a class="cta-btn primary" href="#management-brief">Start with the management brief</a>
-      <a class="cta-btn" href="#eu-laws">See EU law implementation</a>
+      <a class="cta-btn" href="#incident-map">See Romania incident map</a>
     </div>
     <div class="hero-kpis">
       <div class="kpi"><div class="kpi-val ac" id="k1">—</div><div class="kpi-lbl">Market 2025</div></div>
@@ -600,6 +650,113 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
       <p>If a regulator, shareholder, or journalist asked how the company handles cyber incidents, third parties, and product vulnerabilities, the answer should already exist in writing and be testable.</p>
     </div>
   </div>
+</section>
+
+<section id="incident-map">
+  <div class="sec-tag">Romania Incident Map</div>
+  <h2 class="sec-title">A larger map of <em class="ac">Romania</em><br>with named city incidents</h2>
+  <p class="prose fade" style="max-width:980px">This map is limited to <strong>named cities and locations explicitly referenced in the report text</strong>. It does not force nationwide incidents into a false single-city marker. The goal is to show where the report identifies concrete Romanian locations: Bucharest, Timișoara, Cluj-Napoca, Brașov, Ploiești, Constanța, and Târgu Jiu.</p>
+
+  <div class="incident-map-wrap fade" style="transition-delay:.08s">
+    <div class="incident-map-board">
+      <div class="incident-map-kicker">Romania Incident Surface</div>
+      <div class="incident-map-meta">Named Romanian cities / public report references</div>
+      <div class="ro-map ro-map-xl">
+        <svg class="ro-svg" viewBox="0 0 420 460" aria-hidden="true">
+          <defs>
+            <linearGradient id="romaniaGradientDetail" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4f6bcc" stop-opacity=".42"></stop>
+              <stop offset="45%" stop-color="#ffffff" stop-opacity=".08"></stop>
+              <stop offset="100%" stop-color="#ff4931" stop-opacity=".30"></stop>
+            </linearGradient>
+          </defs>
+          <path class="ro-outline" style="fill:url(#romaniaGradientDetail)" d="M95 64 Q123 44 156 46 L194 58 Q219 46 250 51 L289 68 Q320 86 336 118 L350 151 Q357 182 344 209 L335 235 Q341 262 355 297 Q359 321 345 345 L315 382 Q288 403 258 406 L224 438 Q198 452 169 440 L133 427 Q103 435 76 420 L53 399 Q36 374 38 342 L43 302 Q30 278 22 251 Q17 219 29 191 L40 161 Q31 131 39 104 Q54 79 95 64 Z"></path>
+          <path class="ro-outline-inner" d="M116 85 Q139 68 164 71 L194 80 Q216 70 243 74 L274 88 Q299 102 312 128 L323 155 Q328 178 318 202 L309 223 Q314 247 327 278 Q330 301 319 321 L294 351 Q271 369 246 372 L220 397 Q199 409 176 401 L147 390 Q121 397 99 386 L79 369 Q64 347 65 321 L70 289 Q58 267 51 244 Q47 217 56 194 L66 170 Q59 145 66 123 Q80 100 116 85 Z"></path>
+          <path class="ro-region" d="M154 94 L180 150 L156 208 L182 257 L163 323"></path>
+          <path class="ro-region" d="M222 76 L215 143 L238 201 L218 260 L224 331"></path>
+          <path class="ro-region" d="M280 100 L259 154 L283 213 L270 284 L294 340"></path>
+          <path class="ro-region" d="M105 208 L171 226 L246 228 L314 220"></path>
+          <path class="ro-region" d="M86 286 L153 302 L225 301 L301 292"></path>
+          <path class="ro-river" d="M322 121 Q292 145 274 172 Q254 201 233 227 Q213 252 200 283 Q187 313 173 352"></path>
+        </svg>
+
+        <span class="ro-city watch" data-label="Cluj-Napoca" style="top:27%;left:31%;--ping-delay:.2s"></span>
+        <span class="ro-city warn" data-label="Brasov" style="top:42%;left:49%;--ping-delay:.6s"></span>
+        <span class="ro-city warn" data-label="Ploiesti" style="top:49%;left:58%;--ping-delay:.9s;--label-top:-32px"></span>
+        <span class="ro-city hot" data-label="Bucharest" style="top:58%;left:58%;--ping-delay:1.2s;--label-top:12px;--label-left:8px"></span>
+        <span class="ro-city hot" data-label="Targu Jiu" style="top:58%;left:24%;--ping-delay:1.5s;--label-top:12px;--label-left:8px"></span>
+        <span class="ro-city watch" data-label="Timisoara" style="top:51%;left:10%;--ping-delay:1.9s"></span>
+        <span class="ro-city hot" data-label="Constanta" style="top:72%;left:79%;--ping-delay:2.2s;--label-left:-72px"></span>
+
+        <div class="ro-legend">
+          <span><i class="hot"></i>Critical incident</span>
+          <span><i class="watch"></i>Regional pressure</span>
+          <span><i class="warn"></i>Branch disruption</span>
+        </div>
+        <span class="intel-label" style="top:12%;left:58%"><strong>Named Romanian city incidents</strong></span>
+      </div>
+    </div>
+
+    <div class="map-side">
+      <div class="map-summary-card">
+        <p><strong>How to read this map:</strong> red markers show critical incidents or concentrated national exposure, blue markers show recurring regional pressure, and amber markers show city branches named in the Electrica disruption wave.</p>
+        <div class="map-metrics">
+          <div class="map-metric">
+            <div class="map-metric-val" style="color:var(--lime)">7</div>
+            <div class="map-metric-lbl">Cities mapped</div>
+          </div>
+          <div class="map-metric">
+            <div class="map-metric-val" style="color:var(--cyan)">3</div>
+            <div class="map-metric-lbl">Pressure types</div>
+          </div>
+          <div class="map-metric">
+            <div class="map-metric-val" style="color:var(--amber)">2</div>
+            <div class="map-metric-lbl">Dec 2025 infra hits</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-city-grid">
+        <div class="map-city-card hot">
+          <div class="map-city-head"><strong>Bucharest</strong><span>Critical</span></div>
+          <div class="map-chip-row">
+            <span class="map-chip">Election systems</span>
+            <span class="map-chip">Government</span>
+            <span class="map-chip">BFSI</span>
+            <span class="map-chip">Transport</span>
+          </div>
+          <p>Bucharest concentrates the election interference story, central government targeting, banking interventions, Metrorex, and both Bucharest airports. It is the single densest city marker in the report.</p>
+        </div>
+
+        <div class="map-city-card watch">
+          <div class="map-city-head"><strong>Timisoara</strong><span>High</span></div>
+          <p>Timișoara City Hall is explicitly named in the municipal ransomware cascade. This marker is here because the incident directly affected local public-service continuity.</p>
+        </div>
+
+        <div class="map-city-card hot">
+          <div class="map-city-head"><strong>Constanta</strong><span>High</span></div>
+          <p>Constanța matters because the report explicitly names the Port of Constanța in the transport targeting wave. It represents maritime, logistics, and Black Sea-facing exposure.</p>
+        </div>
+
+        <div class="map-city-card hot">
+          <div class="map-city-head"><strong>Targu Jiu</strong><span>Critical</span></div>
+          <p>The C.E. Oltenia ransomware attack anchors the Oltenia energy footprint on the map. This marker is used to visualize the energy-side pressure around the company’s operating area.</p>
+        </div>
+
+        <div class="map-city-card warn">
+          <div class="map-city-head"><strong>Cluj-Napoca / Brasov / Ploiesti</strong><span>Elevated</span></div>
+          <p>These three cities are mapped because the report explicitly names them among the Electrica branch locations affected in the December 2024 disruption wave. They show that the incident was geographically distributed rather than Bucharest-only.</p>
+        </div>
+
+        <div class="map-city-card watch">
+          <div class="map-city-head"><strong>Nationwide incidents</strong><span>Context</span></div>
+          <p>Apele Române is not forced into a fake single-city marker because the report describes compromise across the national water authority and 10 of 11 basin organizations. That incident remains better represented in the national timeline than on a single point map.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="map-note fade" style="transition-delay:.15s"><strong>Source logic:</strong> this section only maps locations directly named in the report text. It is intentionally conservative: if the report cites a national institution or multi-site operator without a clear single city, it is explained in text rather than placed on the map as a misleading point.</p>
 </section>
 
 <!-- ════════════════════════ 01 OVERVIEW ════════════════════════ -->
