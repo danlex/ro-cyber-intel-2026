@@ -384,6 +384,9 @@ section { padding: 88px 56px; border-bottom: 1px solid var(--border); }
 .law-card h3 { font-family: var(--sans); font-weight: 700; font-size: 20px; margin-bottom: 10px; line-height: 1.15; text-transform: uppercase; }
 .law-card p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 10px; }
 .law-card p:last-child { margin-bottom: 0; }
+.src-inline { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border2); background: rgba(255,255,255,.04); color: var(--text); text-decoration: none; font-family: var(--mono); font-size: 12px; letter-spacing: .03em; text-transform: uppercase; vertical-align: middle; }
+.src-inline:hover { background: rgba(255,73,49,.12); border-color: var(--accent--primary-1); }
+.src-inline:focus-visible { outline: 2px solid var(--accent--primary-1); outline-offset: 2px; }
 .src-list { margin-top: 18px; padding-left: 18px; }
 .src-list li { margin-bottom: 8px; color: var(--muted); font-size: 14px; line-height: 1.8; }
 .src-list a, .prose a, .law-card a, .hl a { color: var(--lime); text-decoration: none; border-bottom: 1px solid rgba(255,73,49,.4); }
@@ -427,6 +430,9 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
 .fd { font-size: 14px; color: var(--muted); max-width: 420px; line-height: 1.8; }
 .fc { font-family: var(--mono); font-size: 14px; color: var(--text); margin-top: 20px; letter-spacing: .03em; }
 .fs h4 { font-family: var(--mono); font-size: 14px; color: var(--text); letter-spacing: .03em; text-transform: uppercase; margin-bottom: 12px; }
+.source-map { margin-bottom: 22px; }
+.source-map td, .source-map th { padding-right: 12px; }
+.source-map .source-use { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 220px; }
 .fs ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
 .fs li { font-family: var(--mono); font-size: 14px; color: var(--muted); display: flex; gap: 7px; }
 .fs a { color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(255,73,49,.4); }
@@ -628,7 +634,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <div>
       <h2 class="sec-title">A market at a<br><em class="ac">strategic crossroads</em></h2>
       <div class="prose fade">
-        <p>Romania enters 2026 as one of the most cyber-contested countries in Central and Eastern Europe — simultaneously a significant exporter of SOC and security services to Western Europe and a country that the <strong>World Cybercrime Index 2024 ranked 6th globally</strong> as a source environment for cybercrime. That tension defines the strategic challenge of the decade.</p>
+        <p>Romania enters 2026 as one of the most cyber-contested countries in Central and Eastern Europe — simultaneously a significant exporter of SOC and security services to Western Europe and a country that the <strong>World Cybercrime Index 2024 ranked 6th globally</strong> as a source environment for cybercrime. That tension defines the strategic challenge of the decade.<a class="src-inline" href="https://www.ox.ac.uk/news/2024-04-10-world-first-cybercrime-index-ranks-countries-cybercrime-threat-level">Oxford</a></p>
         <p>The country faces three simultaneous pressure systems: a wave of ransomware against critical infrastructure revealing systemic unprotected gaps; an unprecedented Russian hybrid warfare campaign that annulled a presidential election; and a binding NIS2 framework now compelling tens of thousands of Romanian entities to fundamentally restructure their security posture.</p>
         <p>Yet the fundamentals are compelling. Bitdefender's €330M revenue, Romania's 200,000+ IT specialists, and €310M in EU POCIDIF funding create a launchpad that few CEE peers can match. The question is execution velocity.</p>
       </div>
@@ -731,7 +737,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <div class="g2">
     <div class="prose fade">
       <p>Romania's 2024–2025 presidential election crisis represents one of the most significant geopolitical cybersecurity episodes in the country's post-communist history — and a watershed case study for NATO and the EU on the weaponization of digital infrastructure against democratic processes.</p>
-      <p>The first round of the November 2024 election was won by Călin Georgescu, a pro-Moscow fringe candidate polling under 5% just weeks earlier, driven by approximately <strong>150 million TikTok views in two months</strong>. Declassified intelligence assessments by Romania's CSATNA directly linked the result to <strong>"aggressive Russian hybrid actions"</strong> — a conclusion that led to the unprecedented annulment of the election by the Constitutional Court.</p>
+      <p>The first round of the November 2024 election was won by Călin Georgescu, a pro-Moscow fringe candidate polling under 5% just weeks earlier, driven by approximately <strong>150 million TikTok views in two months</strong>. Declassified intelligence assessments by Romania's CSATNA directly linked the result to <strong>"aggressive Russian hybrid actions"</strong> — a conclusion that led to the unprecedented annulment of the election by the Constitutional Court.<a class="src-inline" href="https://apnews.com/article/tiktok-romania-election-russia-georgescu-7713288c17464bfc122361be1fd4da0a">AP</a><a class="src-inline" href="https://techcrunch.com/2024/12/06/romania-cancels-election-after-russian-interference-campaign-on-tiktok/">TechCrunch</a></p>
       <p>The May 2025 re-run was itself attacked on election day by the Russian-linked hacktivist group <strong>NoName057(16)</strong>, which delivered a coordinated DDoS against Romanian state websites. Pro-European reformer Nicușor Dan ultimately won, restoring democratic legitimacy — but exposing enduring vulnerabilities that adversaries will continue to probe.</p>
     </div>
     <div class="fade" style="transition-delay:.1s">
@@ -760,10 +766,26 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     </div>
     <div>
       <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:18px">Geopolitical cyber implications for 2026+</h3>
-      <div class="card"><div class="cs" style="background:var(--purple)"></div><h3>Persistent Russian targeting</h3><p>Intelligence assessments conclude that Russian hybrid operations against Romania will intensify, not diminish. Romania's role as a key NATO Eastern Flank ally, its support for Ukraine, and its position as a Black Sea strategic hub make it a sustained priority target.</p></div>
-      <div class="card"><div class="cs" style="background:var(--red)"></div><h3>Critical infrastructure still exposed</h3><p>Romanian intelligence warned in 2025 that infrastructure vulnerabilities remain that could be exploited heading into further elections. The December 2025 attacks on Apele Române and Oltenia Energy demonstrate that adversaries are simultaneously probing physical infrastructure alongside political systems.</p></div>
-      <div class="card"><div class="cs" style="background:var(--amber)"></div><h3>Regional coordination with Moldova and Ukraine</h3><p>Romania is intensifying cyber-policy and incident-response coordination with Moldova and Ukraine through Bucharest-hosted meetings, Eastern Flank resilience dialogue, and EU-level forums. The strategic direction is clear even where the institutional formats are still evolving.</p></div>
-      <div class="card" style="margin-bottom:0"><div class="cs" style="background:var(--teal)"></div><h3>Bucharest Cybersecurity Conference — NATO hub</h3><p>BCC2025, organized by DNSC, established Bucharest as a strategic NATO cyber diplomacy venue, hosting panels on transatlantic cooperation against hybrid threats and Romania's role as "a key NATO ally on the Eastern flank setting the standard for countering hybrid threats across Europe."</p></div>
+      <div class="card">
+        <div class="cs" style="background:var(--purple)"></div>
+        <h3>Persistent Russian targeting</h3>
+        <p>Intelligence assessments conclude that Russian hybrid operations against Romania will intensify, not diminish. Romania's role as a key NATO Eastern Flank ally, its support for Ukraine, and its position as a Black Sea strategic hub make it a sustained priority target.</p>
+      </div>
+      <div class="card">
+        <div class="cs" style="background:var(--red)"></div>
+        <h3>Critical infrastructure still exposed</h3>
+        <p>Romanian intelligence warned in 2025 that infrastructure vulnerabilities remain that could be exploited heading into further elections. The December 2025 attacks on Apele Române and Oltenia Energy demonstrate that adversaries are simultaneously probing physical infrastructure alongside political systems.</p>
+      </div>
+      <div class="card">
+        <div class="cs" style="background:var(--amber)"></div>
+        <h3>Regional coordination with Moldova and Ukraine</h3>
+        <p>Romania is intensifying cyber-policy and incident-response coordination with Moldova and Ukraine through Bucharest-hosted meetings, Eastern Flank resilience dialogue, and EU-level forums. The strategic direction is clear even where the institutional formats are still evolving.</p>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="cs" style="background:var(--teal)"></div>
+        <h3>Bucharest Cybersecurity Conference — NATO hub</h3>
+        <p>BCC2025, organized by DNSC, established Bucharest as a strategic NATO cyber diplomacy venue, hosting panels on transatlantic cooperation against hybrid threats and Romania's role as "a key NATO ally on the Eastern flank setting the standard for countering hybrid threats across Europe."</p>
+      </div>
     </div>
   </div>
 </section>
@@ -774,7 +796,7 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <h2 class="sec-title">The compliance<br><em class="ac">reckoning</em> is live</h2>
   <div class="g2 fade">
     <div class="prose">
-      <p>Romania did not drag its feet on NIS2. GEO 155/2024 was adopted December 30, 2024 — implementing a much broader, risk-based cybersecurity regime than the prior NIS1 framework under Law 362/2018. Law 124/2025, which entered force July 10, 2025, refined and expanded scope further, explicitly adding <strong>retail pharmacies and pharmaceutical supply chains</strong>.</p>
+      <p>Romania did not drag its feet on NIS2. GEO 155/2024 was adopted December 30, 2024 — implementing a much broader, risk-based cybersecurity regime than the prior NIS1 framework under Law 362/2018. Law 124/2025, which entered force July 10, 2025, refined and expanded scope further, explicitly adding <strong>retail pharmacies and pharmaceutical supply chains</strong>.<a class="src-inline" href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">OUG 155/2024</a><a class="src-inline" href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Law 124/2025</a></p>
       <p>DNSC Orders 1/2025 and 2/2025, entering force August 20, 2025, triggered the <strong>30-day registration window</strong> (deadline: September 19, 2025) via the NIS2@RO platform. As of Q1 2026, enforcement is active. DNSC published a draft sanctions order in October 2025. Boards are personally accountable. The era of treating cybersecurity as an IT problem is legally over.</p>
       <p>One key surprise: NIS2 Romania does not use size as a safe harbour. If an entity underpins a critical sector — even as an SME SaaS provider — it may be classified as essential and face full audit standards. Digital supply chain exposure is pulling many SMEs unexpectedly into scope.</p>
     </div>
@@ -969,6 +991,91 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
   <div class="sec-tag">05B — Startups & Emerging Companies</div>
   <h2 class="sec-title">The next wave of<br><em class="ac">Romanian cyber</em></h2>
   <p class="prose fade" style="margin-bottom:36px">Romania's startup story is no longer limited to one global champion. The market now has a visible second layer: AI-native SOC tooling, offensive-security automation, identity and fraud platforms, and founder-led companies that have already produced credible exits. For management teams, this matters because the local ecosystem is becoming a source of products, not just nearshore services.</p>
+
+  <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin-bottom:20px">Management startup map</h3>
+  <table class="ct fade" style="margin-bottom:40px;transition-delay:.08s">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Focus</th>
+        <th>Romania Link</th>
+        <th>Current Signal</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="cn">Arcanna.ai</div></td>
+        <td class="cd">AI-native SOC decision intelligence</td>
+        <td class="cd">Romania-linked through Siscale / SeedBlink coverage</td>
+        <td class="cd">Seed-funded, product and docs live</td>
+        <td><a class="src-inline" href="https://www.arcanna.ai/about-us">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">TypingDNA</div></td>
+        <td class="cd">Behavioral biometrics and continuous authentication</td>
+        <td class="cd">Romanian-founded identity / trust story</td>
+        <td class="cd">Established product with security relevance</td>
+        <td><a class="src-inline" href="https://www.typingdna.com/about-us">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">Pentest-Tools</div></td>
+        <td class="cd">Automated pentesting SaaS</td>
+        <td class="cd">Romanian product company</td>
+        <td class="cd">International B2B reach, validation automation</td>
+        <td><a class="src-inline" href="https://pentest-tools.com/about">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">Cyberhaven</div></td>
+        <td class="cd">AI-powered data security</td>
+        <td class="cd">Romania-linked founders</td>
+        <td class="cd">$1B valuation announced in 2025</td>
+        <td><a class="src-inline" href="https://www.cyberhaven.com/press-releases/cyberhaven-raises-100-million-series-d-at-1-billion-valuation">Series D</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">CODA Intelligence</div></td>
+        <td class="cd">Detection / endpoint security product</td>
+        <td class="cd">Romanian startup-to-exit example</td>
+        <td class="cd">Acquired by PDQ</td>
+        <td><a class="src-inline" href="https://www.pdq.com/blog/pdq-launches-pdq-detect-following-strategic-acquisition-of-coda-intelligence/">PDQ</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">Pentra</div></td>
+        <td class="cd">AI-assisted pentest workflow tooling</td>
+        <td class="cd">Regional / ecosystem-relevant</td>
+        <td class="cd">Emerging automation-led platform</td>
+        <td><a class="src-inline" href="https://pentra.ai/">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">Black Bullet</div></td>
+        <td class="cd">Cyber services and NIS2 readiness</td>
+        <td class="cd">Bucharest-based scale-up</td>
+        <td class="cd">European expansion signal</td>
+        <td><a class="src-inline" href="https://www.blackbullet.ro/about">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">Bit Sentinel</div></td>
+        <td class="cd">Red team, DFIR, education</td>
+        <td class="cd">Romanian scale-up with community role</td>
+        <td class="cd">Strong practitioner visibility</td>
+        <td><a class="src-inline" href="https://bit-sentinel.com/about-us/">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">CybrOps</div></td>
+        <td class="cd">Testing, CTI, resilience, NIS2 delivery</td>
+        <td class="cd">Romania-based services and research posture</td>
+        <td class="cd">ENISA-linked execution role</td>
+        <td><a class="src-inline" href="https://www.cybrops.io/about-us">Official</a></td>
+      </tr>
+      <tr>
+        <td><div class="cn">SCUT</div></td>
+        <td class="cd">Unified cyber platform</td>
+        <td class="cd">Romania launch backed by Orange</td>
+        <td class="cd">Strategic launch rather than VC-first startup</td>
+        <td><a class="src-inline" href="https://www.scut.com/">Official</a></td>
+      </tr>
+    </tbody>
+  </table>
 
   <h3 class="fade" style="font-family:var(--serif);font-size:24px;margin-bottom:20px">AI cyber startups and AI-native platforms</h3>
   <div class="g3 fade" style="margin-bottom:40px;transition-delay:.13s">
@@ -1588,7 +1695,50 @@ footer { padding: 64px 56px; display: grid; grid-template-columns: 5fr 3fr; gap:
     <p class="fc">© 2026 · TVL Tech + ATIC · Romania Cybersecurity Intelligence Report · Compiled March 2026</p>
   </div>
   <div class="fs">
-    <h4>Linked Sources</h4>
+    <h4>Management Source Map</h4>
+    <table class="ct source-map">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Best Source</th>
+          <th>Use It For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cd">Threat picture</td>
+          <td><a class="src-inline" href="https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024">ENISA ETL</a></td>
+          <td class="source-use">Baseline European threat framing before going into Romania-specific incidents.</td>
+        </tr>
+        <tr>
+          <td class="cd">Romanian legal duties</td>
+          <td><a class="src-inline" href="https://legislatie.just.ro/Public/DetaliiDocumentAfis/298744">OUG 155/2024</a></td>
+          <td class="source-use">Scope, obligations, governance duties, and the national enforcement model.</td>
+        </tr>
+        <tr>
+          <td class="cd">NIS2 refinement</td>
+          <td><a class="src-inline" href="https://legislatie.just.ro/Public/DetaliiDocument/299675">Law 124/2025</a></td>
+          <td class="source-use">What changed after the original emergency ordinance, including expanded scope.</td>
+        </tr>
+        <tr>
+          <td class="cd">EU funding and Romania</td>
+          <td><a class="src-inline" href="https://cybersecurity-centre.europa.eu/cybersecurity-work-programme_en">ECCC WP</a></td>
+          <td class="source-use">Calls, funding priorities, Bucharest-hosted programmes, and Romanian positioning.</td>
+        </tr>
+        <tr>
+          <td class="cd">Cybercrime benchmark</td>
+          <td><a class="src-inline" href="https://www.ox.ac.uk/news/2024-04-10-world-first-cybercrime-index-ranks-countries-cybercrime-threat-level">Oxford</a></td>
+          <td class="source-use">How Romania appears in the global cybercrime discussion.</td>
+        </tr>
+        <tr>
+          <td class="cd">Ecosystem and convening</td>
+          <td><a class="src-inline" href="https://www.atic.org.ro/">ATIC</a></td>
+          <td class="source-use">Industry coordination, events, and cross-sector ecosystem signals.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Full Source List</h4>
     <ul>
       <li><a href="https://www.atic.org.ro/">ATIC: official homepage</a></li>
       <li><a href="https://www.atic.org.ro/despre-atic">ATIC: about page</a></li>
