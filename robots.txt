@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://danlex.github.io/ro-cyber-intel-2026/sitemap.xml
+Sitemap: https://ro-cyber-2026.tvl.tech/sitemap.xml
